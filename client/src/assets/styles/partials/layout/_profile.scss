@@ -1,0 +1,218 @@
+.profile {
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../images/profile-back.jpg);
+    min-height: 100vh;
+    background-attachment: fixed;
+    &__header {
+        background-color: rgba(0, 0, 0, 0.8);
+        box-sizing: border-box;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+    }
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 50%;
+        }
+    }
+    &__private,
+    &__public,
+    &__home {
+        @include tablet {
+            border-bottom: 3px solid rgba(#000000, 0%);
+            border-top: 3px solid rgba(#000000, 0%);
+            transition: border 0.2s;
+            text-decoration: none;
+        }
+    }
+    &__private:hover,
+    &__public:hover,
+    &__home:hover {
+        @include tablet {
+            border-bottom: 3px solid #e67e22;
+            transition: border 0.2s;
+            text-decoration: none;
+        }
+    }
+    &__private:focus,
+    &__public:focus,
+    &__home:focus {
+        @include tablet {
+            border-bottom: 3px solid #e67e22;
+        }
+    }
+    &__create,
+    &__private,
+    &__public,
+    &__home {
+        outline: none;
+        background: none;
+        color: white;
+        @include tablet {
+            padding: 10px 0;
+            font-size: 20px;
+            box-sizing: border-box;
+        }
+    }
+    &__create {
+        @include tablet {
+            width: 120px;
+            border: 1px solid #e67e22;
+            border-radius: 30px;
+            background-color: #e67e22;
+        }
+    }
+    &__header {
+        @include tablet {
+            padding: 0 3%;
+        }
+    }
+}
+
+.card {
+    position: relative;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+    background-size: cover;
+    display: flex;
+    margin: 20px;
+    border: 1px solid #e67e22;
+    box-shadow: 0 0 10px #e67e22;
+    border-radius: 15px;
+    height: 350px;
+    max-width: 700px;
+    @include tablet {
+        width: 300px;
+        margin: 0;
+    }
+    &__container {
+        @include tablet{
+            box-sizing: border-box;
+            padding: 10px;
+        }
+    }
+    &__name,
+    &__author {
+        color: white;
+        margin: 0;
+        padding: 10px 0;
+    }
+    &__name {
+        text-transform: capitalize;
+    }
+    &__author {
+        margin-top: 150px;
+    }
+    &__description {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 5%;
+    }
+}
+button {
+    outline: none;
+    background: none;
+    border: none;
+}
+.createdposts {
+    @include tablet {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+    }
+}
+
+.magnify {
+    @include tablet {
+        border: 1px solid black;
+        width: 80%;
+        height: 80%;
+        border-radius: 20px;
+        overflow-y: scroll;
+        background-color: white;
+    }
+    &__container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color: #13182c, $alpha: 0.7);
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        
+
+    }
+    &__receipe {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+    }
+    &__description{
+        @include tablet {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid black;
+            padding-bottom: 20px;
+            padding-left: 20px;
+        }
+    }
+    &__ingredients {
+        @include tablet {
+            border-bottom: 1px solid black;
+            padding-bottom: 20px;
+            padding-left: 20px;
+        }
+    }
+    &__directions {
+        @include tablet {
+            
+            padding-bottom: 20px;
+            padding-left: 20px;
+        }
+    }
+    &__img {
+        @include tablet {
+            height: 500px;
+            
+        }
+    }
+    &__img-container {
+        @include tablet {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: black;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            position: relative;
+        }
+    }
+    &__exit {
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        cursor: pointer;
+    }
+    &__exit-icon {
+        fill: white;
+    }
+}
