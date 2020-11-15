@@ -14,8 +14,8 @@ function GlobalPosts(props) {
     trackPromise(
     ReceipeService.getAllReceipes()
       .then(data => {
-        isMounted && setAllReceipes(data)
-      }))
+        isMounted && setAllReceipes(data);
+      }));
       return () => {isMounted = false}
   }, []);
 

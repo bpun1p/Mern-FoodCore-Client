@@ -58,7 +58,6 @@ function CreateForm() {
 
     function imageCompressor(event) {
         const file = event.target.files[0];
-        console.log('original file size', file.size)
         const options = {
             maxSizeMB: 0.05,
             maxWidthOrHeight: 700,
@@ -66,7 +65,6 @@ function CreateForm() {
         };
         imageCompression(file, options)
             .then(compressedFile => {
-                console.log('compressed file size', compressedFile.size)
                 imageFileHandler(compressedFile);
             })
             .catch(err => console.log(err));

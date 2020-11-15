@@ -1,6 +1,6 @@
-import React from 'react'
-import ProfileHeader from './profile/ProfileHeader'
-import CreateForm from './create/CreateForm'
+import React from 'react';
+import ProfileHeader from './profile/ProfileHeader';
+import CreateForm from './create/CreateForm';
 import '../assets/styles/Main.css';
 
 

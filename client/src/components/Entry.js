@@ -4,7 +4,7 @@ import EntryHeader from '../components/entry/EntryHeader';
 import SignUp from './entry/SignUpForm';
 import EntryFooter from '../components/entry/EntryFooter';
 import Login from './entry/LoginForm';
-import FCoreLogo from '../assets/logo/logo-white.svg'
+import FCoreLogo from '../assets/logo/logo-white.svg';
 import {Link} from 'react-router-dom';
 import Media from 'react-media';
 import DualSplit from '../components/entry/DualEntrySplit';

@@ -7,7 +7,7 @@ import MyPosts from './components/MyPosts';
 import Create from './components/Create';
 import AboutMe from './components/entry/AboutMe';
 import AuthProvider from './Context/AuthContext';
-import GlobalPosts from './components/GlobalPosts'
+import GlobalPosts from './components/GlobalPosts';
 
 ReactDOM.render(
   <AuthProvider>

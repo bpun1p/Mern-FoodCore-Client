@@ -60,4 +60,4 @@ export default {
                     return {message : {msgBody : 'UnAuthorized'}, msgError : true};
             });
     }
-}
+};

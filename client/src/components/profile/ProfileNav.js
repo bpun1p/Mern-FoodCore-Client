@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import Media from 'react-media';
 import AuthService from '../../service/AuthService';
@@ -10,14 +10,13 @@ function ProfileNav(props) {
     const history = useHistory();
 
     const logoutHandler = () => {
-        console.log('clicked')
         AuthService.logout().then(data => {
             if(data.success) {         //if successfully logged out, setUser data like username will be empty string and setIsAuthenticated will be false
                 setUser(data.user);
-                setIsAuthenticated(false)
-                history.push('/login')
+                setIsAuthenticated(false);
+                history.push('/login');
             }else if(!data.success) {
-                history.push('/login')
+                history.push('/login');
             }
         })
     }
