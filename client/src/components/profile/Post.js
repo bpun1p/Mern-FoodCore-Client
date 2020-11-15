@@ -4,7 +4,6 @@ import {AuthContext} from '../../Context/AuthContext';
 
 function Post(props) {
     const [isPopUp, setPopUp] = useState(false);
-    const {user} = useContext(AuthContext);
 
     const popUpHandler = () => {
         setPopUp(!isPopUp);
