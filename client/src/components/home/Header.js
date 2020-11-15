@@ -6,6 +6,7 @@ function Header() {
 
     const popUpHandler = () => {
         setPopUp(!isPopUp);
+
     };
 
     return (
@@ -17,7 +18,7 @@ function Header() {
                 <text x='' y='110' fill='#fff' fontSize='20px' fontWeight='bold' text-align='center' fontFamily="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">FoodCore</text>
             </svg>
             {isPopUp === false ? 
-                <button className='header__navClosed' data-testid='nav-closed' onClick={popUpHandler}>
+                <button className='header__navClosed' onClick={popUpHandler}>
                     <svg id='nav-cover-icon' xmlns='http://www.w3.org/2000/svg' data-name='Layer 1' viewBox='0 0 100 125'>
                         <path className='top' d='M71.9 30H28.1a3.5 3.5 0 000 7h43.8a3.5 3.5 0 000-7z' />
                         <path className='middle' d='M71.9 46.5H28.1a3.5 3.5 0 100 7h43.8a3.5 3.5 0 000-7z' />
@@ -25,7 +26,7 @@ function Header() {
                     </svg>
                 </button> 
                 : 
-                <Nav data-testid='nav-open' popUpHandler={popUpHandler}/>
+                <Nav data-testid='navigation' popUpHandler={popUpHandler}/>
             }
         </div>
     );

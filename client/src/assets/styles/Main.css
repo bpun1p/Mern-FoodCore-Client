@@ -41,7 +41,7 @@ body {
   cursor: pointer;
 }
 
-.header__register, .header__login {
+.header__register, .header__login, .header__aboutme {
   color: white;
   font-size: 20px;
 }
