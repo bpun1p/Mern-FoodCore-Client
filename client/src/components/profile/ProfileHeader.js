@@ -1,6 +1,5 @@
 
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
 import ProfileNav from './ProfileNav';
 import Media from 'react-media';
 
