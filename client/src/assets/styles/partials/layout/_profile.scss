@@ -21,6 +21,7 @@
             width: 50%;
         }
     }
+    
     &__private,
     &__public,
     &__home {
@@ -122,17 +123,18 @@
         padding: 5%;
     }
 }
+
 button {
     outline: none;
     background: none;
     border: none;
 }
+
 .createdposts {
     @include tablet {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-    
     }
 }
 
@@ -156,8 +158,6 @@ button {
         left: 0;
         top: 0;
         z-index: 1;
-        
-
     }
     &__receipe {
         @include tablet {
@@ -191,8 +191,7 @@ button {
     }
     &__img {
         @include tablet {
-            height: 500px;
-            
+            height: 500px;    
         }
     }
     &__img-container {

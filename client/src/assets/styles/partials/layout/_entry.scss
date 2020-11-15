@@ -15,6 +15,7 @@
         }
     }
 }
+
 .entryheader {
     padding: 20px;
     &__login-btn{
@@ -31,6 +32,7 @@
         align-items: center;
     }
 }
+
 .login {
     @include desktop {
         width: 350px;
@@ -61,6 +63,7 @@
         padding: 0 5%;
     }
 }
+
 .signup {
     @include desktop {
         width: 350px;
@@ -95,6 +98,7 @@
         margin-bottom: 0;
     }
 }
+
 .login, .signup{
     @include desktop {
         padding: 0 40px;
@@ -119,6 +123,7 @@
     width: 90%;
     border-radius: 20px;
 }
+
 .social-signup {
     display: flex;
     width: 63%;
@@ -142,6 +147,7 @@
 
     }
 }
+
 .agreement {
     display: flex;
     box-sizing: border-box;
@@ -159,6 +165,7 @@
         }
     }
 }
+
 .dualEntry {
     &__form {
         position: fixed;
