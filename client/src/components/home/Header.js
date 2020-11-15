@@ -6,7 +6,6 @@ function Header() {
 
     const popUpHandler = () => {
         setPopUp(!isPopUp);
-
     };
 
     return (

@@ -5,7 +5,6 @@ import {AuthContext} from '../../Context/AuthContext';
 import AuthService from '../../service/AuthService';
 import {useHistory} from 'react-router-dom';
 
-
 function LoginForm(props) {
     const [user, setUser] = useState({username: ''})
     const [isValidEntry, setValidEntry] = useState(true);
