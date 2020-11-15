@@ -5,7 +5,7 @@ const passportConfig = require('../passport');
 const usersController = require('../controllers/usersController');
 
 //middleware
-router.use(express.urlencoded({extended:true}))
+router.use(express.urlencoded({extended:true}));
 
 //Users Route
 router.post('/register', usersController.registerUser);
