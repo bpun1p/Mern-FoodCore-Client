@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react';
 import Magnify from '../modal/Magnify';
-import {AuthContext} from '../../Context/AuthContext';
 
 function Post(props) {
     const [isPopUp, setPopUp] = useState(false);
