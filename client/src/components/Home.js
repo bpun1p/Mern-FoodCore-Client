@@ -3,13 +3,13 @@ import '../assets/styles/Main.css';
 import Header from './home/Header';
 import Main from './home/Main';
 
-function Home(){
+function Home() {
   return (
-    <div className='home'>
-      <Header/>
+    <div className="home">
+      <Header />
       <Main />
     </div>
   );
-};
+}
 
 export default Home;
