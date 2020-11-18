@@ -942,4 +942,8 @@ input:checked + .slider:before {
   height: 20%;
   outline: none;
 }
+
+#uploadedPhoto {
+  color: transparent;
+}
 /*# sourceMappingURL=Main.css.map */

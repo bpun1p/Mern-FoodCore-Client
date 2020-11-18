@@ -123,6 +123,7 @@ function CreateForm() {
           <div className="createform__upload">
             <input
               type="file"
+              title="foo"
               name="picture"
               id="uploadedPhoto"
               onChange={imageCompressor}
