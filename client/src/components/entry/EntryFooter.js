@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Agreement() {
+export default function EntryFooter() {
   return (
     <div className="agreement">
       <p className="agreement__content">

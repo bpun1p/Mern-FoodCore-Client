@@ -7,7 +7,7 @@ import SignUp from './entry/SignUpForm';
 import EntryFooter from './entry/EntryFooter';
 import Login from './entry/LoginForm';
 import FCoreLogo from '../assets/logo/logo-white.svg';
-import DualSplit from './entry/DualEntrySplit';
+import DualEntry from './entry/DualEntry';
 
 function Entry() {
   const [currentUrl, setCurrentUrl] = useState(window.location.href.slice(21, 30));
@@ -49,14 +49,14 @@ function Entry() {
                   ? (
                     <>
                       <SignUp />
-                      <DualSplit url={currentUrl} />
+                      <DualEntry url={currentUrl} />
                       <Login />
                     </>
                   )
                   : (
                     <>
                       <Login />
-                      <DualSplit url={currentUrl} />
+                      <DualEntry url={currentUrl} />
                       <SignUp />
                     </>
                   )}

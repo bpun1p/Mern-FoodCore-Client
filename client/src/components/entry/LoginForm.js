@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Media from 'react-media';
 import { useHistory } from 'react-router-dom';
 import SocialSignUp from './SocialSignUp';
-import { AuthContext } from '../../Context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import AuthService from '../../service/AuthService';
 
 function LoginForm() {

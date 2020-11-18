@@ -2,7 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import arrow from '../../assets/icons/right-chev.svg';
 
-function DualEntrySplit(props) {
+function DualEntry(props) {
   const { url } = props;
 
   return (
@@ -17,8 +17,8 @@ function DualEntrySplit(props) {
   );
 }
 
-DualEntrySplit.propTypes = {
+DualEntry.propTypes = {
   url: Proptypes.string.isRequired,
 };
 
-export default DualEntrySplit;
+export default DualEntry;

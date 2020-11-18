@@ -1,12 +1,12 @@
 import React from 'react';
-import ProfileHeader from './profile/ProfileHeader';
+import DashboardHeader from './dashboard/DashBoardHeader';
 import CreateForm from './create/CreateForm';
 import '../assets/styles/Main.css';
 
 function Create() {
   return (
     <div className="create">
-      <ProfileHeader />
+      <DashboardHeader />
       <CreateForm />
     </div>
   );

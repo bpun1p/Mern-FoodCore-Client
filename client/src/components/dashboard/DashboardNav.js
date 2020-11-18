@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import AuthService from '../../service/AuthService';
-import { AuthContext } from '../../Context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
-function ProfileNav() {
+function DashboardNav() {
   const { setIsAuthenticated, setUser } = useContext(AuthContext);
   const history = useHistory();
 
@@ -36,4 +36,4 @@ function ProfileNav() {
   );
 }
 
-export default ProfileNav;
+export default DashboardNav;

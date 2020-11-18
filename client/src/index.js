@@ -6,7 +6,7 @@ import Entry from './components/Entry';
 import MyPosts from './components/MyPosts';
 import Create from './components/Create';
 import AboutMe from './components/entry/AboutMe';
-import AuthProvider from './Context/AuthContext';
+import AuthProvider from './context/AuthContext';
 import GlobalPosts from './components/GlobalPosts';
 
 ReactDOM.render(

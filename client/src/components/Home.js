@@ -1,13 +1,13 @@
 import React from 'react';
 import '../assets/styles/Main.css';
 import Header from './home/Header';
-import Main from './home/Main';
+import Center from './home/Center';
 
 function Home() {
   return (
     <div className="home">
       <Header />
-      <Main />
+      <Center />
     </div>
   );
 }

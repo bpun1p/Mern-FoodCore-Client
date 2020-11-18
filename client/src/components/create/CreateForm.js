@@ -5,7 +5,7 @@ import imageCompression from 'browser-image-compression';
 import AddIngredient from './AddIngredient';
 import AddInstruction from './AddInstruction';
 import ReceipeService from '../../service/ReceipeService';
-import { AuthContext } from '../../Context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 
 function CreateForm() {
   const [isDisplay, setDisplay] = useState('');

@@ -2,10 +2,8 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { v1 as uuidv1 } from 'uuid';
 
-function Magnify(props) {
-  const {
-    receipe,
-  } = props;
+function EnlargePost(props) {
+  const { receipe } = props;
 
   const { popUpHandler } = props;
   return (
@@ -54,11 +52,11 @@ function Magnify(props) {
   );
 }
 
-Magnify.defaultProps = {
+EnlargePost.defaultProps = {
   receipe: Proptypes.instanceOf(Object).isRequired,
 };
 
-Magnify.propTypes = {
+EnlargePost.propTypes = {
   receipe: Proptypes.shape({
     img: Proptypes.string.isRequired,
     description: Proptypes.string.isRequired,
@@ -70,4 +68,4 @@ Magnify.propTypes = {
   popUpHandler: Proptypes.func.isRequired,
 };
 
-export default Magnify;
+export default EnlargePost;

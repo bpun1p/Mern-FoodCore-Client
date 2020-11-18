@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Nav from './Nav';
+import Navigation from './Navigation';
 
 function Header() {
   const [isPopUp, setPopUp] = useState(false);
@@ -26,7 +26,7 @@ function Header() {
             </svg>
           </button>
         )
-        : <Nav data-testid="navigation" popUpHandler={popUpHandler} />}
+        : <Navigation data-testid="navigation" popUpHandler={popUpHandler} />}
     </div>
   );
 }

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from './utils/LoadingIndicator';
-import ProfileHeader from './profile/ProfileHeader';
+import DashBoardHeader from './dashboard/DashBoardHeader';
 import '../assets/styles/Main.css';
-import Post from './profile/Post';
+import Post from './dashboard/Post';
 import ReceipeService from '../service/ReceipeService';
 
 function MyPosts() {
@@ -25,7 +25,7 @@ function MyPosts() {
   return (
     <>
       <div className="profile">
-        <ProfileHeader />
+        <DashBoardHeader />
         <div className="createdposts">
           {ReceipeData.length !== 0
             ? ReceipeData.receipes.map((receipe) => <Post receipe={receipe} key={uuidv1()} />)

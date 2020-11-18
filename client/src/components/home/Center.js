@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Main() {
+function Center() {
   return (
     <div className="main">
       <h1 className="main__header">FoodCore</h1>
@@ -9,4 +9,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Center;
