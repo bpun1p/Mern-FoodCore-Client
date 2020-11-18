@@ -11,6 +11,7 @@ function CreateForm() {
   const [isDisplay, setDisplay] = useState('');
   const [ingredientInputed, setIngredientInputed] = useState(true);
   const [instructionInputed, setInstructionInputed] = useState(true);
+  const [errorForm, setErrorForm] = useState('');
 
   const [ingredientsElem, setIngredientsElem] = useState([]);
   const [instructionsElem, setInstructionsElem] = useState([]);
@@ -60,10 +61,10 @@ function CreateForm() {
           } else if (data.message.msgBody === 'UnAuthorized') {
             authContext.setUser({ username: '' });
             authContext.setIsAuthenticated(false);
-          } else console.log('error in form');
+          } else setErrorForm('error in form, please try again later');
         });
     } else {
-      console.log('ingredients feild or instructions is empty, please fill in');
+      setErrorForm('Please fill in all feilds');
     }
   };
 
@@ -90,7 +91,7 @@ function CreateForm() {
       .then((compressedFile) => {
         imageFileHandler(compressedFile);
       })
-      .catch((err) => console.log(err));
+      .catch(() => setErrorForm('unable to convert image file'));
   }
 
   const onChange = (event) => {
@@ -179,6 +180,7 @@ function CreateForm() {
             ? <p>input valid entry</p>
             : null}
         </div>
+        {errorForm ? <p>{errorForm}</p> : null}
         <div className="createform__submission">
           <button type="submit" className="createform__submit">Create</button>
         </div>
