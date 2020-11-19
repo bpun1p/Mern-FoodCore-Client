@@ -16,3 +16,15 @@ test('renders the correct content', () => {
   expect(getByText('ABOUT ME')).not.toBeNull();    
   expect(getByTestId('exitNavBtn')).not.toBeNull();
 });
+
+test('exit navigation button is clicked, popuphandler is called', () => {
+    const mockFunction = jest.fn();
+    const { getByTestId } = render (
+      <Navigation popUpHandler={mockFunction}/>, { wrapper: BrowserRouter }
+    );
+ 
+    fireEvent.click(getByTestId('exitNavBtn'));
+
+    expect(mockFunction).toHaveBeenCalledTimes(1);
+});
+
