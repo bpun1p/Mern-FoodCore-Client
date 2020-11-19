@@ -10,3 +10,17 @@ test('renders the correct content', () => {
   expect(getByTestId('header-logo')).not.toBeNull();
   expect(getByTestId('navBtn')).not.toBeNull();
 });
+
+describe('Navigation', () => {
+  test('when button is clicked, navigation content expands', () => {
+    const { getByTestId, getByText } = render (
+      <Header/>, { wrapper: BrowserRouter }
+    );
+  
+    fireEvent.click(getByTestId('navBtn'));
+    
+    expect(getByText('LOGIN')).not.toBeNull();
+    expect(getByText('SIGN UP')).not.toBeNull();
+    expect(getByText('ABOUT ME')).not.toBeNull();    
+    expect(getByTestId('exitNavBtn')).not.toBeNull();
+  });
