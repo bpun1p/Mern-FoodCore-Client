@@ -24,3 +24,18 @@ describe('Navigation', () => {
     expect(getByText('ABOUT ME')).not.toBeNull();    
     expect(getByTestId('exitNavBtn')).not.toBeNull();
   });
+  test('exit button is clicked, navigation content will be hidden, ', () => {
+    const { getByTestId, queryByTestId } = render (
+      <Header />, { wrapper: BrowserRouter }
+    );
+
+    fireEvent.click(getByTestId('navBtn'));
+
+    expect(queryByTestId('navBtn')).toBeNull();
+
+    fireEvent.click(queryByTestId('exitNavBtn'));
+  
+    expect(queryByTestId('navBtn')).not.toBeNull();
+
+  });
+});
