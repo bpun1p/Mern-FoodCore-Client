@@ -24,7 +24,7 @@ describe('Navigation', () => {
     expect(getByText('ABOUT ME')).not.toBeNull();    
     expect(getByTestId('exitNavBtn')).not.toBeNull();
   });
-  test('exit button is clicked, navigation content will be hidden, ', () => {
+  test('exit button is clicked, navigation content will be hidden', () => {
     const { getByTestId, queryByTestId } = render (
       <Header />, { wrapper: BrowserRouter }
     );
