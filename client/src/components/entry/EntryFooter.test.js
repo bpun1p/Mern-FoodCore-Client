@@ -9,4 +9,4 @@ test('renders the correct content', () => {
   expect(getByText
     ('*By signing up, you agree to our Terms of Use and that you read our Privary Policy')
     ).not.toBeNull();
-})
+});
