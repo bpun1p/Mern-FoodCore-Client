@@ -11,6 +11,7 @@ describe('renders the correct content', () => {
   
     const arrowIcon = getByTestId('arrow');
     expect(arrowIcon).toHaveAttribute('src', 'right-chev.svg');
+    expect(getByTestId('arrow')).not.toBeNull();
   });
   describe('render the correct string for specified url', () => {
     test('url points to the login page', () => {
