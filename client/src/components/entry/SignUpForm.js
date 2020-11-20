@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Media from 'react-media';
 import { useHistory } from 'react-router-dom';
 import SocialSignUp from './SocialSignUp';
 import AuthService from '../../service/AuthService';
@@ -44,9 +43,7 @@ function SignUpForm() {
 
   return (
     <div className="signup">
-      <Media query="(min-width: 1080px)">
-        <h1 className="entryheader__header">Sign Up</h1>
-      </Media>
+      <h1 className="entryheader__header">Sign Up</h1>
       <form id="signup__form" onSubmit={onSubmit}>
         <div className="signup__inputs">
           <input

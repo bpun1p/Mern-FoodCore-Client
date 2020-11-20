@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import Media from 'react-media';
 import { useHistory } from 'react-router-dom';
 import SocialSignUp from './SocialSignUp';
 import { AuthContext } from '../../context/AuthContext';
@@ -32,9 +31,7 @@ function LoginForm() {
 
   return (
     <div className="login">
-      <Media query="(min-width: 1080px)">
-        <h1 className="entryheader__header">Login</h1>
-      </Media>
+      <h1 className="entryheader__header">Login</h1>
       <form className="login__form" onSubmit={onSubmit}>
         <div className="login__inputs">
           <input

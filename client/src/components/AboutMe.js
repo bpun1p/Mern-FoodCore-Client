@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import blacklogo from '../../assets/logo/logo-black.svg';
+import blacklogo from '../assets/logo/logo-black.svg';
 
 export default function AboutMe() {
   return (

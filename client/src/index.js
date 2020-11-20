@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Entry from './components/Entry';
 import MyPosts from './components/MyPosts';
 import Create from './components/Create';
-import AboutMe from './components/entry/AboutMe';
+import AboutMe from './components/AboutMe';
 import AuthProvider from './context/AuthContext';
 import GlobalPosts from './components/GlobalPosts';
 
