@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/Main.css';
 import { Link } from 'react-router-dom';
-import Media from 'react-media';
-import EntryHeader from './entry/EntryHeader';
 import SignUp from './entry/SignUpForm';
 import EntryFooter from './entry/EntryFooter';
 import Login from './entry/LoginForm';
@@ -22,50 +20,31 @@ function Entry() {
   });
 
   return (
-    <Media query="(max-width: 1079px)">
-      {(matches) => (matches
-        ? (
-          <>
-            <Link to="/">
-              <img className="entry__logo" alt="web main logo" src={FCoreLogo} />
-            </Link>
-            <div className="entry">
-              <EntryHeader url={currentUrl} />
-              {currentUrl === '/login'
-                ? <Login />
-                : <SignUp />}
-              <EntryFooter />
-            </div>
-          </>
-        )
-        : (
-          <>
-            <Link to="/">
-              <img className="entry__logo" alt="web main logo" src={FCoreLogo} />
-            </Link>
-            <div className="dualEntry">
-              <div className="dualEntry__form">
-                {currentUrl === '/register'
-                  ? (
-                    <>
-                      <SignUp />
-                      <DualEntry url={currentUrl} />
-                      <Login />
-                    </>
-                  )
-                  : (
-                    <>
-                      <Login />
-                      <DualEntry url={currentUrl} />
-                      <SignUp />
-                    </>
-                  )}
-              </div>
-              <EntryFooter />
-            </div>
-          </>
-        ))}
-    </Media>
+    <>
+      <Link to="/">
+        <img className="entry__logo" alt="web main logo" src={FCoreLogo} />
+      </Link>
+      <div className="dualEntry">
+        <div className="dualEntry__form">
+          {currentUrl === '/register'
+            ? (
+              <>
+                <SignUp />
+                <DualEntry url={currentUrl} />
+                <Login />
+              </>
+            )
+            : (
+              <>
+                <Login />
+                <DualEntry url={currentUrl} />
+                <SignUp />
+              </>
+            )}
+        </div>
+        <EntryFooter />
+      </div>
+    </>
   );
 }
 
