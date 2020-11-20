@@ -9,9 +9,9 @@ function DualEntry(props) {
     <>
       <h4 className="dualEntry__split">
         {url === '/login'
-          ? 'Dont have an account'
-          : 'Already have an account?'}
-        <img src={arrow} alt="right cheveron arrow" className="dualEntry__guide-arrow" />
+          ? "Don't have an account ?"
+          : 'Already have an account ?'}
+        <img data-testid="arrow" src={arrow} alt="right cheveron arrow" className="dualEntry__guide-arrow" />
       </h4>
     </>
   );
