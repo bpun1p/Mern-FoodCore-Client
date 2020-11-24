@@ -26,15 +26,16 @@ function LoginForm() {
           authContext.setIsAuthenticated(isAuthenticated);
           history.push('/profile/global');
         } else setValidEntry(false);
-      });
+    });
   };
 
   return (
     <div className="login">
-      <h1 className="entryheader__header">Login</h1>
+      <h1 data-testid='loginTitle' className="entryheader__header">Login</h1>
       <form className="login__form" onSubmit={onSubmit}>
         <div className="login__inputs">
           <input
+            data-testid="Username"
             placeholder="Username"
             type="text"
             id="username"
@@ -43,6 +44,7 @@ function LoginForm() {
             onChange={onChange}
           />
           <input
+            data-testid="Password"
             placeholder="Password"
             type="password"
             id="password"
@@ -54,11 +56,11 @@ function LoginForm() {
         {isValidEntry === false
           ? <h1 className="invalid__input">Invalid username or password</h1>
           : null}
-        <button type="submit" value="Login" className="form__submit-btn">Login</button>
+        <button type="submit" value="Login" data-testid='LoginBtn' className="form__submit-btn">Login</button>
       </form>
       <div className="login__alt">
         <p className="login__alt-text">Or log in with</p>
-        <SocialSignUp />
+        <SocialSignUp/>
       </div>
     </div>
   );
