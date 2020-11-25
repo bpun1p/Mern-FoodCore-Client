@@ -18,20 +18,22 @@ function LoginForm() {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    AuthService.login(username)
-      .then((data) => {
-        const { isAuthenticated, user } = data;
-        if (isAuthenticated) {
-          authContext.setUser(user);
-          authContext.setIsAuthenticated(isAuthenticated);
-          history.push('/profile/global');
-        } else setValidEntry(false);
-    });
+    if (username.username !== '') {
+      AuthService.login(username)
+        .then((data) => {
+          const { isAuthenticated, user } = data;
+          if (isAuthenticated) {
+            authContext.setUser(user);
+            authContext.setIsAuthenticated(isAuthenticated);
+            history.push('/profile/global');
+          } else setValidEntry(false);
+        });
+    } else setValidEntry(false);
   };
 
   return (
     <div className="login">
-      <h1 data-testid='loginTitle' className="entryheader__header">Login</h1>
+      <h1 data-testid="loginTitle" className="entryheader__header">Login</h1>
       <form className="login__form" onSubmit={onSubmit}>
         <div className="login__inputs">
           <input
@@ -56,11 +58,11 @@ function LoginForm() {
         {isValidEntry === false
           ? <h1 className="invalid__input">Invalid username or password</h1>
           : null}
-        <button type="submit" value="Login" data-testid='LoginBtn' className="form__submit-btn">Login</button>
+        <button type="submit" value="Login" data-testid="LoginBtn" className="form__submit-btn">Login</button>
       </form>
       <div className="login__alt">
         <p className="login__alt-text">Or log in with</p>
-        <SocialSignUp/>
+        <SocialSignUp />
       </div>
     </div>
   );

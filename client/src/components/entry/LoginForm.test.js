@@ -1,21 +1,21 @@
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import AuthService, {login} from '../../service/AuthService'
+import AuthService from '../../service/AuthService';
+import AuthProvider from '../../context/AuthContext';
 import LoginForm from './LoginForm';
-import { act } from 'react-dom/test-utils';
+import '@testing-library/jest-dom';
 
-jest.mock('../../service/AuthService')
+jest.mock('../../service/AuthService');
 
-// global.AuthService = {};
-// global.AuthService.login = jest.fn(() => {
-//     console.log('hit')
-//     Promise.resolve({
-//         json: () => {
-//             Promise.resolve({ isAuthenticated: true, user: { username } })
-//         }
-//     })
-// })
+const mockHistoryPush = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useHistory: () => ({
+      push: mockHistoryPush,
+    }),
+  }));
 
 test('renders the correct content', () => {
     const { getByTestId, getByText } = render(<LoginForm />);
@@ -29,25 +29,50 @@ test('renders the correct content', () => {
     expect(getByTestId('googleIcon')).not.toBeNull();
 });
 describe('when user inputs login information', () => {
-    test('user inputs wrong login information', () => {
+    test('user inputs no login information should output an invalid response', () => {
         const { getByTestId, getByText } = render(<LoginForm />);
-        const users = [{ username: 'Bpun1p'}];
-        const resp = {isAuthenticated: false}
-        AuthService.login.mockResolvedValue(resp)
-        
 
-        const input = getByTestId('LoginBtn');
-        fireEvent.click(input);
-        
-        
+        fireEvent.click(getByTestId('LoginBtn'));
 
-        expect(getByText('Invalid username or password')).not.toBeNull()
+        expect(getByText('Invalid username or password')).toBeInTheDocument();
     });
-    test('user input correct login information', () => {
-        // const { getByTestId, getByText } = render(<LoginForm />);
-        // const input = getByTestId('LoginBtn');
-        // fireEvent.change(getByTestId('Username'), {target: {value: "Bpun1p"}})
-        // fireEvent.change(getByTestId('Password'), {target: {value: "Guy123su"}})
-        // fireEvent.click(input);
-    })
-})
+    test('user inputs incorrect login information should output an invalid response', async () => {
+        const { getByTestId, getByText } = render(<LoginForm />);
+
+        const unauthenticatedResponse = {isAuthenticated: false, user: {username: 'fakeUser'}};
+        
+        AuthService.login.mockResolvedValue(unauthenticatedResponse);
+
+        fireEvent.change(getByTestId('Username'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('Password'), {target: {value: 'fakePassword'}});
+        
+        fireEvent.click(getByTestId('LoginBtn'));
+
+        await act(() => Promise.resolve());
+        
+        expect(getByText('Invalid username or password')).toBeInTheDocument();  
+    });
+    test('user input correct login information should push user to their profile page', async() => {
+        const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
+        const defaultResponse = { isAuthenticated: false, user: { username: '' }};
+
+        AuthService.isAuthenticated.mockResolvedValue(defaultResponse);
+        
+        const { getByTestId, queryByText } = render(<AuthProvider><LoginForm /></AuthProvider>);
+
+        await act(() => Promise.resolve());
+
+        AuthService.login.mockResolvedValue(authenticatedResponse);
+
+        fireEvent.change(getByTestId('Username'), {target: {value: "Bpun1p"}});
+        fireEvent.change(getByTestId('Password'), {target: {value: "Guy123su"}});
+
+        fireEvent.click(getByTestId('LoginBtn'));
+
+        await act(() => Promise.resolve());
+
+        expect(queryByText('Invalid username or password')).not.toBeInTheDocument(); 
+        expect(mockHistoryPush).toHaveBeenCalledWith('/profile/global');
+        expect(mockHistoryPush).toHaveBeenCalledTimes(1);
+    });
+});
