@@ -58,7 +58,7 @@ describe('when user inputs login information', () => {
 
         AuthService.isAuthenticated.mockResolvedValue(defaultResponse);
         
-        const { getByTestId, queryByText } = render(<AuthProvider><LoginForm /></AuthProvider>);
+        const { getByTestId, queryByText } = render(<LoginForm />, { wrapper: AuthProvider });
 
         await act(() => Promise.resolve());
 
