@@ -1,13 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DashboardNav from './DashboardNav';
 
 function DashboardHeader() {
-  const [isPopUp, setPopUp] = useState(false);
-
-  const popUpHandler = () => {
-    setPopUp(!isPopUp);
-  };
-
   return (
     <div className="profile__header">
       <svg className="header__logo" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 95 118.75">
@@ -16,7 +10,7 @@ function DashboardHeader() {
         <path className="knife-handle" d="M49.29,69.354l-3.622,7.178l4.553,7.886c0.93,1.607,2.985,2.16,4.594,1.232c1.609-0.93,2.16-2.986,1.23-4.596L49.29,69.354   z" />
         <text x="" y="110" fill="#fff" fontSize="20px" fontWeight="bold" text-align="center" fontFamily="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">FoodCore</text>
       </svg>
-      <DashboardNav popUpHandler={popUpHandler} />
+      <DashboardNav />
     </div>
   );
 }
