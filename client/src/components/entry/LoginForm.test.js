@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 import AuthService from '../../service/AuthService';
 import AuthProvider from '../../context/AuthContext';
 import LoginForm from './LoginForm';
-import '@testing-library/jest-dom';
 
 jest.mock('../../service/AuthService');
 
@@ -29,14 +28,14 @@ test('renders the correct content', () => {
     expect(getByTestId('googleIcon')).not.toBeNull();
 });
 describe('when user inputs login information', () => {
-    test('user inputs no login information should output an invalid response', () => {
+    test('no inputs should output an invalid response', () => {
         const { getByTestId, getByText } = render(<LoginForm />);
 
         fireEvent.click(getByTestId('LoginBtn'));
 
         expect(getByText('Invalid username or password')).toBeInTheDocument();
     });
-    test('user inputs incorrect login information should output an invalid response', async () => {
+    test('incorrect input should output an invalid response', async () => {
         const { getByTestId, getByText } = render(<LoginForm />);
 
         const unauthenticatedResponse = {isAuthenticated: false, user: {username: 'fakeUser'}};
@@ -52,7 +51,7 @@ describe('when user inputs login information', () => {
         
         expect(getByText('Invalid username or password')).toBeInTheDocument();  
     });
-    test('user input correct login information should push user to their profile page', async() => {
+    test('correct input should push user to their profile page', async() => {
         const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
         const defaultResponse = { isAuthenticated: false, user: { username: '' }};
 
