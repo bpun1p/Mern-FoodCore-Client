@@ -10,11 +10,9 @@ function DashboardNav() {
 
   const logoutHandler = () => {
     AuthService.logout().then((data) => {
-      if (data.success) {
+      if(data.success) {
         setUser(data.user);
         setIsAuthenticated(false);
-        history.push('/login');
-      } else if (!data.success) {
         history.push('/login');
       }
     });

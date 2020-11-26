@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import AuthService from '../../service/AuthService';
 import AuthProvider from '../../context/AuthContext';
 import { BrowserRouter } from 'react-router-dom'
@@ -19,4 +19,5 @@ test('renders the correct content', async () => {
     expect(getByText('GLOBAL')).not.toBeNull();
     expect(getByText('MYPOSTS')).not.toBeNull();
     expect(getByText('CREATE')).not.toBeNull();
+    expect(getByText('LOGOUT')).not.toBeNull();
 });

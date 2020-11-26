@@ -16,18 +16,15 @@ function Post(props) {
 
   return (
     <>
-      <div className="card__container" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
-        <div className="card" style={postImage}>
+      <div className="card__container" data-testid="Post-Card" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
+        <div className="card" data-testid="Post-Image" style={postImage}>
           <div className="card__description">
-            <h1 className="card__name">
-              {' '}
+            <h1 className="card__name" data-testid="Receipe-Title">
               {receipe.title}
-              {' '}
             </h1>
-            <h3 className="card__author">
+            <h3 className="card__author" data-testid="Receipe-Author">
               By
               <br />
-              {' '}
               {receipe.author}
             </h3>
           </div>
