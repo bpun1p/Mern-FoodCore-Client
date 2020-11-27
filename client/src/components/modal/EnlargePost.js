@@ -11,9 +11,9 @@ function EnlargePost(props) {
       <div className="magnify">
         <div className="maginify__header">
           <div className="magnify__img-container">
-            <img className="magnify__img" src={receipe.img} alt="" />
-            <svg className="magnify__exit" onClick={popUpHandler} width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path className="magnify__exit-icon" data-testid='exit-modal-btn' d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#13182C" />
+            <img className="magnify__img" data-testid="receipe-image" src={receipe.img} alt="" />
+            <svg className="magnify__exit" data-testid='exit-modal-btn' onClick={popUpHandler} width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path className="magnify__exit-icon" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#13182C" />
             </svg>
           </div>
           <div className="magnify__receipe">

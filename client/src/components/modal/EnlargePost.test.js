@@ -2,8 +2,9 @@ import * as React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import Post from './Post';
+import EnlargePost from './EnlargePost';
 
+const mockPopUpHandler = jest.fn();
 const mockReceipe = {
     author: "Madeline",
     title : "Triple Chocolate Chunk Cookies",
@@ -28,26 +29,22 @@ const mockReceipe = {
         "Divide cold dough into 2 1/4-ounce portions and place on a cookie sheet.",
         "Bake in the preheated oven until the edges start to look golden brown and crispy, 10 to 12 minutes. Do not overbake; the centers will not look fully done. Cool until cookies are set, about 30 minutes."
     ]
-}
+};
 
-test('component renders correct content', () => {
-    const { getByTestId } = render(<Post receipe={mockReceipe} />)
+test('renders the correct content', () => {
+    const { getByText, getByTestId } = render(<EnlargePost receipe={mockReceipe} popUpHandler={mockPopUpHandler}/>)
 
-    expect(getByTestId('Post-Image')).not.toBeNull();
-    expect(getByTestId('Receipe-Title').textContent).toEqual('Triple Chocolate Chunk Cookies');
-    expect(getByTestId('Receipe-Author').textContent).toEqual('ByMadeline');
-})
-
-test('Clicking the post will open a modal window displaying post content', () => {
-    const { getByTestId, queryByTestId } = render(<Post receipe={mockReceipe} />)
-
-    expect(queryByTestId('exit-modal-btn')).not.toBeInTheDocument();
-
-    fireEvent.click(getByTestId('Post-Card'));
-
-    expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
+    expect(getByTestId('exit-modal-btn')).not.toBeNull();
+    expect(getByTestId('receipe-image')).toHaveAttribute('src', 'https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg');
+    expect(getByText('Triple Chocolate Chunk Cookies')).toBeInTheDocument();
+    expect(getByText('Large or small, these triple chocolate cookies are crispy on the outside and chewy on the inside. Refrigerating the batter for 48 hours before baking is ideal, as this allows the dough to fully form its flavor.')).toBeInTheDocument();
+    expect(getByText('½ cup unsalted butter, at room temperature')).toBeInTheDocument();
+    expect(getByText('Preheat the oven to 350 degrees F (175 degrees C) when ready to bake.')).toBeInTheDocument();
+});
+test('user clicks the exit modal button should null everything', () => {
+    const { getByTestId } = render(<EnlargePost receipe={mockReceipe} popUpHandler={mockPopUpHandler}/>)
 
     fireEvent.click(getByTestId('exit-modal-btn'));
 
-    expect(queryByTestId('exit-modal-btn')).not.toBeInTheDocument();
-})
+    expect(mockPopUpHandler).toHaveBeenCalled();
+});

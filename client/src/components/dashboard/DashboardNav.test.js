@@ -4,7 +4,7 @@ import AuthService from '../../service/AuthService';
 import AuthProvider from '../../context/AuthContext';
 import { BrowserRouter } from 'react-router-dom'
 
-import DashboardNav from '../dashboard/DashboardNav';
+import DashboardNav from './DashboardNav';
 
 jest.mock('../../service/AuthService');
 
