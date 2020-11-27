@@ -99,7 +99,7 @@ function CreateForm() {
   };
 
   const submitIngredients = (ingredient) => {
-    if (ingredient !== '') {
+    if (ingredient !== undefined) {
       setIngredientInputed(true);
       setIngredientsElem((ingredientElem) => [...ingredientElem, ingredient]);
     } else {
@@ -108,7 +108,7 @@ function CreateForm() {
   };
 
   const submitInstructions = (instruction) => {
-    if (instruction !== '') {
+    if (instruction !== undefined) {
       setInstructionInputed(true);
       setInstructionsElem((instructions) => [...instructions, instruction]);
     } else {
