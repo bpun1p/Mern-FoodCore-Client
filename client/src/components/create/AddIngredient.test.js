@@ -7,7 +7,7 @@ const mockSubmitHandler = jest.fn();
 test('renders content correctly', () => {
     const { getByTestId } = render(<AddIngredient submitIngredients={mockSubmitHandler}/>);
 
-    expect(getByTestId('add-button')).not.toBeNull();
+    expect(getByTestId('add-ingredient-button')).not.toBeNull();
     expect(getByTestId('ingredient-textField')).not.toBeNull();
 });
 test('clicking the svg image should call submitIngredientsHandler with ingredient inputted', () => {
@@ -15,7 +15,7 @@ test('clicking the svg image should call submitIngredientsHandler with ingredien
 
     fireEvent.change(getByTestId('ingredient-textField'), {target: {value: 'chicken breast'}});
 
-    fireEvent.click(getByTestId('add-button'));
+    fireEvent.click(getByTestId('add-ingredient-button'));
 
     expect(mockSubmitHandler).toHaveBeenCalled();    
     expect(mockSubmitHandler).toHaveBeenCalledWith('chicken breast');

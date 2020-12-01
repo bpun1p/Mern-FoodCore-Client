@@ -10,11 +10,11 @@ jest.mock('../../service/AuthService');
 const mockHistoryPush = jest.fn();
 
 jest.mock('react-router-dom', () => ({
-    ...jest.requireActual('react-router-dom'),
-    useHistory: () => ({
-      push: mockHistoryPush,
-    }),
-  }));
+  ...jest.requireActual('react-router-dom'),
+  useHistory: () => ({
+    push: mockHistoryPush,
+  }),
+}));
   
 test('renders the correct content', () => {
     const { getByTestId, getByText } = render(<LoginForm />);

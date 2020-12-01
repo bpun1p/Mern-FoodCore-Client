@@ -82,6 +82,7 @@ function CreateForm() {
 
   function imageCompressor(event) {
     const file = event.target.files[0];
+    console.log(file)
     const options = {
       maxSizeMB: 0.05,
       maxWidthOrHeight: 700,
@@ -89,6 +90,7 @@ function CreateForm() {
     };
     imageCompression(file, options)
       .then((compressedFile) => {
+        console.log(compressedFile);
         imageFileHandler(compressedFile);
       })
       .catch(() => setErrorForm('unable to convert image file'));
@@ -123,13 +125,14 @@ function CreateForm() {
           <div className="createform__upload">
             <input
               type="file"
-              title="foo"
               name="picture"
               id="uploadedPhoto"
               onChange={imageCompressor}
+              data-testid="image-input"
+              value=""
             />
             {isSelectedFile !== ''
-              ? <img alt="upload" className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
+              ? <img alt="upload" data-testid='upladed-image' className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
               : null}
           </div>
           <div className="createform__receipe">
@@ -141,11 +144,12 @@ function CreateForm() {
               value={receipe.title}
               onChange={onChange}
               placeholder="Input Name"
+              data-testid="receipe-name-text-field"
             />
           </div>
           <br />
           <div className="createform__description">
-            <h2 className="description-text" htmlFor="description">Decription:</h2>
+            <h2 className="description-text" htmlFor="description">Description:</h2>
             <textarea
               type="text"
               rows="20"
@@ -154,6 +158,7 @@ function CreateForm() {
               value={receipe.description}
               onChange={onChange}
               placeholder="Input Description"
+              data-testid="description-text-field"
             />
           </div>
         </div>

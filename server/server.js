@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 
 const app = express();
@@ -11,7 +12,7 @@ require('dotenv').config();
 app.use(cookieParser()); // parse the cookie stored in the web browser
 app.use(bodyParser({ limit: '50mb' }));
 
-const dbURI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.amii2.mongodb.net/${process.env.MONGO_USER}?retryWrites=true&w=majority`;
+const dbURI = 'mongodb+srv://FoodCore:Guy123su@cluster0.amii2.mongodb.net/FoodCore?retryWrites=true&w=majority';
 
 // connect to mongodb
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
