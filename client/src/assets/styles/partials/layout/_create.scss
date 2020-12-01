@@ -151,6 +151,12 @@ input:checked + .slider:before {
             margin-bottom: 100px;
         }
     }
+    &__receipe {
+        display: flex;
+        & h2 {
+            margin: 0 10px 0 0;
+        }
+    }
 }
 
 #receipe {
@@ -162,9 +168,8 @@ input:checked + .slider:before {
 }
 
 .description-text {
-    @include tablet {
-        padding-right: 10px;
-    }
+    margin: 0;
+    padding-right: 10px;
 }
 
 #description {
@@ -175,4 +180,17 @@ input:checked + .slider:before {
 
 #uploadedPhoto {
     color: transparent;
+}
+
+#receipe-description {
+    width: 100%;
+}
+
+#ingredient {
+    width: 50%;
+}
+
+#instruction {
+    width: 100%;
+    height: 50px;
 }
