@@ -82,7 +82,6 @@ function CreateForm() {
 
   function imageCompressor(event) {
     const file = event.target.files[0];
-    console.log(file)
     const options = {
       maxSizeMB: 0.05,
       maxWidthOrHeight: 700,
@@ -132,7 +131,7 @@ function CreateForm() {
               value=""
             />
             {isSelectedFile !== ''
-              ? <img alt="upload" data-testid='upladed-image' className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
+              ? <img alt="upload" data-testid="upladed-image" className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
               : null}
           </div>
           <div className="createform__receipe">
