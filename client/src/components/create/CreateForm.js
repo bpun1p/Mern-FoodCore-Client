@@ -1,11 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { useHistory } from 'react-router-dom';
-import imageCompression from 'browser-image-compression';
+// import imageCompression from 'browser-image-compression';
 import AddIngredient from './AddIngredient';
 import AddInstruction from './AddInstruction';
 import ReceipeService from '../../service/ReceipeService';
 import { AuthContext } from '../../context/AuthContext';
+import imageCompressor from '../utils/ImageCompressor';
+import ToBase64 from '../utils/ToBase64';
 
 function CreateForm() {
   const [isDisplay, setDisplay] = useState('');
@@ -68,19 +70,7 @@ function CreateForm() {
     }
   };
 
-  const toBase64 = (file) => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
-
-  function imageFileHandler(file) {
-    setDisplay(file);
-    toBase64(file).then((data) => setSelectedFile(data));
-  }
-
-  function imageCompressor(event) {
+  function imageFileHandler(event) {
     const file = event.target.files[0];
     const options = {
       maxSizeMB: 0.05,
@@ -93,6 +83,10 @@ function CreateForm() {
         imageFileHandler(compressedFile);
       })
       .catch(() => setErrorForm('unable to convert image file'));
+    imageCompressor(file).then((compressedFile) => {
+      setDisplay(compressedFile);
+      ToBase64(compressedFile).then((data) => setSelectedFile(data));
+    }).catch(() => setErrorForm('unable to convert image file'));
   }
 
   const onChange = (event) => {
@@ -129,6 +123,7 @@ function CreateForm() {
               onChange={imageCompressor}
               data-testid="image-input"
               value=""
+              onChange={imageFileHandler}
             />
             {isSelectedFile !== ''
               ? <img alt="upload" data-testid="upladed-image" className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
