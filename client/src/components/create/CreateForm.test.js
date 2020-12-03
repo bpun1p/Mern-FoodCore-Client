@@ -13,6 +13,7 @@ jest.mock('../utils/ImageCompressor');
 jest.mock('../utils/ToBase64');
 jest.mock('../../service/ReceipeService');
 
+
 const mockHistoryPush = jest.fn();
 global.URL.createObjectURL = jest.fn();
 
