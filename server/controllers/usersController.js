@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-underscore-dangle */
 const JWT = require('jsonwebtoken');
 const User = require('../models/user');
 const Receipe = require('../models/userReceipe');
