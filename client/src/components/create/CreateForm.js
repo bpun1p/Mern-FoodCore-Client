@@ -113,7 +113,7 @@ function CreateForm() {
               data-testid="image-input"
             />
             {isSelectedFile !== ''
-              ? <img alt="upload" className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
+              ? <img alt="upload" data-testid="upladed-image" className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
               : null}
           </div>
           <div className="createform__receipe">
