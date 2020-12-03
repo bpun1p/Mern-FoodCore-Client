@@ -2,6 +2,7 @@ import * as React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AuthService from '../../service/AuthService';
+import ReceipeService from '../../service/ReceipeService';
 import AuthProvider from '../../context/AuthContext';
 import CreateForm from './CreateForm';
 import ImageCompressor from '../utils/ImageCompressor';
@@ -10,6 +11,7 @@ import ToBase64 from '../utils/ToBase64';
 jest.mock('../../service/AuthService');
 jest.mock('../utils/ImageCompressor');
 jest.mock('../utils/ToBase64');
+jest.mock('../../service/ReceipeService');
 
 const mockHistoryPush = jest.fn();
 global.URL.createObjectURL = jest.fn();
@@ -93,8 +95,6 @@ describe('add instructions form', () => {
         fireEvent.change(getByTestId('instruction-textField'), {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
         fireEvent.click(getByTestId('add-instruction-button'));
 
-
-
         expect(getByText('Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes')).toBeInTheDocument();
     });
 });
@@ -130,8 +130,7 @@ describe('image uploader', () => {
 
         await act(() => Promise.resolve());
 
-        const imageInput = getByTestId('image-input');
-        fireEvent.change(imageInput, {target: {files: [file]}});
+        fireEvent.change(getByTestId('image-input'), {target: {files: [file]}});
 
         await act(() => Promise.resolve());
 
@@ -146,7 +145,7 @@ describe('Create receipe button', () => {
         AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
     });
 
-    test('clicking with no inputs will display a error message in the DOM', async () => {
+    test('when click with no inputs will display a error message in the DOM', async () => {
         const { getByText } = render(<CreateForm />, {wrapper: AuthProvider});
 
         await act(() => Promise.resolve());
@@ -155,7 +154,7 @@ describe('Create receipe button', () => {
 
         expect(getByText('Please fill in all feilds')).toBeInTheDocument();
     });
-    test('clicking with not fully filled inputs will display an error message in the DOM', async () => {
+    test('when clicked with some filled inputs will display an error message in the DOM', async () => {
         const { getByText, getByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
 
         await act(() => Promise.resolve());
@@ -170,4 +169,37 @@ describe('Create receipe button', () => {
 
         expect(getByText('Please fill in all feilds')).toBeInTheDocument();
     });
+    test('when clicked with fully filled input will send user back to their dashboard', async () => {
+        const file = new File(['(⌐□_□)'], 'coolGuy.png', {type: 'image/png'});
+        const fakeBase64 = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQUFBAYFB';
+        const successResponse = { message: { msgBody: 'post successful', msgError: false }};
+
+        ReceipeService.postAllReceipes.mockResolvedValue(successResponse);
+        ReceipeService.postReceipe.mockResolvedValue(successResponse);
+        ImageCompressor.mockResolvedValue(file);
+        ToBase64.mockResolvedValue(fakeBase64);
+
+        const { getByText, getByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
+
+        await act(() => Promise.resolve()); 
+
+        fireEvent.change(getByTestId('image-input'), {target: {files: [file]}});
+        await act(() => Promise.resolve());
+
+        fireEvent.change(getByTestId('receipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
+        fireEvent.change(getByTestId('description-text-field'), {target: {value: 'A delicious chicken pie made from scratch with carrots, peas and celery.'}});
+
+        fireEvent.change(getByTestId('ingredient-textField'), {target: {value: 'chicken breast'}});
+        fireEvent.click(getByTestId('add-ingredient-button'));
+
+        fireEvent.change(getByTestId('instruction-textField'), {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
+        fireEvent.click(getByTestId('add-instruction-button'));
+        
+        fireEvent.click(getByText('Create'));
+
+        await act(() => Promise.resolve())
+
+        expect(mockHistoryPush).toHaveBeenCalled();
+        expect(mockHistoryPush).toHaveBeenCalledWith('/profile/global')
+    })
 });

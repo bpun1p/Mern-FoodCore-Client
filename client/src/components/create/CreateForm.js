@@ -30,7 +30,6 @@ function CreateForm() {
     });
   };
 
-  const authContext = useContext(AuthContext);
   const { user } = useContext(AuthContext);
   const history = useHistory();
 
@@ -59,10 +58,7 @@ function CreateForm() {
               },
             )
               .then(() => history.push('/profile/global'));
-          } else if (data.message.msgBody === 'UnAuthorized') {
-            authContext.setUser({ username: '' });
-            authContext.setIsAuthenticated(false);
-          } else setErrorForm('error in form, please try again later');
+          }
         });
     } else {
       setErrorForm('Please fill in all feilds');
@@ -116,7 +112,7 @@ function CreateForm() {
               data-testid="image-input"
             />
             {isSelectedFile !== ''
-              ? <img alt="upload" className="image__uploaded" data-testid='displayed-image' src={URL.createObjectURL(isDisplay)} />
+              ? <img alt="upload" className="image__uploaded" data-testid="displayed-image" src={URL.createObjectURL(isDisplay)} />
               : null}
           </div>
           <div className="createform__receipe">
