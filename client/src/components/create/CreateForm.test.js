@@ -7,7 +7,6 @@ import CreateForm from './CreateForm';
 
 jest.mock('../../service/AuthService');
 
-
 const mockHistoryPush = jest.fn();
 
 jest.mock('react-router-dom', () => ({
@@ -161,5 +160,4 @@ describe('Create receipe button', () => {
 
         expect(getByText('Please fill in all feilds')).toBeInTheDocument();
     });
-
 });
