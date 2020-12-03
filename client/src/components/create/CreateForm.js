@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { useHistory } from 'react-router-dom';
-// import imageCompression from 'browser-image-compression';
 import AddIngredient from './AddIngredient';
 import AddInstruction from './AddInstruction';
 import ReceipeService from '../../service/ReceipeService';
 import { AuthContext } from '../../context/AuthContext';
-import imageCompressor from '../utils/ImageCompressor';
+import ImageCompressor from '../utils/ImageCompressor';
 import ToBase64 from '../utils/ToBase64';
 
 function CreateForm() {
@@ -31,7 +30,6 @@ function CreateForm() {
     });
   };
 
-  const authContext = useContext(AuthContext);
   const { user } = useContext(AuthContext);
   const history = useHistory();
 
@@ -60,10 +58,7 @@ function CreateForm() {
               },
             )
               .then(() => history.push('/profile/global'));
-          } else if (data.message.msgBody === 'UnAuthorized') {
-            authContext.setUser({ username: '' });
-            authContext.setIsAuthenticated(false);
-          } else setErrorForm('error in form, please try again later');
+          }
         });
     } else {
       setErrorForm('Please fill in all feilds');
@@ -72,10 +67,14 @@ function CreateForm() {
 
   function imageFileHandler(event) {
     const file = event.target.files[0];
-    imageCompressor(file).then((compressedFile) => {
-      setDisplay(compressedFile);
-      ToBase64(compressedFile).then((data) => setSelectedFile(data));
-    }).catch(() => setErrorForm('unable to convert image file'));
+    if (file.type.slice(0, 5) === 'image') {
+      ImageCompressor(file).then((compressedFile) => {
+        setDisplay(compressedFile);
+        ToBase64(compressedFile).then((data) => {
+          setSelectedFile(data);
+        });
+      });
+    } else setErrorForm('unable to convert image file');
   }
 
   const onChange = (event) => {
@@ -113,7 +112,7 @@ function CreateForm() {
               data-testid="image-input"
             />
             {isSelectedFile !== ''
-              ? <img alt="upload" data-testid="upladed-image" className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
+              ? <img alt="upload" className="image__uploaded" data-testid="displayed-image" src={URL.createObjectURL(isDisplay)} />
               : null}
           </div>
           <div className="createform__receipe">
