@@ -72,17 +72,6 @@ function CreateForm() {
 
   function imageFileHandler(event) {
     const file = event.target.files[0];
-    const options = {
-      maxSizeMB: 0.05,
-      maxWidthOrHeight: 700,
-      useWebWorker: true,
-    };
-    imageCompression(file, options)
-      .then((compressedFile) => {
-        console.log(compressedFile);
-        imageFileHandler(compressedFile);
-      })
-      .catch(() => setErrorForm('unable to convert image file'));
     imageCompressor(file).then((compressedFile) => {
       setDisplay(compressedFile);
       ToBase64(compressedFile).then((data) => setSelectedFile(data));
@@ -118,11 +107,9 @@ function CreateForm() {
           <div className="createform__upload">
             <input
               type="file"
+              title="foo"
               name="picture"
               id="uploadedPhoto"
-              onChange={imageCompressor}
-              data-testid="image-input"
-              value=""
               onChange={imageFileHandler}
             />
             {isSelectedFile !== ''
