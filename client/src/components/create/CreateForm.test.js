@@ -13,7 +13,6 @@ jest.mock('../utils/ImageCompressor');
 jest.mock('../utils/ToBase64');
 jest.mock('../../service/ReceipeService');
 
-
 const mockHistoryPush = jest.fn();
 global.URL.createObjectURL = jest.fn();
 
@@ -203,4 +202,5 @@ describe('Create receipe button', () => {
         expect(mockHistoryPush).toHaveBeenCalled();
         expect(mockHistoryPush).toHaveBeenCalledWith('/profile/global')
     })
+
 });
