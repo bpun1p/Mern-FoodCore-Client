@@ -1,7 +1,6 @@
 import imageCompression from 'browser-image-compression';
 
 export default function imageCompressor(file) {
-  console.log('hello');
   const options = {
     maxSizeMB: 0.05,
     maxWidthOrHeight: 700,

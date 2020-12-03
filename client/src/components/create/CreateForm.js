@@ -107,10 +107,10 @@ function CreateForm() {
           <div className="createform__upload">
             <input
               type="file"
-              title="foo"
               name="picture"
               id="uploadedPhoto"
               onChange={imageFileHandler}
+              data-testid="image-input"
             />
             {isSelectedFile !== ''
               ? <img alt="upload" data-testid="upladed-image" className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
@@ -143,7 +143,7 @@ function CreateForm() {
             />
           </div>
         </div>
-        <div className="createform__ingredients" id="hello">
+        <div className="createform__ingredients">
           <h1 className="ingredients__header">INGREDIENTS</h1>
           <ul>
             {ingredientsElem.length !== 0

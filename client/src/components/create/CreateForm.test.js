@@ -4,10 +4,9 @@ import '@testing-library/jest-dom';
 import AuthService from '../../service/AuthService';
 import AuthProvider from '../../context/AuthContext';
 import CreateForm from './CreateForm';
-import ChickenPotPieIMG from '../../assets/images/chicken-pot-pie-test-img.jpg';
 
 jest.mock('../../service/AuthService');
-jest.mock('../../assets/images/chicken-pot-pie-test-img.jpg')
+
 
 const mockHistoryPush = jest.fn();
 
