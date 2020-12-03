@@ -107,10 +107,10 @@ function CreateForm() {
           <div className="createform__upload">
             <input
               type="file"
-              title="foo"
               name="picture"
               id="uploadedPhoto"
               onChange={imageFileHandler}
+              data-testid="image-input"
             />
             {isSelectedFile !== ''
               ? <img alt="upload" className="image__uploaded" src={URL.createObjectURL(isDisplay)} />
@@ -125,11 +125,12 @@ function CreateForm() {
               value={receipe.title}
               onChange={onChange}
               placeholder="Input Name"
+              data-testid="receipe-name-text-field"
             />
           </div>
           <br />
           <div className="createform__description">
-            <h2 className="description-text" htmlFor="description">Decription:</h2>
+            <h2 className="description-text" htmlFor="description">Description:</h2>
             <textarea
               type="text"
               rows="20"
@@ -138,10 +139,11 @@ function CreateForm() {
               value={receipe.description}
               onChange={onChange}
               placeholder="Input Description"
+              data-testid="description-text-field"
             />
           </div>
         </div>
-        <div className="createform__ingredients" id="hello">
+        <div className="createform__ingredients">
           <h1 className="ingredients__header">INGREDIENTS</h1>
           <ul>
             {ingredientsElem.length !== 0
