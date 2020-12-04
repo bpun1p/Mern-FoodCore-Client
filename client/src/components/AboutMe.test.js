@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { render, fireEvent, act, getAllByTestId } from '@testing-library/react';
-import AboutMe from '../AboutMe';
+import { render } from '@testing-library/react';
+import AboutMe from './AboutMe';
 import '@testing-library/jest-dom';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 
 test('renders content correctly', () => {
   const { getByText, getByTestId } = render(<AboutMe />, {wrapper: BrowserRouter})
@@ -16,3 +16,4 @@ test('renders content correctly', () => {
   expect(getByText('LinkedIn:')).toBeInTheDocument();
   expect(getByText('https://www.linkedin.com/in/barry-pun-8b23451a3/')).toBeInTheDocument();
 })
+
