@@ -4,7 +4,7 @@ import Entry from './Entry';
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-test('renders the correct content', () => {
+test('an element of each subcomponent exist', () => {
   const { getByTestId, getByText, getAllByTestId } = render(<Entry />, {wrapper: BrowserRouter})
 
   expect((getByTestId('loginTitle')).textContent).toEqual('Login');
