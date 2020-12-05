@@ -9,11 +9,12 @@ import Create from './Create';
 
 jest.mock('../service/AuthService');
 
-test('an element of each subcomponent exist', async () => {
+test('an element from each subcomponent exists', async () => {
     const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
     AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
 
     const { getByTestId, getByText } = render(<BrowserRouter><Create /></BrowserRouter>, { wrapper: AuthProvider });
+
     await act(() => Promise.resolve())
 
     expect(getByTestId('FoodCore-Logo')).toBeInTheDocument();
