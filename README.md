@@ -15,18 +15,6 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-
-
-
-
-## Available Scripts
-
-To run server, in server.js replace  stored value in dbURI with the mongoDB password and username. 
-mongoDB access codes:
-
-    MONGO_USER = FoodCore
-    MONGO_PASSWORD = Guy123su
-
 In the server directory, you can run:
 
 ### `npm run server`
