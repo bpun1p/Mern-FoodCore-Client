@@ -64,7 +64,7 @@ function CreateForm() {
           } else setErrorForm('error in form, please try again later');
         });
     } else {
-      setErrorForm('Please fill in all feilds');
+      setErrorForm('Please fill in all fields');
     }
   };
 
