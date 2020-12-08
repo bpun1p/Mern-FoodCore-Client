@@ -11,15 +11,12 @@ function MyPosts() {
   const [ReceipeData, setReceipeData] = useState([]);
 
   useEffect(() => {
-    let isMounted = true;
     trackPromise(
       ReceipeService.getReceipes()
         .then((data) => {
           setReceipeData(data);
         }),
     );
-    // eslint-disable-next-line no-unused-vars
-    return () => { isMounted = false; };
   }, []);
 
   return (

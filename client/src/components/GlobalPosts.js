@@ -12,15 +12,12 @@ function GlobalPosts() {
   const [AllReceipes, setAllReceipes] = useState([]);
 
   useEffect(() => {
-    let isMounted = true;
     trackPromise(
       ReceipeService.getAllReceipes()
         .then((data) => {
           setAllReceipes(data);
         }),
     );
-    // eslint-disable-next-line no-unused-vars
-    return () => { isMounted = false; };
   }, []);
 
   return (
