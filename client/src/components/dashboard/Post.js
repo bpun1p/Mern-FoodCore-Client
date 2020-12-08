@@ -6,7 +6,7 @@ function Post(props) {
   const [isPopUp, setPopUp] = useState(false);
   const { receipe } = props;
 
-  const popUpHandler = () => {
+  const togglePopUp = () => {
     setPopUp(!isPopUp);
   };
 
@@ -16,7 +16,7 @@ function Post(props) {
 
   return (
     <>
-      <div className="card__container" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
+      <div className="card__container" onClick={togglePopUp} onKeyDown={togglePopUp} role="button" tabIndex={0}>
         <div className="card" style={postImage}>
           <div className="card__description">
             <h1 className="card__name">
@@ -34,7 +34,7 @@ function Post(props) {
         </div>
       </div>
       {isPopUp === true
-        ? <EnlargePost popUpHandler={popUpHandler} receipe={receipe} />
+        ? <EnlargePost togglePopUp={togglePopUp} receipe={receipe} />
         : null}
     </>
   );
