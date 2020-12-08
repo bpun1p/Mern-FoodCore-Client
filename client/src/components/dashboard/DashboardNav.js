@@ -13,10 +13,8 @@ function DashboardNav() {
       if (data.success) {
         setUser(data.user);
         setIsAuthenticated(false);
-        history.push('/login');
-      } else if (!data.success) {
-        history.push('/login');
       }
+      history.push('/login');
     });
   };
 
