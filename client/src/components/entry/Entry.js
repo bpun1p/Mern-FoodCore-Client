@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/Main.css';
 import { Link } from 'react-router-dom';
-import SignUp from './entry/SignUpForm';
-import EntryFooter from './entry/EntryFooter';
-import Login from './entry/LoginForm';
+import SignUp from './SignUpForm';
+import EntryFooter from './EntryFooter';
+import Login from './LoginForm';
 import FCoreLogo from '../assets/logo/logo-white.svg';
 import DualEntry from './entry/DualEntry';
 

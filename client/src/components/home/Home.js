@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/styles/Main.css';
-import Header from './home/Header';
-import Center from './home/Center';
+import Header from './Header';
+import Center from './Center';
 
 function Home() {
   return (

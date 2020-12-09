@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { trackPromise } from 'react-promise-tracker';
-import LoadingIndicator from './utils/LoadingIndicator';
-import DashBoardHeader from './dashboard/DashBoardHeader';
+import LoadingIndicator from '../utils/LoadingIndicator';
+import DashBoardHeader from './DashBoardHeader';
 import '../assets/styles/Main.css';
-import Post from './dashboard/Post';
-import ReceipeService from '../service/ReceipeService';
+import Post from './Post';
+import ReceipeService from '../../service/ReceipeService';
 
 function MyPosts() {
   const [ReceipeData, setReceipeData] = useState([]);

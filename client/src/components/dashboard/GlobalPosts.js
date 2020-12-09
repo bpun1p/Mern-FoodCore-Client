@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { trackPromise } from 'react-promise-tracker';
-import LoadingIndicator from './utils/LoadingIndicator';
-import DashboardHeader from './dashboard/DashBoardHeader';
+import LoadingIndicator from '../utils/LoadingIndicator';
+import DashboardHeader from './DashBoardHeader';
 import '../assets/styles/Main.css';
-import Post from './dashboard/Post';
+import Post from './Post';
 
-import ReceipeService from '../service/ReceipeService';
+import ReceipeService from '../../service/ReceipeService';
 
 function GlobalPosts() {
   const [AllReceipes, setAllReceipes] = useState([]);

@@ -1,5 +1,5 @@
 import React from 'react';
-import DashboardHeader from './dashboard/DashBoardHeader';
+import DashboardHeader from '../dashboard/DashBoardHeader';
 import CreateForm from './create/CreateForm';
 import '../assets/styles/Main.css';
 

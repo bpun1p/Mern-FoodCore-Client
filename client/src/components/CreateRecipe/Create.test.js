@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, act } from '@testing-library/react';
-import AuthService from '../service/AuthService';
-import AuthProvider from '../context/AuthContext';
+import AuthService from '../../service/AuthService';
+import AuthProvider from '../../context/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
