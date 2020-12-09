@@ -5,9 +5,8 @@ const User = require('./models/user');
 
 // extracts cookie from req
 const cookieExtractor = (req) => {
-  let token = null;
-  if (req && req.cookies) token = req.cookies.access_token;
-  return token;
+  if (req && req.cookies) return req.cookies.access_token;
+  return null;
 };
 
 // authorization to endpoints
@@ -30,6 +29,6 @@ passport.use(new LocalStrategy((username, password, done) => {
     // user non-existent
     if (!user) return done(null, false);
     // check if password is correct
-    user.comparePassword(password, done);
+    return user.comparePassword(password, done);
   });
 }));
