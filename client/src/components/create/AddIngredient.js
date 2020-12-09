@@ -9,7 +9,7 @@ function AddIngredient(props) {
   };
 
   function submitIngredientHandler() {
-    props.submitIngredients(ingredient);
+    props.submitIngredient(ingredient);
     document.getElementById('ingredient').value = '';
   }
 
@@ -32,7 +32,7 @@ function AddIngredient(props) {
 }
 
 AddIngredient.propTypes = {
-  submitIngredients: Proptypes.func.isRequired,
+  submitIngredient: Proptypes.func.isRequired,
 };
 
 export default AddIngredient;

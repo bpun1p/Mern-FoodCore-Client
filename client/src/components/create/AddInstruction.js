@@ -9,7 +9,7 @@ function AddInstruction(props) {
   };
 
   const submitInstructionHandler = () => {
-    props.submitInstructions(instruction);
+    props.submitInstruction(instruction);
     document.getElementById('instruction').value = '';
   };
 
@@ -32,7 +32,7 @@ function AddInstruction(props) {
 }
 
 AddInstruction.propTypes = {
-  submitInstructions: Proptypes.func.isRequired,
+  submitInstruction: Proptypes.func.isRequired,
 };
 
 export default AddInstruction;

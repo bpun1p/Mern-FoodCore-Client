@@ -98,7 +98,7 @@ function CreateForm() {
     setReceipe({ ...receipe, [event.target.name]: event.target.value });
   };
 
-  const submitIngredients = (ingredient) => {
+  const submitIngredient = (ingredient) => {
     if (ingredient) {
       setIngredientInputed(true);
       setIngredientsElem((ingredientElem) => [...ingredientElem, ingredient]);
@@ -107,7 +107,7 @@ function CreateForm() {
     }
   };
 
-  const submitInstructions = (instruction) => {
+  const submitInstruction = (instruction) => {
     if (instruction) {
       setInstructionInputed(true);
       setInstructionsElem((instructions) => [...instructions, instruction]);
@@ -164,7 +164,7 @@ function CreateForm() {
               ? ingredientsElem.map((ingredient) => <li key={uuidv1()}>{ingredient}</li>)
               : null}
           </ul>
-          <AddIngredient submitIngredients={submitIngredients} />
+          <AddIngredient submitIngredient={submitIngredient} />
           {!ingredientInputed
             ? <p>input valid entry</p>
             : null}
@@ -176,7 +176,7 @@ function CreateForm() {
               ? instructionsElem.map((instruction) => <li key={uuidv1()}>{instruction}</li>)
               : null}
           </ol>
-          <AddInstruction submitInstructions={submitInstructions} />
+          <AddInstruction submitInstruction={submitInstruction} />
           {!instructionInputed
             ? <p>input valid entry</p>
             : null}
