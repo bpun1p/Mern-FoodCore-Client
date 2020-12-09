@@ -51,7 +51,7 @@ function LoginForm() {
             onChange={onChange}
           />
         </div>
-        {isValidEntry === false
+        {!isValidEntry
           ? <h1 className="invalid__input">Invalid username or password</h1>
           : null}
         <button type="submit" value="Login" className="form__submit-btn">Login</button>

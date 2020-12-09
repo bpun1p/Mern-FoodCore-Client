@@ -165,7 +165,7 @@ function CreateForm() {
               : null}
           </ul>
           <AddIngredient submitIngredients={submitIngredients} />
-          {ingredientInputed !== true
+          {!ingredientInputed
             ? <p>input valid entry</p>
             : null}
         </div>
@@ -177,7 +177,7 @@ function CreateForm() {
               : null}
           </ol>
           <AddInstruction submitInstructions={submitInstructions} />
-          {instructionInputed !== true
+          {!instructionInputed
             ? <p>input valid entry</p>
             : null}
         </div>

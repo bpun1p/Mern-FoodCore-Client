@@ -16,7 +16,7 @@ function Header() {
         <path className="knife-handle" d="M49.29,69.354l-3.622,7.178l4.553,7.886c0.93,1.607,2.985,2.16,4.594,1.232c1.609-0.93,2.16-2.986,1.23-4.596L49.29,69.354   z" />
         <text x="" y="110" fill="#fff" fontSize="20px" fontWeight="bold" text-align="center" fontFamily="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">FoodCore</text>
       </svg>
-      {isPopUp === false
+      {!isPopUp
         ? (
           <button type="button" className="header__navClosed" onClick={togglePopUp}>
             <svg id="nav-cover-icon" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 125">

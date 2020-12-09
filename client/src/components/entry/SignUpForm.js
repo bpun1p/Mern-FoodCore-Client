@@ -77,7 +77,7 @@ function SignUpForm() {
             className="signup__pass-confirm"
           />
         </div>
-        {isMatch !== true
+        {!isMatch
           ? <h1>username or password do not match</h1>
           : null}
         <input type="submit" value="Sign Up" className="form__submit-btn" />

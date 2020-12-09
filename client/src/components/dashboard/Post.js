@@ -33,7 +33,7 @@ function Post(props) {
           </div>
         </div>
       </div>
-      {isPopUp === true
+      {isPopUp
         ? <EnlargePost togglePopUp={togglePopUp} receipe={receipe} />
         : null}
     </>
