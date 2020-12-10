@@ -3,7 +3,7 @@ import DashboardHeader from '../Dashboard/DashboardHeader';
 import CreateForm from './CreateForm';
 import '../../assets/styles/Main.css';
 
-function Create() {
+export default function Create() {
   return (
     <div className="create">
       <DashboardHeader />
@@ -11,4 +11,3 @@ function Create() {
     </div>
   );
 }
-export default Create;

@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import AuthService from '../../service/AuthService';
 import { AuthContext } from '../../context/AuthContext';
 
-function DashboardNav() {
+export default function DashboardNav() {
   const { setIsAuthenticated, setUser } = useContext(AuthContext);
   const history = useHistory();
 
@@ -33,5 +33,3 @@ function DashboardNav() {
     </nav>
   );
 }
-
-export default DashboardNav;

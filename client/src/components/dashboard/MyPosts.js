@@ -7,7 +7,7 @@ import '../../assets/styles/Main.css';
 import Post from './Post';
 import ReceipeService from '../../service/RecipeService';
 
-function MyPosts() {
+export default function MyPosts() {
   const [ReceipeData, setReceipeData] = useState([]);
 
   useEffect(() => {
@@ -36,5 +36,3 @@ function MyPosts() {
     </>
   );
 }
-
-export default MyPosts;

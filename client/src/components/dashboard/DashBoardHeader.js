@@ -1,7 +1,7 @@
 import React from 'react';
 import DashboardNav from './DashboardNav';
 
-function DashboardHeader() {
+export default function DashboardHeader() {
   return (
     <div className="profile__header">
       <svg className="header__logo" data-testid="FoodCore-Logo" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 95 118.75">
@@ -14,5 +14,3 @@ function DashboardHeader() {
     </div>
   );
 }
-
-export default DashboardHeader;

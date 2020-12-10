@@ -2,7 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { v1 as uuidv1 } from 'uuid';
 
-function RecipeModal(props) {
+export default function RecipeModal(props) {
   const { receipe } = props;
 
   const { popUpHandler } = props;
@@ -67,5 +67,3 @@ RecipeModal.propTypes = {
   }),
   popUpHandler: Proptypes.func.isRequired,
 };
-
-export default RecipeModal;

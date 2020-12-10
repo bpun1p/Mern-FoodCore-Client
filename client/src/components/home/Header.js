@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
 
-function Header() {
+export default function Header() {
   const [isPopUp, setPopUp] = useState(false);
 
   const popUpHandler = () => {
@@ -30,5 +30,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;

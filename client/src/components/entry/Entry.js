@@ -7,7 +7,7 @@ import LoginForm from './LoginForm';
 import FoodCoreLogo from '../../assets/logo/logo-white.svg';
 import EntryDetails from './EntryDetails';
 
-function Entry() {
+export default function Entry() {
   const [currentUrl, setCurrentUrl] = useState(window.location.href.slice(21, 30));
 
   useEffect(() => {
@@ -47,5 +47,3 @@ function Entry() {
     </>
   );
 }
-
-export default Entry;

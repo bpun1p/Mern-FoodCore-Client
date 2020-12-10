@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 import ImageCompressor from '../Utils/ImageCompressor';
 import ToBase64 from '../Utils/ToBase64';
 
-function CreateForm() {
+export default function CreateForm() {
   const [isDisplay, setDisplay] = useState('');
   const [ingredientInputed, setIngredientInputed] = useState(true);
   const [instructionInputed, setInstructionInputed] = useState(true);
@@ -174,5 +174,3 @@ function CreateForm() {
     </div>
   );
 }
-
-export default CreateForm;

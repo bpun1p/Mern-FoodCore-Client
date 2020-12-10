@@ -6,7 +6,7 @@ import ReceipeService from '../../service/RecipeService';
 import AuthProvider from '../../context/AuthContext';
 import CreateForm from './CreateForm';
 import ImageCompressor from '../Utils/ImageCompressor';
-import ToBase64 from '../Utils/ToBase64';
+import { ToBase64 } from '../Utils/ToBase64';
 
 jest.mock('../../service/AuthService');
 jest.mock('../Utils/ImageCompressor');

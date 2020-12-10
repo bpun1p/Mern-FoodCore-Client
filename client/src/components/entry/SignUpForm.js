@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import SocialSignUp from './SocialSignUp';
 import AuthService from '../../service/AuthService';
 
-function SignUpForm() {
+export default function SignUpForm() {
   const [user, setUser] = useState({ username: '', password: '' });
   const [isMatch, setMatch] = useState(true);
   const [isEmpty, setEmpty] = useState(false);
@@ -118,5 +118,3 @@ function SignUpForm() {
     </div>
   );
 }
-
-export default SignUpForm;

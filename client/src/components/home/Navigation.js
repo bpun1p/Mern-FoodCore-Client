@@ -2,7 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function Navigation(props) {
+export default function Navigation(props) {
   const { popUpHandler } = props;
 
   return (
@@ -28,5 +28,3 @@ function Navigation(props) {
 Navigation.propTypes = {
   popUpHandler: Proptypes.func.isRequired,
 };
-
-export default Navigation;

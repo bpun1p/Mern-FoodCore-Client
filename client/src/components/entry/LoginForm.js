@@ -4,7 +4,7 @@ import SocialSignUp from './SocialSignUp';
 import { AuthContext } from '../../context/AuthContext';
 import AuthService from '../../service/AuthService';
 
-function LoginForm() {
+export default function LoginForm() {
   const [username, setUsername] = useState({ username: '' });
   const [isValidEntry, setValidEntry] = useState(true);
 
@@ -67,5 +67,3 @@ function LoginForm() {
     </div>
   );
 }
-
-export default LoginForm;

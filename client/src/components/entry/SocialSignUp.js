@@ -2,7 +2,7 @@ import React from 'react';
 import FBIcon from '../../assets/icons/facebook.png';
 import GoogleIcon from '../../assets/icons/google.png';
 
-function SocialSignUp() {
+export default function SocialSignUp() {
   return (
     <div className="social-signup">
       <div className="social-signup__container">
@@ -14,5 +14,3 @@ function SocialSignUp() {
     </div>
   );
 }
-
-export default SocialSignUp;

@@ -2,7 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import arrow from '../../assets/icons/right-chev.svg';
 
-function EntryDetails(props) {
+export default function EntryDetails(props) {
   const { url } = props;
 
   return (
@@ -20,5 +20,3 @@ function EntryDetails(props) {
 EntryDetails.propTypes = {
   url: Proptypes.string.isRequired,
 };
-
-export default EntryDetails;

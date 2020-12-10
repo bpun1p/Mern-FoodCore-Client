@@ -8,7 +8,7 @@ import Post from './Post';
 
 import ReceipeService from '../../service/RecipeService';
 
-function GlobalPosts() {
+export default function GlobalPosts() {
   const [AllReceipes, setAllReceipes] = useState([]);
 
   useEffect(() => {
@@ -37,5 +37,3 @@ function GlobalPosts() {
     </>
   );
 }
-
-export default GlobalPosts;

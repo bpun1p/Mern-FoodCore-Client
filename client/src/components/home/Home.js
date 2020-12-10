@@ -3,7 +3,7 @@ import '../../assets/styles/Main.css';
 import Header from './Header';
 import HomeDetails from './HomeDetails';
 
-function Home() {
+export default function Home() {
   return (
     <div className="home">
       <Header />
@@ -11,5 +11,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

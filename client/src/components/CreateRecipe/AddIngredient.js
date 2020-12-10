@@ -1,7 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-function AddIngredient(props) {
+export default function AddIngredient(props) {
   let ingredient;
 
   const ingredientHandler = (event) => {
@@ -35,5 +35,3 @@ function AddIngredient(props) {
 AddIngredient.propTypes = {
   submitIngredients: Proptypes.func.isRequired,
 };
-
-export default AddIngredient;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Proptypes from 'prop-types';
 import RecipeModal from '../Modal/RecipeModal';
 
-function Post(props) {
+export default function Post(props) {
   const [isPopUp, setPopUp] = useState(false);
   const { receipe } = props;
 
@@ -40,5 +40,3 @@ function Post(props) {
 Post.propTypes = {
   receipe: Proptypes.instanceOf(Object).isRequired,
 };
-
-export default Post;

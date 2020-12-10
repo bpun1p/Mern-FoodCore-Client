@@ -1,7 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
-function AddInstruction(props) {
+export default function AddInstruction(props) {
   let instruction;
 
   const instructionHandler = (event) => {
@@ -35,5 +35,3 @@ function AddInstruction(props) {
 AddInstruction.propTypes = {
   submitInstructions: Proptypes.func.isRequired,
 };
-
-export default AddInstruction;
