@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const userReceipeSchema = new Schema({
+const userRecipeSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -31,4 +31,4 @@ const userReceipeSchema = new Schema({
   },
 }, { timestamps: true });
 
-module.exports = mongoose.model('receipe', userReceipeSchema);
+module.exports = mongoose.model('recipe', userRecipeSchema);

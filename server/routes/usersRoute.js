@@ -16,9 +16,9 @@ router.post('/login', passport.authenticate('local', { session: false }), usersC
 
 router.get('/logout', passport.authenticate('jwt', { session: false }), usersController.logoutUser);
 
-router.post('/receipes', passport.authenticate('jwt', { session: false }), usersController.addUsersReceipe);
+router.post('/recipes', passport.authenticate('jwt', { session: false }), usersController.addUsersRecipe);
 
-router.get('/receipes', passport.authenticate('jwt', { session: false }), usersController.getUsersReceipe);
+router.get('/recipes', passport.authenticate('jwt', { session: false }), usersController.getUsersRecipe);
 
 router.get('/authenticated', passport.authenticate('jwt', { session: false }), usersController.authenticateUser);
 
