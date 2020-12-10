@@ -2,7 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import { v1 as uuidv1 } from 'uuid';
 
-function EnlargePost(props) {
+function RecipeModal(props) {
   const { receipe } = props;
 
   const { popUpHandler } = props;
@@ -52,11 +52,11 @@ function EnlargePost(props) {
   );
 }
 
-EnlargePost.defaultProps = {
+RecipeModal.defaultProps = {
   receipe: Proptypes.instanceOf(Object).isRequired,
 };
 
-EnlargePost.propTypes = {
+RecipeModal.propTypes = {
   receipe: Proptypes.shape({
     img: Proptypes.string.isRequired,
     description: Proptypes.string.isRequired,
@@ -68,4 +68,4 @@ EnlargePost.propTypes = {
   popUpHandler: Proptypes.func.isRequired,
 };
 
-export default EnlargePost;
+export default RecipeModal;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Proptypes from 'prop-types';
-import EnlargePost from '../modal/EnlargePost';
+import RecipeModal from '../Modal/RecipeModal';
 
 function Post(props) {
   const [isPopUp, setPopUp] = useState(false);
@@ -31,7 +31,7 @@ function Post(props) {
         </div>
       </div>
       {isPopUp === true
-        ? <EnlargePost popUpHandler={popUpHandler} receipe={receipe} />
+        ? <RecipeModal popUpHandler={popUpHandler} receipe={receipe} />
         : null}
     </>
   );

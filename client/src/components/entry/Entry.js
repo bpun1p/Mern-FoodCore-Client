@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../assets/styles/Main.css';
+import '../../assets/styles/Main.css';
 import { Link } from 'react-router-dom';
-import SignUp from './SignUpForm';
+import SignUpForm from './SignUpForm';
 import EntryFooter from './EntryFooter';
-import Login from './LoginForm';
-import FCoreLogo from '../assets/logo/logo-white.svg';
-import DualEntry from './entry/DualEntry';
+import LoginForm from './LoginForm';
+import FoodCoreLogo from '../../assets/logo/logo-white.svg';
+import EntryDetails from './EntryDetails';
 
 function Entry() {
   const [currentUrl, setCurrentUrl] = useState(window.location.href.slice(21, 30));
@@ -22,23 +22,23 @@ function Entry() {
   return (
     <>
       <Link to="/">
-        <img className="entry__logo" alt="web main logo" src={FCoreLogo} />
+        <img className="entry__logo" alt="web main logo" src={FoodCoreLogo} />
       </Link>
       <div className="dualEntry">
         <div className="dualEntry__form">
           {currentUrl === '/register'
             ? (
               <>
-                <SignUp />
-                <DualEntry url={currentUrl} />
-                <Login />
+                <SignUpForm />
+                <EntryDetails url={currentUrl} />
+                <LoginForm />
               </>
             )
             : (
               <>
-                <Login />
-                <DualEntry url={currentUrl} />
-                <SignUp />
+                <LoginForm />
+                <EntryDetails url={currentUrl} />
+                <SignUpForm />
               </>
             )}
         </div>

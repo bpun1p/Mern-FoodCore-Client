@@ -4,7 +4,7 @@ import AuthService from '../../service/AuthService';
 import AuthProvider from '../../context/AuthContext';
 import { BrowserRouter } from 'react-router-dom'
 
-import DashBoardHeader from './DashBoardHeader';
+import DashboardHeader from './DashboardHeader';
 
 jest.mock('../../service/AuthService');
 
@@ -12,7 +12,7 @@ test('renders the correct content', async () => {
     const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
     AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
 
-    const { getByTestId, getByText } = render(<BrowserRouter><DashBoardHeader /></BrowserRouter>, { wrapper: AuthProvider });
+    const { getByTestId, getByText } = render(<BrowserRouter><DashboardHeader /></BrowserRouter>, { wrapper: AuthProvider });
     await act(() => Promise.resolve())
 
     expect(getByTestId('FoodCore-Logo')).not.toBeNull();

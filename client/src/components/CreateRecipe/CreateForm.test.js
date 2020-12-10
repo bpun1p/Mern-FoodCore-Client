@@ -2,15 +2,15 @@ import * as React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AuthService from '../../service/AuthService';
-import ReceipeService from '../../service/ReceipeService';
+import ReceipeService from '../../service/RecipeService';
 import AuthProvider from '../../context/AuthContext';
 import CreateForm from './CreateForm';
-import ImageCompressor from '../utils/ImageCompressor';
-import ToBase64 from '../utils/ToBase64';
+import ImageCompressor from '../Utils/ImageCompressor';
+import ToBase64 from '../Utils/ToBase64';
 
 jest.mock('../../service/AuthService');
-jest.mock('../utils/ImageCompressor');
-jest.mock('../utils/ToBase64');
+jest.mock('../Utils/ImageCompressor');
+jest.mock('../Utils/ToBase64');
 jest.mock('../../service/ReceipeService');
 
 const mockHistoryPush = jest.fn();

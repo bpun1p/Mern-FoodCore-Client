@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Entry from './components/Entry';
-import MyPosts from './components/MyPosts';
-import Create from './components/Create';
-import AboutMe from './components/AboutMe';
+import Home from './components/Home/Home';
+import Entry from './components/Entry/Entry';
+import MyPosts from './components/Dashboard/MyPosts';
+import CreateRecipe from './components/CreateRecipe/Create';
+import AboutMe from './components/AboutMe/AboutMe';
 import AuthProvider from './context/AuthContext';
-import GlobalPosts from './components/GlobalPosts';
+import GlobalPosts from './components/Dashboard/GlobalPosts';
 
 ReactDOM.render(
   <AuthProvider>
@@ -15,7 +15,7 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/profile/create" component={Create} exact />
+          <Route path="/profile/create" component={CreateRecipe} exact />
           <Route path="/login" component={Entry} exact />
           <Route path="/about-Me" component={AboutMe} exact />
           <Route path="/register" component={Entry} exact />

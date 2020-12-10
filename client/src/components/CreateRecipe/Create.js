@@ -1,7 +1,7 @@
 import React from 'react';
-import DashboardHeader from '../dashboard/DashBoardHeader';
-import CreateForm from './create/CreateForm';
-import '../assets/styles/Main.css';
+import DashboardHeader from '../Dashboard/DashboardHeader';
+import CreateForm from './CreateForm';
+import '../../assets/styles/Main.css';
 
 function Create() {
   return (

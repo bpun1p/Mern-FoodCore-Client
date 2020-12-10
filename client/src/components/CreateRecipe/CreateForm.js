@@ -3,10 +3,10 @@ import { v1 as uuidv1 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import AddIngredient from './AddIngredient';
 import AddInstruction from './AddInstruction';
-import ReceipeService from '../../service/ReceipeService';
+import ReceipeService from '../../service/RecipeService';
 import { AuthContext } from '../../context/AuthContext';
-import ImageCompressor from '../utils/ImageCompressor';
-import ToBase64 from '../utils/ToBase64';
+import ImageCompressor from '../Utils/ImageCompressor';
+import ToBase64 from '../Utils/ToBase64';
 
 function CreateForm() {
   const [isDisplay, setDisplay] = useState('');

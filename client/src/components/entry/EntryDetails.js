@@ -2,7 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import arrow from '../../assets/icons/right-chev.svg';
 
-function DualEntry(props) {
+function EntryDetails(props) {
   const { url } = props;
 
   return (
@@ -17,8 +17,8 @@ function DualEntry(props) {
   );
 }
 
-DualEntry.propTypes = {
+EntryDetails.propTypes = {
   url: Proptypes.string.isRequired,
 };
 
-export default DualEntry;
+export default EntryDetails;

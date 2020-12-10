@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { trackPromise } from 'react-promise-tracker';
-import LoadingIndicator from '../utils/LoadingIndicator';
-import DashBoardHeader from './DashBoardHeader';
-import '../assets/styles/Main.css';
+import LoadingIndicator from '../Utils/LoadingIndicator';
+import DashboardHeader from './DashboardHeader';
+import '../../assets/styles/Main.css';
 import Post from './Post';
-import ReceipeService from '../../service/ReceipeService';
+import ReceipeService from '../../service/RecipeService';
 
 function MyPosts() {
   const [ReceipeData, setReceipeData] = useState([]);
@@ -25,7 +25,7 @@ function MyPosts() {
   return (
     <>
       <div className="profile">
-        <DashBoardHeader />
+        <DashboardHeader />
         <div className="createdposts">
           {ReceipeData.length !== 0
             ? ReceipeData.receipes.map((receipe) => <Post receipe={receipe} key={uuidv1()} />)
