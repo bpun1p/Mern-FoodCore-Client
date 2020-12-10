@@ -9,7 +9,7 @@ export default {
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
     }),
 
-  postReceipe: (receipe) => fetch('http://localhost:5000/user/receipes',
+  postRecipe: (receipe) => fetch('http://localhost:5000/user/receipes',
     {
       method: 'post',
       body: JSON.stringify(receipe),
@@ -22,7 +22,7 @@ export default {
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
     }),
 
-  postAllReceipes: (receipe) => fetch('http://localhost:5000/all-receipes',
+  postAllRecipes: (receipe) => fetch('http://localhost:5000/all-receipes',
     {
       method: 'post',
       body: JSON.stringify(receipe),

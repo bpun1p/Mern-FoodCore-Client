@@ -3,26 +3,28 @@ import { v1 as uuidv1 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import AddIngredient from './AddIngredient';
 import AddInstruction from './AddInstruction';
-import ReceipeService from '../../service/RecipeService';
+import RecipeService from '../../service/RecipeService';
 import { AuthContext } from '../../context/AuthContext';
 import ImageCompressor from '../Utils/ImageCompressor';
 import ToBase64 from '../Utils/ToBase64';
 
 export default function CreateForm() {
   const [isDisplay, setDisplay] = useState('');
-  const [ingredientInputed, setIngredientInputed] = useState(true);
-  const [instructionInputed, setInstructionInputed] = useState(true);
+  const [ingredientSaved, setIngredientSaved] = useState(true);
+  const [instructionSaved, setInstructionSaved] = useState(true);
   const [errorForm, setErrorForm] = useState('');
 
-  const [ingredientsElem, setIngredientsElem] = useState([]);
-  const [instructionsElem, setInstructionsElem] = useState([]);
+  const [ingredientsArray, setIngredientsArray] = useState([]);
+  const [instructionsArray, setInstructionsArray] = useState([]);
   const [isSelectedFile, setSelectedFile] = useState('');
-  const [receipe, setReceipe] = useState({
+  const [recipe, setRecipe] = useState({
     title: '', description: '', ingredients: '', instructions: '', img: '', author: '',
   });
+  const { user } = useContext(AuthContext);
+  const history = useHistory();
 
   const resetForm = () => {
-    setReceipe({
+    setRecipe({
       title: '',
       description: '',
       ingredients: '',
@@ -30,17 +32,14 @@ export default function CreateForm() {
     });
   };
 
-  const { user } = useContext(AuthContext);
-  const history = useHistory();
-
   const onSubmit = (event) => {
     event.preventDefault();
-    if (ingredientsElem.length !== 0 && instructionsElem.length !== 0) {
-      ReceipeService.postReceipe(
+    if (ingredientsArray.length !== 0 && instructionsArray.length !== 0) {
+      RecipeService.postRecipe(
         {
-          ...receipe,
-          ingredients: ingredientsElem,
-          instructions: instructionsElem,
+          ...recipe,
+          ingredients: ingredientsArray,
+          instructions: instructionsArray,
           img: isSelectedFile,
           author: user.username,
         },
@@ -48,11 +47,11 @@ export default function CreateForm() {
         .then((data) => {
           resetForm();
           if (!data.message.msgError) {
-            ReceipeService.postAllReceipes(
+            RecipeService.postAllRecipes(
               {
-                ...receipe,
-                ingredients: ingredientsElem,
-                instructions: instructionsElem,
+                ...recipe,
+                ingredients: ingredientsArray,
+                instructions: instructionsArray,
                 img: isSelectedFile,
                 author: user.username,
               },
@@ -60,9 +59,7 @@ export default function CreateForm() {
               .then(() => history.push('/profile/global'));
           }
         });
-    } else {
-      setErrorForm('Please fill in all feilds');
-    }
+    } else setErrorForm('Please fill in all feilds');
   };
 
   function imageFileHandler(event) {
@@ -78,25 +75,21 @@ export default function CreateForm() {
   }
 
   const onChange = (event) => {
-    setReceipe({ ...receipe, [event.target.name]: event.target.value });
+    setRecipe({ ...recipe, [event.target.name]: event.target.value });
   };
 
-  const submitIngredients = (ingredient) => {
-    if (ingredient !== undefined) {
-      setIngredientInputed(true);
-      setIngredientsElem((ingredientElem) => [...ingredientElem, ingredient]);
-    } else {
-      setIngredientInputed(false);
-    }
+  const saveIngredient = (ingredient) => {
+    if (ingredient) {
+      setIngredientSaved(true);
+      setIngredientsArray((ingredients) => [...ingredients, ingredient]);
+    } else setIngredientSaved(false);
   };
 
-  const submitInstructions = (instruction) => {
-    if (instruction !== undefined) {
-      setInstructionInputed(true);
-      setInstructionsElem((instructions) => [...instructions, instruction]);
-    } else {
-      setInstructionInputed(false);
-    }
+  const saveInstruction = (instruction) => {
+    if (instruction) {
+      setInstructionSaved(true);
+      setInstructionsArray((instructions) => [...instructions, instruction]);
+    } else setInstructionSaved(false);
   };
 
   return (
@@ -115,16 +108,16 @@ export default function CreateForm() {
               ? <img alt="upload" className="image__uploaded" data-testid="displayed-image" src={URL.createObjectURL(isDisplay)} />
               : null}
           </div>
-          <div className="createform__receipe">
-            <h2 htmlFor="receipe">Receipe&apos;s Name:</h2>
+          <div className="create-form__receipe">
+            <h2 htmlFor="recipe">Recipe&apos;s Name:</h2>
             <input
               type="text"
               id="receipe-title"
               name="title"
-              value={receipe.title}
+              value={recipe.title}
               onChange={onChange}
               placeholder="Input Name"
-              data-testid="receipe-name-text-field"
+              data-testid="recipe-name-text-field"
             />
           </div>
           <br />
@@ -135,7 +128,7 @@ export default function CreateForm() {
               rows="20"
               id="receipe-description"
               name="description"
-              value={receipe.description}
+              value={recipe.description}
               onChange={onChange}
               placeholder="Input Description"
               data-testid="description-text-field"
@@ -145,24 +138,24 @@ export default function CreateForm() {
         <div className="createform__ingredients">
           <h1 className="ingredients__header">INGREDIENTS</h1>
           <ul>
-            {ingredientsElem.length !== 0
-              ? ingredientsElem.map((ingredient) => <li key={uuidv1()}>{ingredient}</li>)
+            {ingredientsArray.length !== 0
+              ? ingredientsArray.map((ingredient) => <li key={uuidv1()}>{ingredient}</li>)
               : null}
           </ul>
-          <AddIngredient submitIngredients={submitIngredients} />
-          {ingredientInputed !== true
+          <AddIngredient saveIngredient={saveIngredient} />
+          {!ingredientSaved
             ? <p>input valid entry</p>
             : null}
         </div>
         <div className="createform__directions">
           <h1>INSTRUCTIONS</h1>
           <ol>
-            {instructionsElem.length !== 0
-              ? instructionsElem.map((instruction) => <li key={uuidv1()}>{instruction}</li>)
+            {instructionsArray.length !== 0
+              ? instructionsArray.map((instruction) => <li key={uuidv1()}>{instruction}</li>)
               : null}
           </ol>
-          <AddInstruction submitInstructions={submitInstructions} />
-          {instructionInputed !== true
+          <AddInstruction saveInstruction={saveInstruction} />
+          {!instructionSaved
             ? <p>input valid entry</p>
             : null}
         </div>

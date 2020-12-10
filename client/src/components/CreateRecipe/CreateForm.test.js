@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AuthService from '../../service/AuthService';
-import ReceipeService from '../../service/RecipeService';
+import RecipeService from '../../service/RecipeService';
 import AuthProvider from '../../context/AuthContext';
 import CreateForm from './CreateForm';
 import ImageCompressor from '../Utils/ImageCompressor';
@@ -11,7 +11,7 @@ import { ToBase64 } from '../Utils/ToBase64';
 jest.mock('../../service/AuthService');
 jest.mock('../Utils/ImageCompressor');
 jest.mock('../Utils/ToBase64');
-jest.mock('../../service/ReceipeService');
+jest.mock('../../service/RecipeService');
 
 const mockHistoryPush = jest.fn();
 global.URL.createObjectURL = jest.fn();
@@ -32,8 +32,8 @@ test('renders content correctly', async () => {
     await act(() => Promise.resolve());
     
     expect(getByTestId('image-input')).not.toBeNull();
-    expect(getByText("Receipe's Name:")).toBeInTheDocument();
-    expect(getByTestId('receipe-name-text-field')).not.toBeNull();
+    expect(getByText("Recipe's Name:")).toBeInTheDocument();
+    expect(getByTestId('recipe-name-text-field')).not.toBeNull();
     expect(getByText("Description:")).toBeInTheDocument();
     expect(getByTestId('description-text-field')).not.toBeNull();
     expect(getByText("INGREDIENTS")).toBeInTheDocument();
@@ -138,7 +138,7 @@ describe('image uploader', () => {
     })
 })
 
-describe('Create receipe button', () => {
+describe('Create recipe button', () => {
 
     beforeEach(() => {
         const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
@@ -159,7 +159,7 @@ describe('Create receipe button', () => {
 
         await act(() => Promise.resolve());
 
-        fireEvent.change(getByTestId('receipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
+        fireEvent.change(getByTestId('recipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
         fireEvent.change(getByTestId('description-text-field'), {target: {value: 'A delicious chicken pie made from scratch with carrots, peas and celery.'}});
         fireEvent.change(getByTestId('ingredient-textField'), {target: {value: 'chicken breast'}});
 
@@ -174,8 +174,8 @@ describe('Create receipe button', () => {
         const fakeBase64 = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQUFBAYFB';
         const successResponse = { message: { msgBody: 'post successful', msgError: false }};
 
-        ReceipeService.postAllReceipes.mockResolvedValue(successResponse);
-        ReceipeService.postReceipe.mockResolvedValue(successResponse);
+        RecipeService.postAllRecipes.mockResolvedValue(successResponse);
+        RecipeService.postRecipe.mockResolvedValue(successResponse);
         ImageCompressor.mockResolvedValue(file);
         ToBase64.mockResolvedValue(fakeBase64);
 
@@ -186,7 +186,7 @@ describe('Create receipe button', () => {
         fireEvent.change(getByTestId('image-input'), {target: {files: [file]}});
         await act(() => Promise.resolve());
 
-        fireEvent.change(getByTestId('receipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
+        fireEvent.change(getByTestId('recipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
         fireEvent.change(getByTestId('description-text-field'), {target: {value: 'A delicious chicken pie made from scratch with carrots, peas and celery.'}});
 
         fireEvent.change(getByTestId('ingredient-textField'), {target: {value: 'chicken breast'}});
