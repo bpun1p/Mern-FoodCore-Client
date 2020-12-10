@@ -5,21 +5,18 @@ import LoadingIndicator from '../Utils/LoadingIndicator';
 import DashboardHeader from './DashboardHeader';
 import '../../assets/styles/Main.css';
 import Post from './Post';
-import ReceipeService from '../../service/RecipeService';
+import RecipeService from '../../service/RecipeService';
 
 export default function MyPosts() {
-  const [ReceipeData, setReceipeData] = useState([]);
+  const [RecipeData, setRecipeData] = useState([]);
 
   useEffect(() => {
-    let isMounted = true;
     trackPromise(
-      ReceipeService.getReceipes()
+      RecipeService.getRecipes()
         .then((data) => {
-          setReceipeData(data);
+          setRecipeData(data);
         }),
     );
-    // eslint-disable-next-line no-unused-vars
-    return () => { isMounted = false; };
   }, []);
 
   return (
@@ -27,8 +24,8 @@ export default function MyPosts() {
       <div className="profile">
         <DashboardHeader />
         <div className="createdposts">
-          {ReceipeData.length !== 0
-            ? ReceipeData.receipes.map((receipe) => <Post receipe={receipe} key={uuidv1()} />)
+          {RecipeData.length !== 0
+            ? RecipeData.receipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
             : null}
           <LoadingIndicator />
         </div>

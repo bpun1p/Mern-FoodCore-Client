@@ -4,14 +4,14 @@ import RecipeModal from '../Modal/RecipeModal';
 
 export default function Post(props) {
   const [isPopUp, setPopUp] = useState(false);
-  const { receipe } = props;
+  const { recipe } = props;
 
   const popUpHandler = () => {
     setPopUp(!isPopUp);
   };
 
   const postImage = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(${receipe.img})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(${recipe.img})`,
   };
 
   return (
@@ -20,23 +20,23 @@ export default function Post(props) {
         <div className="card" data-testid="Post-Image" style={postImage}>
           <div className="card__description">
             <h1 className="card__name" data-testid="Receipe-Title">
-              {receipe.title}
+              {recipe.title}
             </h1>
             <h3 className="card__author" data-testid="Receipe-Author">
               By
               <br />
-              {receipe.author}
+              {recipe.author}
             </h3>
           </div>
         </div>
       </div>
       {isPopUp === true
-        ? <RecipeModal popUpHandler={popUpHandler} receipe={receipe} />
+        ? <RecipeModal popUpHandler={popUpHandler} recipe={recipe} />
         : null}
     </>
   );
 }
 
 Post.propTypes = {
-  receipe: Proptypes.instanceOf(Object).isRequired,
+  recipe: Proptypes.instanceOf(Object).isRequired,
 };

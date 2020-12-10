@@ -1,5 +1,5 @@
 export default {
-  getReceipes: () => fetch('http://localhost:5000/user/receipes',
+  getRecipes: () => fetch('http://localhost:5000/user/receipes',
     {
       withCredentials: true,
       credentials: 'include',
@@ -9,10 +9,10 @@ export default {
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
     }),
 
-  postRecipe: (receipe) => fetch('http://localhost:5000/user/receipes',
+  postRecipe: (recipe) => fetch('http://localhost:5000/user/receipes',
     {
       method: 'post',
-      body: JSON.stringify(receipe),
+      body: JSON.stringify(recipe),
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
       credentials: 'include',
@@ -22,10 +22,10 @@ export default {
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
     }),
 
-  postAllRecipes: (receipe) => fetch('http://localhost:5000/all-receipes',
+  postAllRecipes: (recipe) => fetch('http://localhost:5000/all-receipes',
     {
       method: 'post',
-      body: JSON.stringify(receipe),
+      body: JSON.stringify(recipe),
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
       credentials: 'include',
@@ -35,7 +35,7 @@ export default {
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
     }),
 
-  getAllReceipes: () => fetch('http://localhost:5000/all-receipes',
+  getAllRecipes: () => fetch('http://localhost:5000/all-receipes',
     {
       withCredentials: true,
       credentials: 'include',

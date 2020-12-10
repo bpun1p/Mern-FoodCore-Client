@@ -6,21 +6,18 @@ import DashboardHeader from './DashboardHeader';
 import '../../assets/styles/Main.css';
 import Post from './Post';
 
-import ReceipeService from '../../service/RecipeService';
+import RecipeService from '../../service/RecipeService';
 
 export default function GlobalPosts() {
-  const [AllReceipes, setAllReceipes] = useState([]);
+  const [allRecipes, setAllRecipes] = useState([]);
 
   useEffect(() => {
-    let isMounted = true;
     trackPromise(
-      ReceipeService.getAllReceipes()
+      RecipeService.getAllRecipes()
         .then((data) => {
-          setAllReceipes(data);
+          setAllRecipes(data);
         }),
     );
-    // eslint-disable-next-line no-unused-vars
-    return () => { isMounted = false; };
   }, []);
 
   return (
@@ -28,8 +25,8 @@ export default function GlobalPosts() {
       <div className="profile">
         <DashboardHeader />
         <div className="createdposts">
-          {AllReceipes.length !== 0
-            ? AllReceipes.map((receipe) => <Post receipe={receipe} key={uuidv1()} />)
+          {allRecipes.length !== 0
+            ? allRecipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
             : null}
           <LoadingIndicator />
         </div>
