@@ -15,12 +15,12 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/profile/create" component={CreateRecipe} exact />
+          <Route path="/dashboard/create" component={CreateRecipe} exact />
           <Route path="/login" component={Entry} exact />
           <Route path="/about-Me" component={AboutMe} exact />
           <Route path="/register" component={Entry} exact />
-          <Route path="/profile/global" component={GlobalPosts} exact />
-          <Route path="/profile/MyPosts" component={MyPosts} exact />
+          <Route path="/dashboard/global" component={GlobalPosts} exact />
+          <Route path="/dashboard/my-posts" component={MyPosts} exact />
         </Switch>
       </Router>
     </React.StrictMode>

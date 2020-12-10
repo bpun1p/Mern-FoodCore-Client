@@ -21,9 +21,9 @@ export default function MyPosts() {
 
   return (
     <>
-      <div className="profile">
+      <div className="dashboard">
         <DashboardHeader />
-        <div className="createdposts">
+        <div className="created-posts">
           {RecipeData.length !== 0
             ? RecipeData.recipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
             : null}

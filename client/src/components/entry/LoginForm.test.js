@@ -19,19 +19,19 @@ jest.mock('react-router-dom', () => ({
 test('renders the correct content', () => {
     const { getByTestId, getByText } = render(<LoginForm />);
     
-    expect((getByTestId('loginTitle')).textContent).toEqual('Login');
-    expect(getByTestId('Username')).not.toBeNull();
-    expect(getByTestId('Password')).not.toBeNull();
-    expect((getByTestId('LoginBtn')).textContent).toEqual('Login');
+    expect((getByTestId('login-title')).textContent).toEqual('Login');
+    expect(getByTestId('username')).not.toBeNull();
+    expect(getByTestId('password')).not.toBeNull();
+    expect((getByTestId('login-btn')).textContent).toEqual('Login');
     expect(getByText('Or log in with')).not.toBeNull();
-    expect(getByTestId('facebookIcon')).not.toBeNull();
-    expect(getByTestId('googleIcon')).not.toBeNull();
+    expect(getByTestId('facebook-icon')).not.toBeNull();
+    expect(getByTestId('google-icon')).not.toBeNull();
 });
 describe('when user inputs login information', () => {
     test('no inputs should output an invalid response', () => {
         const { getByTestId, getByText } = render(<LoginForm />);
 
-        fireEvent.click(getByTestId('LoginBtn'));
+        fireEvent.click(getByTestId('login-btn'));
 
         expect(getByText('Invalid username or password')).toBeInTheDocument();
     });
@@ -42,10 +42,10 @@ describe('when user inputs login information', () => {
         
         AuthService.login.mockResolvedValue(unauthenticatedResponse);
 
-        fireEvent.change(getByTestId('Username'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('Password'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('username'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
         
-        fireEvent.click(getByTestId('LoginBtn'));
+        fireEvent.click(getByTestId('login-btn'));
 
         await act(() => Promise.resolve());
         
@@ -63,15 +63,15 @@ describe('when user inputs login information', () => {
 
         AuthService.login.mockResolvedValue(authenticatedResponse);
 
-        fireEvent.change(getByTestId('Username'), {target: {value: "Bpun1p"}});
-        fireEvent.change(getByTestId('Password'), {target: {value: "Guy123su"}});
+        fireEvent.change(getByTestId('username'), {target: {value: "Bpun1p"}});
+        fireEvent.change(getByTestId('password'), {target: {value: "Guy123su"}});
 
-        fireEvent.click(getByTestId('LoginBtn'));
+        fireEvent.click(getByTestId('login-btn'));
 
         await act(() => Promise.resolve());
 
         expect(queryByText('Invalid username or password')).not.toBeInTheDocument(); 
-        expect(mockHistoryPush).toHaveBeenCalledWith('/profile/global');
+        expect(mockHistoryPush).toHaveBeenCalledWith('/dashboard/global');
         expect(mockHistoryPush).toHaveBeenCalledTimes(1);
     });
 });

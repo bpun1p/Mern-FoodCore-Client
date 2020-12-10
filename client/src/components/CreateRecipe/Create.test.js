@@ -17,7 +17,7 @@ test('an element from each subcomponent exists', async () => {
 
     await act(() => Promise.resolve())
 
-    expect(getByTestId('FoodCore-Logo')).toBeInTheDocument();
+    expect(getByTestId('foodcore-logo')).toBeInTheDocument();
     expect(getByText("Recipe's Name:")).toBeInTheDocument();
     expect(getByTestId('add-ingredient-button')).toBeInTheDocument();
     expect(getByTestId('add-instruction-button')).toBeInTheDocument();

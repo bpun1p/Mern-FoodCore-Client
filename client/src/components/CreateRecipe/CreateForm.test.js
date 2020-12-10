@@ -6,7 +6,7 @@ import RecipeService from '../../service/RecipeService';
 import AuthProvider from '../../context/AuthContext';
 import CreateForm from './CreateForm';
 import ImageCompressor from '../Utils/ImageCompressor';
-import { ToBase64 } from '../Utils/ToBase64';
+import ToBase64 from '../Utils/ToBase64';
 
 jest.mock('../../service/AuthService');
 jest.mock('../Utils/ImageCompressor');
@@ -37,10 +37,10 @@ test('renders content correctly', async () => {
     expect(getByText("Description:")).toBeInTheDocument();
     expect(getByTestId('description-text-field')).not.toBeNull();
     expect(getByText("INGREDIENTS")).toBeInTheDocument();
-    expect(getByTestId('ingredient-textField')).not.toBeNull();
+    expect(getByTestId('ingredient-text-field')).not.toBeNull();
     expect(getByTestId('add-ingredient-button')).not.toBeNull();
     expect(getByText("INSTRUCTIONS")).toBeInTheDocument();
-    expect(getByTestId('instruction-textField')).not.toBeNull();
+    expect(getByTestId('instruction-text-field')).not.toBeNull();
     expect(getByTestId('add-instruction-button')).not.toBeNull();
     expect(getByText('Create')).toHaveAttribute('type', 'submit');
 })
@@ -65,7 +65,7 @@ describe('add ingredients form', () => {
 
         await act(() => Promise.resolve());
 
-        fireEvent.change(getByTestId('ingredient-textField'), {target: {value: 'chicken breast'}});
+        fireEvent.change(getByTestId('ingredient-text-field'), {target: {value: 'chicken breast'}});
         fireEvent.click(getByTestId('add-ingredient-button'))
 
         expect(getByText('chicken breast')).toBeInTheDocument();
@@ -92,7 +92,7 @@ describe('add instructions form', () => {
 
         await act(() => Promise.resolve());
 
-        fireEvent.change(getByTestId('instruction-textField'), {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
+        fireEvent.change(getByTestId('instruction-text-field'), {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
         fireEvent.click(getByTestId('add-instruction-button'));
 
         expect(getByText('Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes')).toBeInTheDocument();
@@ -152,7 +152,7 @@ describe('Create recipe button', () => {
 
         fireEvent.click(getByText('Create'));
 
-        expect(getByText('Please fill in all feilds')).toBeInTheDocument();
+        expect(getByText('Please fill in all fields')).toBeInTheDocument();
     });
     test('when clicked with some filled inputs will display an error message in the DOM', async () => {
         const { getByText, getByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
@@ -161,13 +161,13 @@ describe('Create recipe button', () => {
 
         fireEvent.change(getByTestId('recipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
         fireEvent.change(getByTestId('description-text-field'), {target: {value: 'A delicious chicken pie made from scratch with carrots, peas and celery.'}});
-        fireEvent.change(getByTestId('ingredient-textField'), {target: {value: 'chicken breast'}});
+        fireEvent.change(getByTestId('ingredient-text-field'), {target: {value: 'chicken breast'}});
 
         fireEvent.click(getByTestId('add-ingredient-button'));
 
         fireEvent.click(getByText('Create'));
 
-        expect(getByText('Please fill in all feilds')).toBeInTheDocument();
+        expect(getByText('Please fill in all fields')).toBeInTheDocument();
     });
     test('when clicked with fully filled input will send user back to their dashboard', async () => {
         const file = new File(['(⌐□_□)'], 'coolGuy.png', {type: 'image/png'});
@@ -189,10 +189,10 @@ describe('Create recipe button', () => {
         fireEvent.change(getByTestId('recipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
         fireEvent.change(getByTestId('description-text-field'), {target: {value: 'A delicious chicken pie made from scratch with carrots, peas and celery.'}});
 
-        fireEvent.change(getByTestId('ingredient-textField'), {target: {value: 'chicken breast'}});
+        fireEvent.change(getByTestId('ingredient-text-field'), {target: {value: 'chicken breast'}});
         fireEvent.click(getByTestId('add-ingredient-button'));
 
-        fireEvent.change(getByTestId('instruction-textField'), {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
+        fireEvent.change(getByTestId('instruction-text-field'), {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
         fireEvent.click(getByTestId('add-instruction-button'));
         
         fireEvent.click(getByText('Create'));

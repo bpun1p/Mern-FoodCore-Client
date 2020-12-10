@@ -7,11 +7,11 @@ export default function EntryDetails(props) {
 
   return (
     <>
-      <h4 className="dualEntry__split">
+      <h4 className="entry__details">
         {url === '/login'
           ? "Don't have an account ?"
           : 'Already have an account ?'}
-        <img data-testid="arrow" src={arrow} alt="right cheveron arrow" className="dualEntry__guide-arrow" />
+        <img data-testid="arrow" src={arrow} alt="right cheveron arrow" className="entry__guide-arrow" />
       </h4>
     </>
   );

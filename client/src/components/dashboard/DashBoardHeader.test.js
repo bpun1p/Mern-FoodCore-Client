@@ -15,7 +15,7 @@ test('renders the correct content', async () => {
     const { getByTestId, getByText } = render(<BrowserRouter><DashboardHeader /></BrowserRouter>, { wrapper: AuthProvider });
     await act(() => Promise.resolve())
 
-    expect(getByTestId('FoodCore-Logo')).not.toBeNull();
+    expect(getByTestId('foodcore-logo')).not.toBeNull();
     expect(getByText('GLOBAL')).not.toBeNull();
     expect(getByText('MYPOSTS')).not.toBeNull();
     expect(getByText('CREATE')).not.toBeNull();

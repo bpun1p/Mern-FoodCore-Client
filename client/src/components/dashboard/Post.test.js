@@ -33,9 +33,9 @@ const mockRecipe = {
 test('component renders correct content', () => {
     const { getByTestId } = render(<Post recipe={mockRecipe} />)
 
-    expect(getByTestId('Post-Image')).not.toBeNull();
-    expect(getByTestId('Recipe-Title').textContent).toEqual('Triple Chocolate Chunk Cookies');
-    expect(getByTestId('Recipe-Author').textContent).toEqual('ByMadeline');
+    expect(getByTestId('post-image')).not.toBeNull();
+    expect(getByTestId('recipe-title').textContent).toEqual('Triple Chocolate Chunk Cookies');
+    expect(getByTestId('recipe-author').textContent).toEqual('ByMadeline');
 })
 
 test('Clicking the post will open a modal window displaying post content', () => {
@@ -43,7 +43,7 @@ test('Clicking the post will open a modal window displaying post content', () =>
 
     expect(queryByTestId('exit-modal-btn')).not.toBeInTheDocument();
 
-    fireEvent.click(getByTestId('Post-Card'));
+    fireEvent.click(getByTestId('post-container'));
 
     expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
 

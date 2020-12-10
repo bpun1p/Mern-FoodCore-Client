@@ -19,12 +19,12 @@ export default function GlobalPosts() {
         }),
     );
   }, []);
-  console.log(allRecipes.length);
+
   return (
     <>
-      <div className="profile">
+      <div className="dashboard">
         <DashboardHeader />
-        <div className="createdposts">
+        <div className="created-posts">
           {allRecipes.length !== 0
             ? allRecipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
             : null}

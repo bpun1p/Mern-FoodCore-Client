@@ -18,58 +18,58 @@ jest.mock('react-router-dom', () => ({
 test('renders the correct content', () => {
     const { getByTestId, getByText } = render(<SignUpForm />);
 
-    expect(getByTestId('signupTitle').textContent).toEqual('Sign Up');
-    expect(getByTestId('Username')).not.toBeNull();
-    expect(getByTestId('Password')).not.toBeNull();
-    expect(getByTestId('UsernameConfirm')).not.toBeNull();
-    expect(getByTestId('PasswordConfirm')).not.toBeNull();
-    expect(getByTestId('SignupBtn')).not.toBeNull();
+    expect(getByTestId('sign-up-title').textContent).toEqual('Sign Up');
+    expect(getByTestId('username')).not.toBeNull();
+    expect(getByTestId('password')).not.toBeNull();
+    expect(getByTestId('username-confirm')).not.toBeNull();
+    expect(getByTestId('password-confirm')).not.toBeNull();
+    expect(getByTestId('sign-up-btn')).not.toBeNull();
     expect(getByText('Or sign up with')).not.toBeNull();
-    expect(getByTestId('facebookIcon')).not.toBeNull();
-    expect(getByTestId('googleIcon')).not.toBeNull();
+    expect(getByTestId('facebook-icon')).not.toBeNull();
+    expect(getByTestId('google-icon')).not.toBeNull();
 });
 describe('when user inputs information into sign up form', () => {
     test('no inputs should output an invalid response', () => {
         const { getByTestId, getByText } = render(<SignUpForm />);
 
-        fireEvent.click(getByTestId('SignupBtn'));
+        fireEvent.click(getByTestId('sign-up-btn'));
 
         expect(getByText('please fill in all feilds')).toBeInTheDocument();
     });
     test('inputs some fields should output an invalid response', () => {
         const { getByTestId, getByText } = render(<SignUpForm />);
 
-        fireEvent.change(getByTestId('Username'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('Password'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('username'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
 
-        fireEvent.click(getByTestId('SignupBtn'));
+        fireEvent.click(getByTestId('sign-up-btn'));
 
         expect(getByText('please fill in all feilds')).toBeInTheDocument();
     });
     test('inputs dont match should output invalid response', () => {
         const { getByTestId, getByText } = render(<SignUpForm />);
 
-        fireEvent.change(getByTestId('Username'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('UsernameConfirm'), {target: {value: 'falseMatch'}});
-        fireEvent.change(getByTestId('Password'), {target: {value: 'fakePassword'}});
-        fireEvent.change(getByTestId('PasswordConfirm'), {target: {value: 'falseMatch'}});
+        fireEvent.change(getByTestId('username'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('username-confirm'), {target: {value: 'falseMatch'}});
+        fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('password-confirm'), {target: {value: 'falseMatch'}});
 
-        fireEvent.click(getByTestId('SignupBtn'));
+        fireEvent.click(getByTestId('sign-up-btn'));
 
         expect(getByText('username or password do not match')).toBeInTheDocument();
     });
     test('correct inputs should call push to login page', async () => {
-        const { getByTestId, getByText } = render(<SignUpForm />);
+        const { getByTestId } = render(<SignUpForm />);
 
         const successResponse =  { message: { msgBody: 'account successfully created', msgError: false } };
         AuthService.register.mockResolvedValue(successResponse);
 
-        fireEvent.change(getByTestId('Username'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('UsernameConfirm'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('Password'), {target: {value: 'fakePassword'}});
-        fireEvent.change(getByTestId('PasswordConfirm'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('username'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('username-confirm'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('password-confirm'), {target: {value: 'fakePassword'}});
 
-        fireEvent.click(getByTestId('SignupBtn'));
+        fireEvent.click(getByTestId('sign-up-btn'));
 
         await act(() => Promise.resolve());
         expect(mockHistoryPush).toHaveBeenCalledWith('/login');
@@ -81,12 +81,12 @@ describe('when user inputs information into sign up form', () => {
         const errorResponse =  { message: { msgBody: 'username is already used', msgError: true } };
         AuthService.register.mockResolvedValue(errorResponse);
 
-        fireEvent.change(getByTestId('Username'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('UsernameConfirm'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('Password'), {target: {value: 'fakePassword'}});
-        fireEvent.change(getByTestId('PasswordConfirm'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('username'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('username-confirm'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('password-confirm'), {target: {value: 'fakePassword'}});
 
-        fireEvent.click(getByTestId('SignupBtn'));
+        fireEvent.click(getByTestId('sign-up-btn'));
 
         await act(() => Promise.resolve());
 
@@ -103,12 +103,12 @@ describe('when user inputs information into sign up form', () => {
 
         AuthService.register.mockResolvedValue(successResponse);
 
-        fireEvent.change(getByTestId('Username'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('UsernameConfirm'), {target: {value: 'fakeUsername'}});
-        fireEvent.change(getByTestId('Password'), {target: {value: 'fakePassword'}});
-        fireEvent.change(getByTestId('PasswordConfirm'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('username'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('username-confirm'), {target: {value: 'fakeUsername'}});
+        fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
+        fireEvent.change(getByTestId('password-confirm'), {target: {value: 'fakePassword'}});
 
-        fireEvent.click(getByTestId('SignupBtn'));
+        fireEvent.click(getByTestId('sign-up-btn'));
 
         await act(() => Promise.resolve());
 

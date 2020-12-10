@@ -26,7 +26,7 @@ export default function AddInstruction(props) {
         placeholder="Input Instruction"
         className="add__input"
         onChange={onChange}
-        data-testid="instruction-textField"
+        data-testid="instruction-text-field"
       />
     </div>
   );

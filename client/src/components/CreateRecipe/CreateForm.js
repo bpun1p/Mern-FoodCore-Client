@@ -94,13 +94,13 @@ export default function CreateForm() {
 
   return (
     <div>
-      <form className="createform" onSubmit={onSubmit}>
-        <div className="createform__about">
-          <div className="createform__upload">
+      <form className="create-form" onSubmit={onSubmit}>
+        <div className="create-form__about">
+          <div className="create-form__upload">
             <input
               type="file"
               name="picture"
-              id="uploadedPhoto"
+              id="uploaded-photo"
               onChange={imageFileHandler}
               data-testid="image-input"
             />
@@ -121,7 +121,7 @@ export default function CreateForm() {
             />
           </div>
           <br />
-          <div className="createform__description">
+          <div className="create-form__description">
             <h2 className="description-text" htmlFor="description">Description:</h2>
             <textarea
               type="text"
@@ -135,7 +135,7 @@ export default function CreateForm() {
             />
           </div>
         </div>
-        <div className="createform__ingredients">
+        <div className="create-form__ingredients">
           <h1 className="ingredients__header">INGREDIENTS</h1>
           <ul>
             {ingredientsArray.length !== 0
@@ -147,7 +147,7 @@ export default function CreateForm() {
             ? <p>input valid entry</p>
             : null}
         </div>
-        <div className="createform__directions">
+        <div className="create-form__instructions">
           <h1>INSTRUCTIONS</h1>
           <ol>
             {instructionsArray.length !== 0
@@ -160,8 +160,8 @@ export default function CreateForm() {
             : null}
         </div>
         {errorForm ? <p>{errorForm}</p> : null}
-        <div className="createform__submission">
-          <button type="submit" className="createform__submit">Create</button>
+        <div className="create-form__submission">
+          <button type="submit" className="create-form__submit">Create</button>
         </div>
       </form>
     </div>

@@ -7,6 +7,6 @@ import Home from './Home';
 test('an element from each subcomponent exists', () => {
     const { getByText, getByTestId } = render(<Home />)
 
-    expect(getByTestId('navBtn')).toBeInTheDocument();
+    expect(getByTestId('nav-btn')).toBeInTheDocument();
     expect(getByText('Where Cooking Is Love Made Visible.')).toBeInTheDocument();
 })

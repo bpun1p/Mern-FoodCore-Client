@@ -59,26 +59,26 @@ export default function SignUpForm() {
   };
 
   return (
-    <div className="signup">
-      <h1 className="entryheader__header" data-testid="signupTitle">Sign Up</h1>
-      <form id="signup__form" onSubmit={onSubmit}>
-        <div className="signup__inputs">
+    <div className="sign-up">
+      <h1 className="entry-header__header" data-testid="sign-up-title">Sign Up</h1>
+      <form id="sign-up__form" onSubmit={onSubmit}>
+        <div className="sign-up__inputs">
           <input
             placeholder="Username"
             type="text"
             id="username"
             name="username"
-            className="signup__email"
-            data-testid="Username"
+            className="sign-up__email"
+            data-testid="username"
             onChange={onChange}
           />
           <input
             placeholder="Re-enter Username"
             type="text"
-            id="usernameConfirm"
-            name="usernameConfirm"
-            className="signup__e-confirm"
-            data-testid="UsernameConfirm"
+            id="username-confirm"
+            name="username-confirm"
+            className="sign-up__e-confirm"
+            data-testid="username-confirm"
             onChange={onConfirmation}
           />
           <input
@@ -86,17 +86,17 @@ export default function SignUpForm() {
             type="password"
             id="password"
             name="password"
-            className="signup__password"
+            className="sign-up__password"
             onChange={onChange}
-            data-testid="Password"
+            data-testid="password"
           />
           <input
             placeholder="Re-enter password"
             type="password"
-            id="passwordConfirm"
-            name="passwordConfirm"
-            className="signup__pass-confirm"
-            data-testid="PasswordConfirm"
+            id="password-confirm"
+            name="password-confirm"
+            className="sign-up__pass-confirm"
+            data-testid="password-confirm"
             onChange={onConfirmation}
           />
         </div>
@@ -109,10 +109,10 @@ export default function SignUpForm() {
         {errMessage !== ''
           ? <h1>{errMessage}</h1>
           : null}
-        <input type="submit" value="Sign Up" className="form__submit-btn" data-testid="SignupBtn" />
+        <input type="submit" value="Sign Up" className="form__submit-btn" data-testid="sign-up-btn" />
       </form>
-      <div className="signup__submits">
-        <p className="signup__alt-text">Or sign up with</p>
+      <div className="sign-up__submits">
+        <p className="sign-up__alt-text">Or sign up with</p>
         <SocialSignUp />
       </div>
     </div>

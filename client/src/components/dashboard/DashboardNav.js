@@ -19,17 +19,17 @@ export default function DashboardNav() {
   };
 
   return (
-    <nav className="profile__nav">
-      <Link to="/profile/global">
-        <button type="button" className="profile__home">GLOBAL</button>
+    <nav className="dashboard__nav">
+      <Link to="/dashboard/global">
+        <button type="button" className="dashboard__home">GLOBAL</button>
       </Link>
-      <Link to="/profile/MyPosts">
-        <button type="button" className="profile__public">MYPOSTS</button>
+      <Link to="/dashboard/my-posts">
+        <button type="button" className="dashboard__public">MYPOSTS</button>
       </Link>
-      <Link to="/profile/create">
-        <button type="button" className="profile__create">CREATE</button>
+      <Link to="/dashboard/create">
+        <button type="button" className="dashboard__create">CREATE</button>
       </Link>
-      <button type="button" className="profile__private" onClick={logoutHandler}>LOGOUT</button>
+      <button type="button" className="dashboard__private" onClick={logoutHandler}>LOGOUT</button>
     </nav>
   );
 }

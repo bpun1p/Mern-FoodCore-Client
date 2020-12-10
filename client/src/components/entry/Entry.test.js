@@ -7,11 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 test('an element from each subcomponent exists', () => {
   const { getByTestId, getByText, getAllByTestId } = render(<Entry />, {wrapper: BrowserRouter})
 
-  expect((getByTestId('loginTitle')).textContent).toEqual('Login');
-  expect(getByTestId('signupTitle').textContent).toEqual('Sign Up');
+  expect((getByTestId('login-title')).textContent).toEqual('Login');
+  expect(getByTestId('sign-up-title').textContent).toEqual('Sign Up');
   expect(getByText('Already have an account ?')).not.toBeNull();
   expect(getByText
     ('*By signing up, you agree to our Terms of Use and that you read our Privary Policy')
     ).not.toBeNull();
-  expect(getAllByTestId('facebookIcon')).not.toBeNull();
+  expect(getAllByTestId('facebook-icon')).not.toBeNull();
 })

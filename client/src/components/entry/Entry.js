@@ -24,8 +24,8 @@ export default function Entry() {
       <Link to="/">
         <img className="entry__logo" alt="web main logo" src={FoodCoreLogo} />
       </Link>
-      <div className="dualEntry">
-        <div className="dualEntry__form">
+      <div className="entry">
+        <div className="entry__form">
           {currentUrl === '/register'
             ? (
               <>
