@@ -665,7 +665,7 @@ button {
 }
 
 @media screen and (min-width: 768px) {
-  .magnify__receipe {
+  .magnify__recipe {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -824,7 +824,7 @@ input:checked + .slider:before {
 
 .create {
   background-size: cover;
-  background-image: url(../images/receipeboard.jpg);
+  background-image: url(../images/recipeboard.jpg);
   min-height: 100vh;
   background-attachment: fixed;
 }
@@ -923,17 +923,17 @@ input:checked + .slider:before {
   }
 }
 
-.createform__receipe {
+.createform__recipe {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.createform__receipe h2 {
+.createform__recipe h2 {
   margin: 0 10px 0 0;
 }
 
-#receipe {
+#recipe {
   width: 70%;
   outline: none;
   border: none;
@@ -956,7 +956,7 @@ input:checked + .slider:before {
   color: transparent;
 }
 
-#receipe-description {
+#recipe-description {
   width: 100%;
 }
 
@@ -969,7 +969,7 @@ input:checked + .slider:before {
   height: 50px;
 }
 
-#receipe-title {
+#recipe-title {
   width: 50%;
 }
 /*# sourceMappingURL=Main.css.map */

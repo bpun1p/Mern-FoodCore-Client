@@ -76,7 +76,7 @@ input:checked + .slider:before {
 
 .create {
     background-size: cover;
-    background-image: url(../images/receipeboard.jpg);
+    background-image: url(../images/recipeboard.jpg);
     min-height: 100vh;
     background-attachment: fixed;
 }
@@ -151,7 +151,7 @@ input:checked + .slider:before {
             margin-bottom: 100px;
         }
     }
-    &__receipe {
+    &__recipe {
         display: flex;
         & h2 {
             margin: 0 10px 0 0;
@@ -159,7 +159,7 @@ input:checked + .slider:before {
     }
 }
 
-#receipe {
+#recipe {
     width: 70%;
     outline: none;
     border: none;
@@ -182,7 +182,7 @@ input:checked + .slider:before {
     color: transparent;
 }
 
-#receipe-description {
+#recipe-description {
     width: 100%;
 }
 
@@ -195,6 +195,6 @@ input:checked + .slider:before {
     height: 50px;
 }
 
-#receipe-title {
+#recipe-title {
     width: 50%;
 }

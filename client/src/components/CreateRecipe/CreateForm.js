@@ -108,11 +108,11 @@ export default function CreateForm() {
               ? <img alt="upload" className="image__uploaded" data-testid="displayed-image" src={URL.createObjectURL(isDisplay)} />
               : null}
           </div>
-          <div className="create-form__receipe">
+          <div className="create-form__recipe">
             <h2 htmlFor="recipe">Recipe&apos;s Name:</h2>
             <input
               type="text"
-              id="receipe-title"
+              id="recipe-title"
               name="title"
               value={recipe.title}
               onChange={onChange}
@@ -126,7 +126,7 @@ export default function CreateForm() {
             <textarea
               type="text"
               rows="20"
-              id="receipe-description"
+              id="recipe-description"
               name="description"
               value={recipe.description}
               onChange={onChange}
