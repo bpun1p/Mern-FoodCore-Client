@@ -19,10 +19,10 @@ export default function Post(props) {
       <div className="card__container" data-testid="Post-Card" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
         <div className="card" data-testid="Post-Image" style={postImage}>
           <div className="card__description">
-            <h1 className="card__name" data-testid="Receipe-Title">
+            <h1 className="card__name" data-testid="Recipe-Title">
               {recipe.title}
             </h1>
-            <h3 className="card__author" data-testid="Receipe-Author">
+            <h3 className="card__author" data-testid="Recipe-Author">
               By
               <br />
               {recipe.author}

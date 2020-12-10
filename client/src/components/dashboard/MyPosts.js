@@ -25,7 +25,7 @@ export default function MyPosts() {
         <DashboardHeader />
         <div className="createdposts">
           {RecipeData.length !== 0
-            ? RecipeData.receipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
+            ? RecipeData.recipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
             : null}
           <LoadingIndicator />
         </div>

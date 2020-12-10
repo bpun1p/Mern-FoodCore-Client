@@ -19,7 +19,7 @@ export default function GlobalPosts() {
         }),
     );
   }, []);
-
+  console.log(allRecipes.length);
   return (
     <>
       <div className="profile">
