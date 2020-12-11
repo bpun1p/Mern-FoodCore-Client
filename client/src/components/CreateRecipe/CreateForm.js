@@ -56,7 +56,7 @@ export default function CreateForm() {
                 author: user.username,
               },
             )
-              .then(() => history.push('/profile/global'));
+              .then(() => history.push('/dashboard/global'));
           }
         });
     } else setErrorForm('Please fill in all feilds');

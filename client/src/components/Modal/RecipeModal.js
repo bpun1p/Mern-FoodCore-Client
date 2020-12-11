@@ -37,7 +37,7 @@ function RecipeModal(props) {
             </ul>
           </div>
         </div>
-        <div className="modal__directions">
+        <div className="modal__instructions">
           <h3>INSTRUCTIONS</h3>
           <div className="add-instruction__option">
             <ol>

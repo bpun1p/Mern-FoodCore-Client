@@ -51,7 +51,7 @@ describe('when user inputs login information', () => {
         
         expect(getByText('Invalid username or password')).toBeInTheDocument();  
     });
-    test('correct input should push user to their profile page', async() => {
+    test('correct input should push user to their dashboard page', async() => {
         const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
         const defaultResponse = { isAuthenticated: false, user: { username: '' }};
 

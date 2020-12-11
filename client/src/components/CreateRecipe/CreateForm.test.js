@@ -200,7 +200,7 @@ describe('Create recipe button', () => {
         await act(() => Promise.resolve())
 
         expect(mockHistoryPush).toHaveBeenCalled();
-        expect(mockHistoryPush).toHaveBeenCalledWith('/profile/global')
+        expect(mockHistoryPush).toHaveBeenCalledWith('/dashboard/global')
     })
 
 });
