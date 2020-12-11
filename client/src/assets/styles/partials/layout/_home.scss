@@ -18,10 +18,13 @@ body {
     box-sizing: border-box;
     padding: 10px;
     &__logo {
-        height: 130px;
+        height: 150px;
         width: auto;
+        .knife, .fork, .knife-handle {
+            fill: white;
+        }
     }
-    &__navClosed {
+    &__nav-btn {
         background: none;
         padding: 0;
         border: none;
@@ -30,63 +33,53 @@ body {
         margin-top: 30px;
         cursor: pointer;
     }
-    &__register, &__login, &__aboutme {
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    margin-top: 40px;
+    &__register, &__login, &__about-me {
         color: white;
         font-size: 20px;
-    }
-    &__nav {
-        display: flex;
-        flex-direction: column;
-        z-index: 1;
-        margin-top: 40px;
+        margin-bottom: 50px;
     }
     &__exit-icon {
         fill: white;
     }
-    & button {
+    &__close {
         outline: none;
         border: none;
         background: none;
         height: 32px;
-        margin-top: 30px;
     }
 }
 
-.main {
-    width: 60%;
+.home-details {
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 30%;
-    @include desktop {
-        width: 80%;
-    }
+    width: 80%;
     &__header {
         margin: 70px 0 0 0;
         color: white;
         font-weight: 100;
         font-family: 'Arial';
-        font-size: 30px;
         box-sizing: border-box;
         padding: 2%;
         font-size: 40px;
-        @include tablet {
-            width: 80%;
-        }
-        @include desktop {
-            font-size: 70px;
-        }
+        width: 80%;
+        font-size: 70px;
     }
     &__header-description {
         margin: 0;
-        font-size: 25px;
         color: white;
         padding: 2%;
         font-weight: 100;
         font-family: 'Arial';
-        @include desktop {
-            font-size: 30px;
-        }
+        font-size: 30px;
     }
 }
 
@@ -99,12 +92,6 @@ body {
         fill: white;
     }
     .bottom{
-        fill: white;
-    }
-}
-.header__logo {
-    height: 150px;
-    .knife, .fork, .knife-handle {
         fill: white;
     }
 }

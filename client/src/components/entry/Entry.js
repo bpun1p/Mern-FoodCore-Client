@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../../assets/styles/Main.css';
 import { Link } from 'react-router-dom';
 import SignUpForm from './SignUpForm';
-import EntryFooter from './EntryFooter';
 import LoginForm from './LoginForm';
 import FoodCoreLogo from '../../assets/logo/logo-white.svg';
 import EntryDetails from './EntryDetails';
@@ -42,7 +41,6 @@ export default function Entry() {
               </>
             )}
         </div>
-        <EntryFooter />
       </div>
     </>
   );

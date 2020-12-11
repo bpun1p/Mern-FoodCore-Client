@@ -14,9 +14,27 @@
             fill: white;
         }
     }
+    &__form {
+        position: fixed;
+        justify-content: center;
+        top: 20%;
+        right: 0;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+    }
+    &__details {
+        margin-top: 50px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
 }
 
-.entryheader {
+.login,
+.sign-up {
     padding: 20px;
     &__login-btn{
         border: none;
@@ -34,9 +52,7 @@
 }
 
 .login {
-    @include desktop {
-        width: 350px;
-    }
+    width: 350px;
     &__inputs {
         display: flex;
         flex-direction: column;
@@ -61,13 +77,12 @@
         display: flex;
         box-sizing: border-box;
         padding: 0 5%;
+        justify-content: space-between;
     }
 }
 
-.signup {
-    @include desktop {
-        width: 350px;
-    }
+.sign-up {
+    width: 350px;
     &__email,
     &__e-confirm,
     &__password,
@@ -99,17 +114,6 @@
     }
 }
 
-.login, .signup{
-    @include desktop {
-        padding: 0 40px;
-    }
-}
-.entryheader__header {
-    @include desktop{
-        margin-bottom: 50px;
-    }
-}
-
 .form__submit-btn {
     border: none;
     outline: none;
@@ -124,7 +128,7 @@
     border-radius: 20px;
 }
 
-.social-signup {
+.social-sign-up {
     display: flex;
     width: 63%;
     justify-content: flex-end;
@@ -155,36 +159,11 @@
         font-size: 12px;
         color: lightgrey;
         text-align: center;
-        @include desktop {
-            position: absolute;
-            bottom: 10%;
-            right: 0;
-            left: 0;
-        }
+        position: absolute;
     }
 }
 
-.dualEntry {
-    &__form {
-        position: fixed;
-        justify-content: center;
-        top: 20%;
-        right: 0;
-        left: 0;
-        margin-right: auto;
-        margin-left: auto;
-        display: flex;
-    }
-    &__split {
-        margin-top: 50px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-    }
-}
-
-.aboutme {
+.about-me {
     height: 100vh;
     background-image: url(../images/profile-back.jpg);
     background-size: cover;

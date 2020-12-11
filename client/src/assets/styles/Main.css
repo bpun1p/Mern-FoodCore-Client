@@ -27,11 +27,15 @@ body {
 }
 
 .header__logo {
-  height: 130px;
+  height: 150px;
   width: auto;
 }
 
-.header__navClosed {
+.header__logo .knife, .header__logo .fork, .header__logo .knife-handle {
+  fill: white;
+}
+
+.header__nav-btn {
   background: none;
   padding: 0;
   border: none;
@@ -41,12 +45,7 @@ body {
   cursor: pointer;
 }
 
-.header__register, .header__login, .header__aboutme {
-  color: white;
-  font-size: 20px;
-}
-
-.header__nav {
+.nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -58,20 +57,24 @@ body {
   margin-top: 40px;
 }
 
-.header__exit-icon {
+.nav__register, .nav__login, .nav__about-me {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+.nav__exit-icon {
   fill: white;
 }
 
-.header button {
+.nav__close {
   outline: none;
   border: none;
   background: none;
   height: 32px;
-  margin-top: 30px;
 }
 
-.main {
-  width: 60%;
+.home-details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,51 +84,29 @@ body {
           flex-direction: column;
   position: fixed;
   top: 30%;
+  width: 80%;
 }
 
-@media screen and (min-width: 1080px) {
-  .main {
-    width: 80%;
-  }
-}
-
-.main__header {
+.home-details__header {
   margin: 70px 0 0 0;
   color: white;
   font-weight: 100;
   font-family: 'Arial';
-  font-size: 30px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 2%;
   font-size: 40px;
+  width: 80%;
+  font-size: 70px;
 }
 
-@media screen and (min-width: 768px) {
-  .main__header {
-    width: 80%;
-  }
-}
-
-@media screen and (min-width: 1080px) {
-  .main__header {
-    font-size: 70px;
-  }
-}
-
-.main__header-description {
+.home-details__header-description {
   margin: 0;
-  font-size: 25px;
   color: white;
   padding: 2%;
   font-weight: 100;
   font-family: 'Arial';
-}
-
-@media screen and (min-width: 1080px) {
-  .main__header-description {
-    font-size: 30px;
-  }
+  font-size: 30px;
 }
 
 #nav-cover-icon {
@@ -141,14 +122,6 @@ body {
 }
 
 #nav-cover-icon .bottom {
-  fill: white;
-}
-
-.header__logo {
-  height: 150px;
-}
-
-.header__logo .knife, .header__logo .fork, .header__logo .knife-handle {
   fill: white;
 }
 
@@ -177,18 +150,48 @@ body {
   fill: white;
 }
 
-.entryheader {
+.entry__form {
+  position: fixed;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 20%;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.entry__details {
+  margin-top: 50px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+
+.login,
+.sign-up {
   padding: 20px;
 }
 
-.entryheader__login-btn {
+.login__login-btn,
+.sign-up__login-btn {
   border: none;
   outline: none;
   background: none;
   color: blue;
 }
 
-.entryheader__header {
+.login__header,
+.sign-up__header {
   margin-top: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -205,10 +208,8 @@ body {
           align-items: center;
 }
 
-@media screen and (min-width: 1080px) {
-  .login {
-    width: 350px;
-  }
+.login {
+  width: 350px;
 }
 
 .login__inputs {
@@ -248,15 +249,16 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0 5%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-@media screen and (min-width: 1080px) {
-  .signup {
-    width: 350px;
-  }
+.sign-up {
+  width: 350px;
 }
 
-.signup__email, .signup__e-confirm, .signup__password, .signup__pass-confirm {
+.sign-up__email, .sign-up__e-confirm, .sign-up__password, .sign-up__pass-confirm {
   border: none;
   border-bottom: 1px solid #afafaf;
   outline: none;
@@ -264,11 +266,11 @@ body {
   font-size: 15px;
 }
 
-.signup__email {
+.sign-up__email {
   margin-top: 60px;
 }
 
-.signup__inputs {
+.sign-up__inputs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -281,7 +283,7 @@ body {
   padding: 0 5%;
 }
 
-.signup__submits {
+.sign-up__submits {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -293,20 +295,8 @@ body {
   padding: 0 5%;
 }
 
-.signup__pass-confirm {
+.sign-up__pass-confirm {
   margin-bottom: 0;
-}
-
-@media screen and (min-width: 1080px) {
-  .login, .signup {
-    padding: 0 40px;
-  }
-}
-
-@media screen and (min-width: 1080px) {
-  .entryheader__header {
-    margin-bottom: 50px;
-  }
 }
 
 .form__submit-btn {
@@ -323,7 +313,7 @@ body {
   border-radius: 20px;
 }
 
-.social-signup {
+.social-sign-up {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -336,13 +326,13 @@ body {
           align-items: center;
 }
 
-.social-signup__facebook, .social-signup__google {
+.social-sign-up__facebook, .social-sign-up__google {
   width: 15px;
   height: 15px;
   margin: 20px;
 }
 
-.social-signup__container {
+.social-sign-up__container {
   width: 40px;
   height: 40px;
   display: -webkit-box;
@@ -372,45 +362,10 @@ body {
   font-size: 12px;
   color: lightgrey;
   text-align: center;
+  position: absolute;
 }
 
-@media screen and (min-width: 1080px) {
-  .agreement__content {
-    position: absolute;
-    bottom: 10%;
-    right: 0;
-    left: 0;
-  }
-}
-
-.dualEntry__form {
-  position: fixed;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  top: 20%;
-  right: 0;
-  left: 0;
-  margin-right: auto;
-  margin-left: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.dualEntry__split {
-  margin-top: 50px;
-  height: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 14px;
-}
-
-.aboutme {
+.about-me {
   height: 100vh;
   background-image: url(../images/profile-back.jpg);
   background-size: cover;
@@ -429,20 +384,20 @@ body {
           align-items: center;
 }
 
-.aboutme h2 {
+.about-me h2 {
   margin: 0;
 }
 
-.aboutme__logo {
+.about-me__logo {
   margin: 0;
   height: 200px;
 }
 
-.aboutme h1 {
+.about-me h1 {
   margin-top: 0;
 }
 
-.profile {
+.dashboard {
   background-size: cover;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/profile-back.jpg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/profile-back.jpg);
@@ -450,7 +405,7 @@ body {
   background-attachment: fixed;
 }
 
-.profile__header {
+.dashboard__header {
   background-color: rgba(0, 0, 0, 0.8);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -464,88 +419,64 @@ body {
   z-index: 1;
 }
 
-.profile__nav {
+.dashboard__nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50%;
 }
 
-@media screen and (min-width: 768px) {
-  .profile__nav {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: 50%;
-  }
+.dashboard__log-out, .dashboard__my-posts, .dashboard__home {
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  border-top: 3px solid rgba(0, 0, 0, 0);
+  -webkit-transition: border 0.2s;
+  transition: border 0.2s;
+  text-decoration: none;
 }
 
-@media screen and (min-width: 768px) {
-  .profile__private, .profile__public, .profile__home {
-    border-bottom: 3px solid rgba(0, 0, 0, 0);
-    border-top: 3px solid rgba(0, 0, 0, 0);
-    -webkit-transition: border 0.2s;
-    transition: border 0.2s;
-    text-decoration: none;
-  }
+.dashboard__log-out:hover, .dashboard__my-posts:hover, .dashboard__home:hover {
+  border-bottom: 3px solid #e67e22;
+  -webkit-transition: border 0.2s;
+  transition: border 0.2s;
+  text-decoration: none;
 }
 
-@media screen and (min-width: 768px) {
-  .profile__private:hover, .profile__public:hover, .profile__home:hover {
-    border-bottom: 3px solid #e67e22;
-    -webkit-transition: border 0.2s;
-    transition: border 0.2s;
-    text-decoration: none;
-  }
+.dashboard__log-out:focus, .dashboard__my-posts:focus, .dashboard__home:focus {
+  border-bottom: 3px solid #e67e22;
 }
 
-@media screen and (min-width: 768px) {
-  .profile__private:focus, .profile__public:focus, .profile__home:focus {
-    border-bottom: 3px solid #e67e22;
-  }
-}
-
-.profile__create, .profile__private, .profile__public, .profile__home {
+.dashboard__create, .dashboard__log-out, .dashboard__my-posts, .dashboard__home {
   outline: none;
   background: none;
   color: white;
+  padding: 10px 0;
+  font-size: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-@media screen and (min-width: 768px) {
-  .profile__create, .profile__private, .profile__public, .profile__home {
-    padding: 10px 0;
-    font-size: 20px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
+.dashboard__create {
+  width: 120px;
+  border: 1px solid #e67e22;
+  border-radius: 30px;
+  background-color: #e67e22;
 }
 
-@media screen and (min-width: 768px) {
-  .profile__create {
-    width: 120px;
-    border: 1px solid #e67e22;
-    border-radius: 30px;
-    background-color: #e67e22;
-  }
+.dashboard__header {
+  padding: 0 3%;
 }
 
-@media screen and (min-width: 768px) {
-  .profile__header {
-    padding: 0 3%;
-  }
-}
-
-.card {
+.post {
   position: relative;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.3)));
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
@@ -553,45 +484,36 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 20px;
   border: 1px solid #e67e22;
   -webkit-box-shadow: 0 0 10px #e67e22;
           box-shadow: 0 0 10px #e67e22;
   border-radius: 15px;
   height: 350px;
-  max-width: 700px;
+  width: 300px;
+  margin: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .card {
-    width: 300px;
-    margin: 0;
-  }
+.post__container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
 }
 
-@media screen and (min-width: 768px) {
-  .card__container {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    padding: 10px;
-  }
-}
-
-.card__name, .card__author {
+.post__name, .post__author {
   color: white;
   margin: 0;
   padding: 10px 0;
 }
 
-.card__name {
+.post__name {
   text-transform: capitalize;
 }
 
-.card__author {
+.post__author {
   margin-top: 150px;
 }
 
-.card__description {
+.post__description {
   position: absolute;
   left: 0;
   right: 0;
@@ -621,31 +543,27 @@ button {
   border: none;
 }
 
-@media screen and (min-width: 768px) {
-  .createdposts {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
+.created-posts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-@media screen and (min-width: 768px) {
-  .magnify {
-    border: 1px solid black;
-    width: 80%;
-    height: 80%;
-    border-radius: 20px;
-    overflow-y: scroll;
-    background-color: white;
-  }
+.modal {
+  border: 1px solid black;
+  width: 80%;
+  height: 80%;
+  border-radius: 20px;
+  overflow-y: scroll;
+  background-color: white;
 }
 
-.magnify__container {
+.modal__container {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -664,85 +582,71 @@ button {
   z-index: 1;
 }
 
-@media screen and (min-width: 768px) {
-  .magnify__recipe {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding-left: 20px;
-  }
+.modal__recipe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 20px;
 }
 
-@media screen and (min-width: 768px) {
-  .magnify__description {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    border-bottom: 1px solid black;
-    padding-bottom: 20px;
-    padding-left: 20px;
-  }
+.modal__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
 
-@media screen and (min-width: 768px) {
-  .magnify__ingredients {
-    border-bottom: 1px solid black;
-    padding-bottom: 20px;
-    padding-left: 20px;
-  }
+.modal__ingredients {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
 
-@media screen and (min-width: 768px) {
-  .magnify__directions {
-    padding-bottom: 20px;
-    padding-left: 20px;
-  }
+.modal__instructions {
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
 
-@media screen and (min-width: 768px) {
-  .magnify__img {
-    height: 500px;
-  }
+.modal__img {
+  height: 500px;
 }
 
-@media screen and (min-width: 768px) {
-  .magnify__img-container {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    background-color: black;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    position: relative;
-  }
+.modal__img-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: black;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
 }
 
-.magnify__exit {
+.modal__exit {
   position: absolute;
   top: 2%;
   right: 2%;
   cursor: pointer;
 }
 
-.magnify__exit-icon {
+.modal__exit-icon {
   fill: white;
 }
 
-@media screen and (min-width: 768px) {
-  .add__whole {
-    height: 50px;
-    margin-right: 10px;
-  }
+.add__whole {
+  height: 50px;
+  margin-right: 10px;
 }
 
 .add__plus {
@@ -815,11 +719,9 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-@media screen and (min-width: 768px) {
-  .image__uploaded {
-    height: 500px;
-    width: auto;
-  }
+.image__uploaded {
+  height: 500px;
+  width: auto;
 }
 
 .create {
@@ -829,52 +731,34 @@ input:checked + .slider:before {
   background-attachment: fixed;
 }
 
-.createform {
+.create-form {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 5% 15%;
 }
 
-@media screen and (min-width: 768px) {
-  .createform__switch {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding-right: 50px;
-  }
+.create-form__switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 50px;
 }
 
-.createform__private {
-  color: grey;
+.create-form__submission {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.createform__public {
-  color: green;
-}
-
-@media screen and (min-width: 768px) {
-  .createform__public, .createform__private {
-    padding: 0 10px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .createform__submission {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-}
-
-.createform__submit {
+.create-form__submit {
   border: 1px solid #e67e22;
   width: 150px;
   border-radius: 30px;
@@ -884,52 +768,42 @@ input:checked + .slider:before {
   color: #fff;
 }
 
-@media screen and (min-width: 768px) {
-  .createform__upload {
-    margin-bottom: 50px;
-  }
+.create-form__upload {
+  margin-bottom: 50px;
 }
 
-@media screen and (min-width: 768px) {
-  .createform__description {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .createform__about {
-    margin-bottom: 60px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .createform__ingredients {
-    width: 90%;
-    height: auto;
-    padding-bottom: 60px;
-    border-bottom: 1px solid grey;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .createform__directions {
-    width: 90%;
-    height: auto;
-    padding-bottom: 60px;
-    border-bottom: 1px solid grey;
-    margin-bottom: 100px;
-  }
-}
-
-.createform__recipe {
+.create-form__description {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.createform__recipe h2 {
+.create-form__about {
+  margin-bottom: 60px;
+}
+
+.create-form__ingredients {
+  width: 90%;
+  height: auto;
+  padding-bottom: 60px;
+  border-bottom: 1px solid grey;
+}
+
+.create-form__instructions {
+  width: 90%;
+  height: auto;
+  padding-bottom: 60px;
+  border-bottom: 1px solid grey;
+  margin-bottom: 100px;
+}
+
+.create-form__recipe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.create-form__recipe h2 {
   margin: 0 10px 0 0;
 }
 
@@ -952,7 +826,7 @@ input:checked + .slider:before {
   outline: none;
 }
 
-#uploadedPhoto {
+#uploaded-photo {
   color: transparent;
 }
 

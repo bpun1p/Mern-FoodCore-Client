@@ -1,9 +1,7 @@
 .add {
     &__whole {
-        @include tablet {
-            height: 50px;
-            margin-right: 10px;
-        }
+        height: 50px;
+        margin-right: 10px;
     }
     &__plus {
         fill: grey;
@@ -68,10 +66,8 @@ input:checked + .slider:before {
 }
 
 .image__uploaded {
-    @include tablet {
-        height: 500px;
-        width: auto;
-    }
+    height: 500px;
+    width: auto;
 }
 
 .create {
@@ -81,34 +77,18 @@ input:checked + .slider:before {
     background-attachment: fixed;
 }
 
-.createform {
+.create-form {
     box-sizing: border-box;
     padding: 5% 15%;
     &__switch {
-        @include tablet {
-            display: flex;
-            align-items: center;
-            padding-right: 50px;
-        }
-    }
-    &__private {
-        color: grey;
-    }
-    &__public {
-        color: green;
-    }
-    &__public,
-    &__private {
-        @include tablet {
-            padding: 0 10px;
-        }
+        display: flex;
+        align-items: center;
+        padding-right: 50px;
     }
     &__submission {
-        @include tablet {
-            display: flex;
-            justify-content: flex-end;
-            box-sizing: border-box;
-        }
+        display: flex;
+        justify-content: flex-end;
+        box-sizing: border-box;
     }
     &__submit {
         border: 1px solid #e67e22;
@@ -120,36 +100,26 @@ input:checked + .slider:before {
         color: #fff;
     }
     &__upload {
-        @include tablet {
-            margin-bottom: 50px;
-        }
+        margin-bottom: 50px;
     }
     &__description {
-        @include tablet {
             display: flex;
-        }
     }
     &__about {
-        @include tablet {
-            margin-bottom: 60px;
-        }
+        margin-bottom: 60px;
     }
     &__ingredients {
-        @include tablet {
-            width: 90%;
-            height: auto;
-            padding-bottom: 60px;
-            border-bottom: 1px solid grey;
-        }
+        width: 90%;
+        height: auto;
+        padding-bottom: 60px;
+        border-bottom: 1px solid grey;
     }
-    &__directions {
-        @include tablet {
-            width: 90%;
-            height: auto;
-            padding-bottom: 60px;
-            border-bottom: 1px solid grey;
-            margin-bottom: 100px;
-        }
+    &__instructions {
+        width: 90%;
+        height: auto;
+        padding-bottom: 60px;
+        border-bottom: 1px solid grey;
+        margin-bottom: 100px;
     }
     &__recipe {
         display: flex;
@@ -178,7 +148,7 @@ input:checked + .slider:before {
     outline: none;  
 }
 
-#uploadedPhoto {
+#uploaded-photo {
     color: transparent;
 }
 

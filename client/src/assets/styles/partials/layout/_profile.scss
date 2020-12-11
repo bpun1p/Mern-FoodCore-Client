@@ -1,4 +1,4 @@
-.profile {
+.dashboard {
     background-size: cover;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../images/profile-back.jpg);
     min-height: 100vh;
@@ -13,89 +13,67 @@
     }
     &__nav {
         display: flex;
-        flex-direction: column;
-        @include tablet {
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            width: 50%;
-        }
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
     }
-    
-    &__private,
-    &__public,
+    &__log-out,
+    &__my-posts,
     &__home {
-        @include tablet {
-            border-bottom: 3px solid rgba(#000000, 0%);
-            border-top: 3px solid rgba(#000000, 0%);
-            transition: border 0.2s;
-            text-decoration: none;
-        }
+        border-bottom: 3px solid rgba(#000000, 0%);
+        border-top: 3px solid rgba(#000000, 0%);
+        transition: border 0.2s;
+        text-decoration: none;
     }
-    &__private:hover,
-    &__public:hover,
+    &__log-out:hover,
+    &__my-posts:hover,
     &__home:hover {
-        @include tablet {
-            border-bottom: 3px solid #e67e22;
-            transition: border 0.2s;
-            text-decoration: none;
-        }
+        border-bottom: 3px solid #e67e22;
+        transition: border 0.2s;
+        text-decoration: none;
     }
-    &__private:focus,
-    &__public:focus,
+    &__log-out:focus,
+    &__my-posts:focus,
     &__home:focus {
-        @include tablet {
-            border-bottom: 3px solid #e67e22;
-        }
+        border-bottom: 3px solid #e67e22;
     }
     &__create,
-    &__private,
-    &__public,
+    &__log-out,
+    &__my-posts,
     &__home {
         outline: none;
         background: none;
         color: white;
-        @include tablet {
-            padding: 10px 0;
-            font-size: 20px;
-            box-sizing: border-box;
-        }
+        padding: 10px 0;
+        font-size: 20px;
+        box-sizing: border-box;
     }
     &__create {
-        @include tablet {
-            width: 120px;
-            border: 1px solid #e67e22;
-            border-radius: 30px;
-            background-color: #e67e22;
-        }
+        width: 120px;
+        border: 1px solid #e67e22;
+        border-radius: 30px;
+        background-color: #e67e22;
     }
     &__header {
-        @include tablet {
-            padding: 0 3%;
-        }
+        padding: 0 3%;
     }
 }
 
-.card {
+.post {
     position: relative;
     background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
     background-size: cover;
     display: flex;
-    margin: 20px;
     border: 1px solid #e67e22;
     box-shadow: 0 0 10px #e67e22;
     border-radius: 15px;
     height: 350px;
-    max-width: 700px;
-    @include tablet {
-        width: 300px;
-        margin: 0;
-    }
+    width: 300px;
+    margin: 0;
     &__container {
-        @include tablet{
-            box-sizing: border-box;
-            padding: 10px;
-        }
+        box-sizing: border-box;
+        padding: 10px;
     }
     &__name,
     &__author {
@@ -130,23 +108,19 @@ button {
     border: none;
 }
 
-.createdposts {
-    @include tablet {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+.created-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.magnify {
-    @include tablet {
-        border: 1px solid black;
-        width: 80%;
-        height: 80%;
-        border-radius: 20px;
-        overflow-y: scroll;
-        background-color: white;
-    }
+.modal {
+    border: 1px solid black;
+    width: 80%;
+    height: 80%;
+    border-radius: 20px;
+    overflow-y: scroll;
+    background-color: white;
     &__container {
         width: 100%;
         display: flex;
@@ -160,50 +134,37 @@ button {
         z-index: 1;
     }
     &__recipe {
-        @include tablet {
-            display: flex;
-            align-items: center;
-            padding-left: 20px;
-        }
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
     }
     &__description{
-        @include tablet {
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid black;
-            padding-bottom: 20px;
-            padding-left: 20px;
-        }
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid black;
+        padding-bottom: 20px;
+        padding-left: 20px;
     }
     &__ingredients {
-        @include tablet {
-            border-bottom: 1px solid black;
-            padding-bottom: 20px;
-            padding-left: 20px;
-        }
+        border-bottom: 1px solid black;
+        padding-bottom: 20px;
+        padding-left: 20px;
     }
-    &__directions {
-        @include tablet {
-            
-            padding-bottom: 20px;
-            padding-left: 20px;
-        }
+    &__instructions {
+        padding-bottom: 20px;
+        padding-left: 20px;
     }
     &__img {
-        @include tablet {
-            height: 500px;    
-        }
+        height: 500px;    
     }
     &__img-container {
-        @include tablet {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            background-color: black;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            position: relative;
-        }
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: black;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        position: relative;
     }
     &__exit {
         position: absolute;
