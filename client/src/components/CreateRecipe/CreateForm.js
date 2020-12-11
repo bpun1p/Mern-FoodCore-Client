@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { useHistory } from 'react-router-dom';
-import AddIngredient from './AddIngredient';
-import AddInstruction from './AddInstruction';
 import RecipeService from '../../service/RecipeService';
 import { AuthContext } from '../../context/AuthContext';
 import ImageCompressor from '../Utils/ImageCompressor';
 import ToBase64 from '../Utils/ToBase64';
+import AddContent from './AddContent';
 
 export default function CreateForm() {
   const [isDisplay, setDisplay] = useState('');
@@ -142,7 +141,7 @@ export default function CreateForm() {
               ? ingredientsArray.map((ingredient) => <li key={uuidv1()}>{ingredient}</li>)
               : null}
           </ul>
-          <AddIngredient saveIngredient={saveIngredient} />
+          <AddContent saveContent={saveIngredient} contentType="ingredient" />
           {!ingredientSaved
             ? <p>input valid entry</p>
             : null}
@@ -154,7 +153,7 @@ export default function CreateForm() {
               ? instructionsArray.map((instruction) => <li key={uuidv1()}>{instruction}</li>)
               : null}
           </ol>
-          <AddInstruction saveInstruction={saveInstruction} />
+          <AddContent saveContent={saveInstruction} contentType="instruction" />
           {!instructionSaved
             ? <p>input valid entry</p>
             : null}

@@ -261,9 +261,13 @@ button {
 }
 
 .post {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+}
+
+.post__container {
   position: relative;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.3)));
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -274,13 +278,7 @@ button {
   border-radius: 15px;
   height: 350px;
   width: 300px;
-  margin: 0;
-}
-
-.post__container {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
+  margin: 10px;
 }
 
 .post__name, .post__author {
@@ -298,6 +296,8 @@ button {
 }
 
 .post__description {
+  width: 100%;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -311,8 +311,6 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   padding: 5%;
 }
 
