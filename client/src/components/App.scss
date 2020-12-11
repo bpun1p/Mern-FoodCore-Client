@@ -1,4 +1,27 @@
-@import "./partials/layout/home";
-@import "./partials/layout/entry";
-@import "./partials/layout/_profile.scss";
-@import "./partials/layout/create";
+// @import "./partials/layout/home";
+// @import "./partials/layout/entry";
+// @import "./partials/layout/_profile.scss";
+// @import "./partials/layout/create";
+
+@import "./AboutMe/AboutMe";
+@import "./CreateRecipe/AddContent";
+@import "./CreateRecipe/Create";
+@import "./CreateRecipe/CreateForm";
+
+@import "./Dashboard/Dashboard";
+@import "./Dashboard/DashboardHeader";
+@import "./Dashboard/DashboardNav";
+@import "./Dashboard/Posts";
+
+@import "./Entry/Entry";
+@import "./Entry/EntryDetails";
+@import "./Entry/SignUpForm";
+@import "./Entry/LoginForm";
+@import "./Entry/SocialSignUp";
+
+@import "./Home/Header";
+@import "./Home/Home";
+@import "./Home/HomeDetails";
+@import "./Home/Navigation";
+
+@import "./Modal/RecipeModal";

@@ -3,7 +3,7 @@ import { v1 as uuidv1 } from 'uuid';
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../Utils/LoadingIndicator';
 import DashboardHeader from './DashboardHeader';
-import '../../assets/styles/Main.css';
+import '../App.css';
 import Post from './Post';
 
 import RecipeService from '../../service/RecipeService';

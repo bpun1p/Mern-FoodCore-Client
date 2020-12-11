@@ -1,7 +1,7 @@
 import React from 'react';
 import DashboardHeader from '../Dashboard/DashboardHeader';
 import CreateForm from './CreateForm';
-import '../../assets/styles/Main.css';
+import '../App.css';
 
 export default function Create() {
   return (
