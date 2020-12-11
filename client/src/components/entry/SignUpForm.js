@@ -60,7 +60,7 @@ export default function SignUpForm() {
 
   return (
     <div className="sign-up">
-      <h1 className="entry-header__header" data-testid="sign-up-title">Sign Up</h1>
+      <h1 className="sign-up__header" data-testid="sign-up-title">Sign Up</h1>
       <form id="sign-up__form" onSubmit={onSubmit}>
         <div className="sign-up__inputs">
           <input

@@ -16,13 +16,13 @@ export default function Post(props) {
 
   return (
     <>
-      <div className="card__container" data-testid="post-container" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
-        <div className="card" data-testid="post-image" style={postImage}>
-          <div className="card__description">
-            <h1 className="card__name" data-testid="recipe-title">
+      <div className="post__container" data-testid="post-container" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
+        <div className="post" data-testid="post-image" style={postImage}>
+          <div className="post__description">
+            <h1 className="post__name" data-testid="recipe-title">
               {recipe.title}
             </h1>
-            <h3 className="card__author" data-testid="recipe-author">
+            <h3 className="post__author" data-testid="recipe-author">
               By
               <br />
               {recipe.author}

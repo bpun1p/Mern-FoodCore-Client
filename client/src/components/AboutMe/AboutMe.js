@@ -5,9 +5,9 @@ import blacklogo from '../../assets/logo/logo-black.svg';
 export default function AboutMe() {
   return (
     <>
-      <div className="aboutme">
+      <div className="about-me">
         <Link to="/">
-          <img src={blacklogo} data-testid="home-page-btn" className="aboutme__logo" alt="foodcore logo" />
+          <img src={blacklogo} data-testid="home-page-btn" className="about-me__logo" alt="foodcore logo" />
         </Link>
         <h1 className="aboutme__name">Barry Pun</h1>
         <h2>Email:</h2>

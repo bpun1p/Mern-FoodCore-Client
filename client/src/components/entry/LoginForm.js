@@ -33,7 +33,7 @@ export default function LoginForm() {
 
   return (
     <div className="login">
-      <h1 data-testid="login-title" className="entry-header__header">Login</h1>
+      <h1 data-testid="login-title" className="login__header">Login</h1>
       <form className="login__form" onSubmit={onSubmit}>
         <div className="login__inputs">
           <input

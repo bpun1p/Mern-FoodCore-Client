@@ -7,19 +7,19 @@ function RecipeModal(props) {
 
   const { popUpHandler } = props;
   return (
-    <div className="magnify__container">
-      <div className="magnify">
-        <div className="maginify__header">
-          <div className="magnify__img-container">
-            <img className="magnify__img" data-testid="recipe-image" src={recipe.img} alt="" />
-            <svg className="magnify__exit" data-testid="exit-modal-btn" onClick={popUpHandler} width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path className="magnify__exit-icon" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#13182C" />
+    <div className="modal__container">
+      <div className="modal">
+        <div className="modal__header">
+          <div className="modal__img-container">
+            <img className="modal__img" data-testid="recipe-image" src={recipe.img} alt="" />
+            <svg className="modal__exit" data-testid="exit-modal-btn" onClick={popUpHandler} width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path className="modal__exit-icon" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#13182C" />
             </svg>
           </div>
-          <div className="magnify__recipe">
+          <div className="modal__recipe">
             <h1>{recipe.title}</h1>
           </div>
-          <div className="magnify__description">
+          <div className="modal__description">
             <p>
               {' '}
               {recipe.description}
@@ -27,7 +27,7 @@ function RecipeModal(props) {
             </p>
           </div>
         </div>
-        <div className="magnify__ingredients">
+        <div className="modal__ingredients">
           <h3>INGREDIENTS</h3>
           <div className="add__option">
             <ul>
@@ -37,9 +37,9 @@ function RecipeModal(props) {
             </ul>
           </div>
         </div>
-        <div className="magnify__directions">
+        <div className="modal__directions">
           <h3>INSTRUCTIONS</h3>
-          <div className="addDirection__option">
+          <div className="add-instruction__option">
             <ol>
               {
               recipe.instructions.map((instruction) => <li key={uuidv1()}>{instruction}</li>)

@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Center() {
+export default function HomeDetails() {
   return (
-    <div className="main">
-      <h1 className="main__header">FoodCore</h1>
-      <h2 className="main__header-description">Where Cooking Is Love Made Visible.</h2>
+    <div className="home-details">
+      <h1 className="home-details__header">FoodCore</h1>
+      <h2 className="home-details__header-description">Where Cooking Is Love Made Visible.</h2>
     </div>
   );
 }
