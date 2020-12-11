@@ -1,9 +1,9 @@
-.dashboard {
+.dashboard { //done
     background-size: cover;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(../images/profile-back.jpg);
     min-height: 100vh;
     background-attachment: fixed;
-    &__header {
+    &__header { 
         background-color: rgba(0, 0, 0, 0.8);
         box-sizing: border-box;
         padding: 0 20px;
@@ -11,7 +11,7 @@
         justify-content: space-between;
         z-index: 1;
     }
-    &__nav {
+    &__nav { 
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -60,20 +60,20 @@
     }
 }
 
-.post {
-    position: relative;
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
-    background-size: cover;
-    display: flex;
-    border: 1px solid #e67e22;
-    box-shadow: 0 0 10px #e67e22;
-    border-radius: 15px;
-    height: 350px;
-    width: 300px;
-    margin: 0;
+.post {  //done
+    box-sizing: border-box;
+    padding: 10px;
     &__container {
-        box-sizing: border-box;
-        padding: 10px;
+        position: relative;
+        background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+        background-size: cover;
+        display: flex;
+        border: 1px solid #e67e22;
+        box-shadow: 0 0 10px #e67e22;
+        border-radius: 15px;
+        height: 350px;
+        width: 300px;
+        margin: 0;
     }
     &__name,
     &__author {
@@ -102,19 +102,19 @@
     }
 }
 
-button {
+button { //done
     outline: none;
     background: none;
     border: none;
 }
 
-.created-posts {
+.created-posts { //done
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.modal {
+.modal { //done
     border: 1px solid black;
     width: 80%;
     height: 80%;

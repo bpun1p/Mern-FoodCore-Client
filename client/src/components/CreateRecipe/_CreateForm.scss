@@ -1,34 +1,9 @@
-.add { //done
-    &__whole {
-        height: 50px;
-        margin-right: 10px;
-    }
-    &__plus {
-        fill: grey;
-    }
-    &__option {
-        display: flex;
-        align-items: center;
-    }
-    &__input {
-        outline: none;
-        border: none;
-    }
-}
-
-.image__uploaded { //done
+.image__uploaded {
     height: 500px;
     width: auto;
 }
 
-.create {  //done
-    background-size: cover;
-    background-image: url(../images/recipeboard.jpg);
-    min-height: 100vh;
-    background-attachment: fixed;
-}
-
-.create-form {  //done
+.create-form {
     box-sizing: border-box;
     padding: 5% 15%;
     &__switch {
@@ -78,30 +53,20 @@
             margin: 0 10px 0 0;
         }
     }
+    &__description-text {
+        margin: 0;
+        padding-right: 10px;
+    }
 }
 
-.create-form__description-text { //done
-    margin: 0;
-    padding-right: 10px;
-}
-
-#uploaded-photo {  //done
+#uploaded-photo {
     color: transparent;
 }
 
-#recipe-description {  //done
+#recipe-description {
     width: 100%;
 }
 
-#ingredient { //done
+#recipe-title {
     width: 50%;
-}
-
-#instruction {  //done
-    width: 100%;
-    height: 50px;
-}
-
-#recipe-title {  //done
-    width: 50%;  
 }

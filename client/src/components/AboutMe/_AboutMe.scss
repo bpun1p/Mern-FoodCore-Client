@@ -1,0 +1,19 @@
+.about-me {
+    height: 100vh;
+    background-image: url(../../images/profile-back.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__logo {
+        margin: 0;
+        height: 200px;
+    }
+    & h1,h2 {
+        margin-top: 0;
+    }
+    & h2 {
+        margin: 0;
+    }
+}

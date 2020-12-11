@@ -16,8 +16,8 @@ export default function Post(props) {
 
   return (
     <>
-      <div className="post__container" data-testid="post-container" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
-        <div className="post" data-testid="post-image" style={postImage}>
+      <div className="post" data-testid="post-container" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
+        <div className="post__container" data-testid="post-image" style={postImage}>
           <div className="post__description">
             <h1 className="post__name" data-testid="recipe-title">
               {recipe.title}

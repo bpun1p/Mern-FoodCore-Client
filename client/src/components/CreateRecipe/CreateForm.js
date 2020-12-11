@@ -122,7 +122,7 @@ export default function CreateForm() {
           </div>
           <br />
           <div className="create-form__description">
-            <h2 className="description-text" htmlFor="description">Description:</h2>
+            <h2 className="create-form__description-text" htmlFor="description">Description:</h2>
             <textarea
               type="text"
               rows="20"

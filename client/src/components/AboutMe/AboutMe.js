@@ -9,7 +9,7 @@ export default function AboutMe() {
         <Link to="/">
           <img src={blacklogo} data-testid="home-page-btn" className="about-me__logo" alt="foodcore logo" />
         </Link>
-        <h1 className="aboutme__name">Barry Pun</h1>
+        <h1 className="about-me__name">Barry Pun</h1>
         <h2>Email:</h2>
         <h4>bpun1p@gmail.com</h4>
         <h2>Github:</h2>
