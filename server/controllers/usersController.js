@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 const JWT = require('jsonwebtoken');
 const User = require('../models/user');
-const Receipe = require('../models/userReceipe');
+const Recipe = require('../models/userRecipe');
 
 const signToken = (userID) => JWT.sign({
   iss: 'Food_Core',
@@ -38,24 +38,24 @@ function logoutUser(_req, res) {
   res.json({ user: { username: '' }, success: true });
 }
 
-function addUsersReceipe(req, res) {
-  const receipe = new Receipe(req.body);
-  receipe.save((err) => {
+function addUsersRecipe(req, res) {
+  const recipe = new Recipe(req.body);
+  recipe.save((err) => {
     if (err) res.status(500).json({ message: { msgBody: 'error has occured', msgError: true } });
     else {
-      req.user.receipes.push(receipe);
+      req.user.recipes.push(recipe);
       req.user.save((err) => {
         if (err) res.status(500).json({ message: { msgBody: 'error has occured', msgError: true } });
-        else res.status(200).json({ message: { msgBody: 'successfully created receipe', msgError: false } });
+        else res.status(200).json({ message: { msgBody: 'successfully created recipe', msgError: false } });
       });
     }
   });
 }
 
-function getUsersReceipe(req, res) {
-  User.findById({ _id: req.user._id }).populate('receipes').exec((err, document) => {
+function getUsersRecipe(req, res) {
+  User.findById({ _id: req.user._id }).populate('recipes').exec((err, document) => {
     if (err) res.status(500).json({ message: { msgBody: 'error has occured', msgError: true } });
-    else res.status(200).json({ receipes: document.receipes, authenticated: true });
+    else res.status(200).json({ recipes: document.recipes, authenticated: true });
   });
 }
 
@@ -68,7 +68,7 @@ module.exports = {
   registerUser,
   loginUser,
   logoutUser,
-  getUsersReceipe,
-  addUsersReceipe,
+  getUsersRecipe,
+  addUsersRecipe,
   authenticateUser,
 };

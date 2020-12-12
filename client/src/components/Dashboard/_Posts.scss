@@ -1,0 +1,37 @@
+.post {
+    box-sizing: border-box;
+    padding: 10px;
+    &__container {
+        position: relative;
+        background-size: cover;
+        display: flex;
+        border: 1px solid #e67e22;
+        box-shadow: 0 0 10px #e67e22;
+        border-radius: 15px;
+        height: 350px;
+        width: 300px;
+        margin: 10px;
+    }
+    &__name,
+    &__author {
+        color: white;
+        margin: 0;
+        padding: 10px 0;
+    }
+    &__name {
+        text-transform: capitalize;
+    }
+    &__author {
+        margin-top: 150px;
+    }
+    &__description {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5%;
+
+    }
+}
