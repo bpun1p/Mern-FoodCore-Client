@@ -15,7 +15,7 @@ const userSchema = new Schema({
     min: 6,
     max: 15,
   },
-  receipes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'receipe' }],
+  recipes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'recipe' }],
 });
 
 // hash the password before saving

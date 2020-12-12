@@ -8,7 +8,7 @@ test('renders the correct content', () => {
   const { getByTestId } = render(<Header />);
 
   expect(getByTestId('header-logo')).not.toBeNull();
-  expect(getByTestId('navBtn')).not.toBeNull();
+  expect(getByTestId('nav-btn')).not.toBeNull();
 });
 
 describe('Navigation', () => {
@@ -17,25 +17,25 @@ describe('Navigation', () => {
       <Header/>, { wrapper: BrowserRouter }
     );
   
-    fireEvent.click(getByTestId('navBtn'));
+    fireEvent.click(getByTestId('nav-btn'));
     
     expect(getByText('LOGIN')).not.toBeNull();
     expect(getByText('SIGN UP')).not.toBeNull();
     expect(getByText('ABOUT ME')).not.toBeNull();    
-    expect(getByTestId('exitNavBtn')).not.toBeNull();
+    expect(getByTestId('exit-nav-btn')).not.toBeNull();
   });
   test('exit button is clicked, navigation content will be hidden', () => {
     const { getByTestId, queryByTestId } = render (
       <Header />, { wrapper: BrowserRouter }
     );
 
-    fireEvent.click(getByTestId('navBtn'));
+    fireEvent.click(getByTestId('nav-btn'));
 
-    expect(queryByTestId('navBtn')).toBeNull();
+    expect(queryByTestId('nav-btn')).toBeNull();
 
-    fireEvent.click(queryByTestId('exitNavBtn'));
+    fireEvent.click(queryByTestId('exit-nav-btn'));
   
-    expect(queryByTestId('navBtn')).not.toBeNull();
+    expect(queryByTestId('nav-btn')).not.toBeNull();
 
   });
 });

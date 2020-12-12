@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 
 import Post from './Post';
 
-const mockReceipe = {
+const mockRecipe = {
     author: "Madeline",
     title : "Triple Chocolate Chunk Cookies",
     description : "Large or small, these triple chocolate cookies are crispy on the outside and chewy on the inside. Refrigerating the batter for 48 hours before baking is ideal, as this allows the dough to fully form its flavor.",
@@ -31,19 +31,19 @@ const mockReceipe = {
 }
 
 test('component renders correct content', () => {
-    const { getByTestId } = render(<Post receipe={mockReceipe} />)
+    const { getByTestId } = render(<Post recipe={mockRecipe} />)
 
-    expect(getByTestId('Post-Image')).not.toBeNull();
-    expect(getByTestId('Receipe-Title').textContent).toEqual('Triple Chocolate Chunk Cookies');
-    expect(getByTestId('Receipe-Author').textContent).toEqual('ByMadeline');
+    expect(getByTestId('post-image')).not.toBeNull();
+    expect(getByTestId('recipe-title').textContent).toEqual('Triple Chocolate Chunk Cookies');
+    expect(getByTestId('recipe-author').textContent).toEqual('ByMadeline');
 })
 
 test('Clicking the post will open a modal window displaying post content', () => {
-    const { getByTestId, queryByTestId } = render(<Post receipe={mockReceipe} />)
+    const { getByTestId, queryByTestId } = render(<Post recipe={mockRecipe} />)
 
     expect(queryByTestId('exit-modal-btn')).not.toBeInTheDocument();
 
-    fireEvent.click(getByTestId('Post-Card'));
+    fireEvent.click(getByTestId('post-container'));
 
     expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
 

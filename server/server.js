@@ -21,11 +21,11 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Cross Origin Resource Sharing
 const cors = require('cors');
-const allReceipeRouter = require('./routes/allReceipeRoute');
+const allRecipeRouter = require('./routes/allRecipeRoute');
 const usersRouter = require('./routes/usersRoute');
 
 app.use(cors({ origin: true, credentials: true }));
 
 // Api routes
 app.use('/user', usersRouter);
-app.use('/', allReceipeRouter);
+app.use('/', allRecipeRouter);

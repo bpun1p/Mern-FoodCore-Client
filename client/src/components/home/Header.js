@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
 
-function Header() {
+export default function Header() {
   const [isPopUp, setPopUp] = useState(false);
 
-  const popUpHandler = () => {
+  const togglePopUp = () => {
     setPopUp(!isPopUp);
   };
 
@@ -16,9 +16,9 @@ function Header() {
         <path className="knife-handle" d="M49.29,69.354l-3.622,7.178l4.553,7.886c0.93,1.607,2.985,2.16,4.594,1.232c1.609-0.93,2.16-2.986,1.23-4.596L49.29,69.354   z" />
         <text x="" y="110" fill="#fff" fontSize="20px" fontWeight="bold" text-align="center" fontFamily="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">FoodCore</text>
       </svg>
-      {isPopUp === false
+      {!isPopUp
         ? (
-          <button type="button" data-testid="navBtn" className="header__navClosed" onClick={popUpHandler}>
+          <button type="button" data-testid="nav-btn" className="header__nav-btn" onClick={togglePopUp}>
             <svg id="nav-cover-icon" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 125">
               <path className="top" d="M71.9 30H28.1a3.5 3.5 0 000 7h43.8a3.5 3.5 0 000-7z" />
               <path className="middle" d="M71.9 46.5H28.1a3.5 3.5 0 100 7h43.8a3.5 3.5 0 000-7z" />
@@ -26,9 +26,7 @@ function Header() {
             </svg>
           </button>
         )
-        : <Navigation data-testid="navigation" popUpHandler={popUpHandler} />}
+        : <Navigation data-testid="navigation" togglePopUp={togglePopUp} />}
     </div>
   );
 }
-
-export default Header;

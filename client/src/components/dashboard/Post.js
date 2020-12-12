@@ -1,44 +1,42 @@
 import React, { useState } from 'react';
 import Proptypes from 'prop-types';
-import EnlargePost from '../modal/EnlargePost';
+import RecipeModal from '../Modal/RecipeModal';
 
-function Post(props) {
+export default function Post(props) {
   const [isPopUp, setPopUp] = useState(false);
-  const { receipe } = props;
+  const { recipe } = props;
 
-  const popUpHandler = () => {
+  const togglePopUp = () => {
     setPopUp(!isPopUp);
   };
 
   const postImage = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(${receipe.img})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(${recipe.img})`,
   };
 
   return (
     <>
-      <div className="card__container" data-testid="Post-Card" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
-        <div className="card" data-testid="Post-Image" style={postImage}>
-          <div className="card__description">
-            <h1 className="card__name" data-testid="Receipe-Title">
-              {receipe.title}
+      <div className="post" data-testid="post-container" onClick={togglePopUp} onKeyDown={togglePopUp} role="button" tabIndex={0}>
+        <div className="post__container" data-testid="post-image" style={postImage}>
+          <div className="post__description">
+            <h1 className="post__name" data-testid="recipe-title">
+              {recipe.title}
             </h1>
-            <h3 className="card__author" data-testid="Receipe-Author">
+            <h3 className="post__author" data-testid="recipe-author">
               By
               <br />
-              {receipe.author}
+              {recipe.author}
             </h3>
           </div>
         </div>
       </div>
-      {isPopUp === true
-        ? <EnlargePost popUpHandler={popUpHandler} receipe={receipe} />
+      {isPopUp
+        ? <RecipeModal togglePopUp={togglePopUp} recipe={recipe} />
         : null}
     </>
   );
 }
 
 Post.propTypes = {
-  receipe: Proptypes.instanceOf(Object).isRequired,
+  recipe: Proptypes.instanceOf(Object).isRequired,
 };
-
-export default Post;

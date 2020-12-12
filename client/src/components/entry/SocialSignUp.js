@@ -2,17 +2,15 @@ import React from 'react';
 import FBIcon from '../../assets/icons/facebook.png';
 import GoogleIcon from '../../assets/icons/google.png';
 
-function SocialSignUp() {
+export default function SocialSignUp() {
   return (
-    <div className="social-signup">
-      <div className="social-signup__container">
-        <img src={FBIcon} data-testid="facebookIcon" className="social-signup__facebook" alt="facebook icon" />
+    <div className="social-sign-up">
+      <div className="social-sign-up__container">
+        <img src={FBIcon} data-testid="facebook-icon" className="social-sign-up__facebook" alt="facebook icon" />
       </div>
-      <div className="social-signup__container">
-        <img src={GoogleIcon} data-testid="googleIcon" className="social-signup__google" alt="google icon" />
+      <div className="social-sign-up__container">
+        <img src={GoogleIcon} data-testid="google-icon" className="social-sign-up__google" alt="google icon" />
       </div>
     </div>
   );
 }
-
-export default SocialSignUp;

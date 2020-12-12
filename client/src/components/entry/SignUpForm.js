@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import SocialSignUp from './SocialSignUp';
 import AuthService from '../../service/AuthService';
 
-function SignUpForm() {
+export default function SignUpForm() {
   const [user, setUser] = useState({ username: '', password: '' });
   const [isMatch, setMatch] = useState(true);
   const [isEmpty, setEmpty] = useState(false);
@@ -36,8 +36,8 @@ function SignUpForm() {
         && confirmInput.passwordConfirm !== '') {
       if (user.username !== confirmInput.usernameConfirm
         || user.password !== confirmInput.passwordConfirm) {
-        setEmpty(false);
         setMatch(false);
+        setEmpty(false);
       } else {
         AuthService.register(user)
           .then((data) => {
@@ -59,26 +59,26 @@ function SignUpForm() {
   };
 
   return (
-    <div className="signup">
-      <h1 className="entryheader__header" data-testid="signupTitle">Sign Up</h1>
-      <form id="signup__form" onSubmit={onSubmit}>
-        <div className="signup__inputs">
+    <div className="sign-up">
+      <h1 className="sign-up__header" data-testid="sign-up-title">Sign Up</h1>
+      <form id="sign-up__form" onSubmit={onSubmit}>
+        <div className="sign-up__inputs">
           <input
             placeholder="Username"
             type="text"
             id="username"
             name="username"
-            className="signup__email"
-            data-testid="Username"
+            className="sign-up__email"
+            data-testid="username"
             onChange={onChange}
           />
           <input
             placeholder="Re-enter Username"
             type="text"
-            id="usernameConfirm"
+            id="username-confirm"
             name="usernameConfirm"
-            className="signup__e-confirm"
-            data-testid="UsernameConfirm"
+            className="sign-up__e-confirm"
+            data-testid="username-confirm"
             onChange={onConfirmation}
           />
           <input
@@ -86,37 +86,35 @@ function SignUpForm() {
             type="password"
             id="password"
             name="password"
-            className="signup__password"
+            className="sign-up__password"
             onChange={onChange}
-            data-testid="Password"
+            data-testid="password"
           />
           <input
             placeholder="Re-enter password"
             type="password"
-            id="passwordConfirm"
+            id="password-confirm"
             name="passwordConfirm"
-            className="signup__pass-confirm"
-            data-testid="PasswordConfirm"
+            className="sign-up__pass-confirm"
+            data-testid="password-confirm"
             onChange={onConfirmation}
           />
         </div>
-        {isMatch !== true
+        {isMatch === false
           ? <h1>username or password do not match</h1>
           : null}
-        {isEmpty !== false
+        {isEmpty
           ? <h1>please fill in all feilds</h1>
           : null}
         {errMessage !== ''
           ? <h1>{errMessage}</h1>
           : null}
-        <input type="submit" value="Sign Up" className="form__submit-btn" data-testid="SignupBtn" />
+        <input type="submit" value="Sign Up" className="form__submit-btn" data-testid="sign-up-btn" />
       </form>
-      <div className="signup__submits">
-        <p className="signup__alt-text">Or sign up with</p>
+      <div className="sign-up__submits">
+        <p className="sign-up__alt-text">Or sign up with</p>
         <SocialSignUp />
       </div>
     </div>
   );
 }
-
-export default SignUpForm;

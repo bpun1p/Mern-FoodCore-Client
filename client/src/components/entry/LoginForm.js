@@ -4,12 +4,10 @@ import SocialSignUp from './SocialSignUp';
 import { AuthContext } from '../../context/AuthContext';
 import AuthService from '../../service/AuthService';
 
-function LoginForm() {
+export default function LoginForm() {
   const [username, setUsername] = useState({ username: '' });
   const [isValidEntry, setValidEntry] = useState(true);
-
   const authContext = useContext(AuthContext);
-
   const history = useHistory();
 
   const onChange = (event) => {
@@ -25,7 +23,7 @@ function LoginForm() {
           if (isAuthenticated) {
             authContext.setUser(user);
             authContext.setIsAuthenticated(isAuthenticated);
-            history.push('/profile/global');
+            history.push('/dashboard/global');
           } else setValidEntry(false);
         });
     } else setValidEntry(false);
@@ -33,11 +31,11 @@ function LoginForm() {
 
   return (
     <div className="login">
-      <h1 data-testid="loginTitle" className="entryheader__header">Login</h1>
+      <h1 data-testid="login-title" className="login__header">Login</h1>
       <form className="login__form" onSubmit={onSubmit}>
         <div className="login__inputs">
           <input
-            data-testid="Username"
+            data-testid="username"
             placeholder="Username"
             type="text"
             id="username"
@@ -46,7 +44,7 @@ function LoginForm() {
             onChange={onChange}
           />
           <input
-            data-testid="Password"
+            data-testid="password"
             placeholder="Password"
             type="password"
             id="password"
@@ -55,10 +53,10 @@ function LoginForm() {
             onChange={onChange}
           />
         </div>
-        {isValidEntry === false
+        {!isValidEntry
           ? <h1 className="invalid__input">Invalid username or password</h1>
           : null}
-        <button type="submit" value="Login" data-testid="LoginBtn" className="form__submit-btn">Login</button>
+        <button type="submit" value="Login" data-testid="login-btn" className="form__submit-btn">Login</button>
       </form>
       <div className="login__alt">
         <p className="login__alt-text">Or log in with</p>
@@ -67,5 +65,3 @@ function LoginForm() {
     </div>
   );
 }
-
-export default LoginForm;
