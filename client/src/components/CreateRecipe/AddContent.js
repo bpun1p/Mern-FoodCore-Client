@@ -8,15 +8,9 @@ export default function AddContent({ saveContent, contentType }) {
     content = event.target.value;
   };
 
-<<<<<<< HEAD:client/src/components/create/AddInstruction.js
-  const submitInstructionHandler = () => {
-    props.submitInstruction(instruction);
-    document.getElementById('instruction').value = '';
-=======
   const submitContent = () => {
     saveContent(content);
     document.getElementById(contentType).value = '';
->>>>>>> ff43dd3dc2dd323eafc3cfe14f203c5b9d12de5e:client/src/components/CreateRecipe/AddContent.js
   };
 
   return (
@@ -38,12 +32,7 @@ export default function AddContent({ saveContent, contentType }) {
   );
 }
 
-<<<<<<< HEAD:client/src/components/create/AddInstruction.js
-AddInstruction.propTypes = {
-  submitInstruction: Proptypes.func.isRequired,
-=======
 AddContent.propTypes = {
   saveContent: Proptypes.func.isRequired,
   contentType: Proptypes.string.isRequired,
->>>>>>> ff43dd3dc2dd323eafc3cfe14f203c5b9d12de5e:client/src/components/CreateRecipe/AddContent.js
 };

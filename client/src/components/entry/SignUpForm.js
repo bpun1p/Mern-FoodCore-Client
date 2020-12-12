@@ -100,11 +100,7 @@ export default function SignUpForm() {
             onChange={onConfirmation}
           />
         </div>
-<<<<<<< HEAD
-        {!isMatch
-=======
         {isMatch === false
->>>>>>> ff43dd3dc2dd323eafc3cfe14f203c5b9d12de5e
           ? <h1>username or password do not match</h1>
           : null}
         {isEmpty

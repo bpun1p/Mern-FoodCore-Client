@@ -18,11 +18,7 @@ export default function Header() {
       </svg>
       {!isPopUp
         ? (
-<<<<<<< HEAD
-          <button type="button" className="header__navClosed" onClick={togglePopUp}>
-=======
           <button type="button" data-testid="nav-btn" className="header__nav-btn" onClick={togglePopUp}>
->>>>>>> ff43dd3dc2dd323eafc3cfe14f203c5b9d12de5e
             <svg id="nav-cover-icon" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 125">
               <path className="top" d="M71.9 30H28.1a3.5 3.5 0 000 7h43.8a3.5 3.5 0 000-7z" />
               <path className="middle" d="M71.9 46.5H28.1a3.5 3.5 0 100 7h43.8a3.5 3.5 0 000-7z" />
