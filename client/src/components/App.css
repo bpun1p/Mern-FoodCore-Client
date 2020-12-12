@@ -62,7 +62,7 @@
   height: 50px;
 }
 
-.create {
+.create-form {
   background-size: cover;
   background-image: url(../assets/images/recipeboard.jpg);
   min-height: 100vh;
@@ -75,6 +75,10 @@
 }
 
 .create-form {
+  background-size: cover;
+  background-image: url(../assets/images/recipeboard.jpg);
+  min-height: 100vh;
+  background-attachment: fixed;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 5% 15%;
@@ -204,7 +208,6 @@ button {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 1;
-  margin-bottom: 1%;
 }
 
 .dashboard__nav {

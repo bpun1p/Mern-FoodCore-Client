@@ -4,6 +4,10 @@
 }
 
 .create-form {
+    background-size: cover;
+    background-image: url(../assets/images/recipeboard.jpg);
+    min-height: 100vh;
+    background-attachment: fixed;
     box-sizing: border-box;
     padding: 5% 15%;
     &__switch {

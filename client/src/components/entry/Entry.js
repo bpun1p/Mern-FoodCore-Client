@@ -10,12 +10,9 @@ export default function Entry() {
   const [currentUrl, setCurrentUrl] = useState(window.location.href.slice(21, 30));
 
   useEffect(() => {
-    let isMounted = true;
     if (currentUrl !== window.location.href) {
       setCurrentUrl(window.location.href.slice(21, 30));
     }
-    // eslint-disable-next-line no-unused-vars
-    return () => { isMounted = false; };
   });
 
   return (
