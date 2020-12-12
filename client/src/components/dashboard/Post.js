@@ -6,7 +6,7 @@ export default function Post(props) {
   const [isPopUp, setPopUp] = useState(false);
   const { recipe } = props;
 
-  const popUpHandler = () => {
+  const togglePopUp = () => {
     setPopUp(!isPopUp);
   };
 
@@ -16,7 +16,7 @@ export default function Post(props) {
 
   return (
     <>
-      <div className="post" data-testid="post-container" onClick={popUpHandler} onKeyDown={popUpHandler} role="button" tabIndex={0}>
+      <div className="post" data-testid="post-container" onClick={togglePopUp} onKeyDown={togglePopUp} role="button" tabIndex={0}>
         <div className="post__container" data-testid="post-image" style={postImage}>
           <div className="post__description">
             <h1 className="post__name" data-testid="recipe-title">
@@ -30,8 +30,8 @@ export default function Post(props) {
           </div>
         </div>
       </div>
-      {isPopUp === true
-        ? <RecipeModal popUpHandler={popUpHandler} recipe={recipe} />
+      {isPopUp
+        ? <RecipeModal togglePopUp={togglePopUp} recipe={recipe} />
         : null}
     </>
   );

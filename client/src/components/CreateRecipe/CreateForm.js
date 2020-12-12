@@ -12,13 +12,19 @@ export default function CreateForm() {
   const [ingredientSaved, setIngredientSaved] = useState(true);
   const [instructionSaved, setInstructionSaved] = useState(true);
   const [errorForm, setErrorForm] = useState('');
-
   const [ingredientsArray, setIngredientsArray] = useState([]);
   const [instructionsArray, setInstructionsArray] = useState([]);
   const [isSelectedFile, setSelectedFile] = useState('');
-  const [recipe, setRecipe] = useState({
-    title: '', description: '', ingredients: '', instructions: '', img: '', author: '',
-  });
+  const [recipe, setRecipe] = useState(
+    {
+      title: '',
+      description: '',
+      ingredients: '',
+      instructions: '',
+      img: '',
+      author: '',
+    },
+  );
   const { user } = useContext(AuthContext);
   const history = useHistory();
 

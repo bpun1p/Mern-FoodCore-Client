@@ -7,9 +7,7 @@ import AuthService from '../../service/AuthService';
 export default function LoginForm() {
   const [username, setUsername] = useState({ username: '' });
   const [isValidEntry, setValidEntry] = useState(true);
-
   const authContext = useContext(AuthContext);
-
   const history = useHistory();
 
   const onChange = (event) => {
@@ -55,7 +53,7 @@ export default function LoginForm() {
             onChange={onChange}
           />
         </div>
-        {isValidEntry === false
+        {!isValidEntry
           ? <h1 className="invalid__input">Invalid username or password</h1>
           : null}
         <button type="submit" value="Login" data-testid="login-btn" className="form__submit-btn">Login</button>

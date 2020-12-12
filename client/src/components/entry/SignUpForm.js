@@ -36,8 +36,8 @@ export default function SignUpForm() {
         && confirmInput.passwordConfirm !== '') {
       if (user.username !== confirmInput.usernameConfirm
         || user.password !== confirmInput.passwordConfirm) {
-        setEmpty(false);
         setMatch(false);
+        setEmpty(false);
       } else {
         AuthService.register(user)
           .then((data) => {
@@ -76,7 +76,7 @@ export default function SignUpForm() {
             placeholder="Re-enter Username"
             type="text"
             id="username-confirm"
-            name="username-confirm"
+            name="usernameConfirm"
             className="sign-up__e-confirm"
             data-testid="username-confirm"
             onChange={onConfirmation}
@@ -94,16 +94,16 @@ export default function SignUpForm() {
             placeholder="Re-enter password"
             type="password"
             id="password-confirm"
-            name="password-confirm"
+            name="passwordConfirm"
             className="sign-up__pass-confirm"
             data-testid="password-confirm"
             onChange={onConfirmation}
           />
         </div>
-        {isMatch !== true
+        {isMatch === false
           ? <h1>username or password do not match</h1>
           : null}
-        {isEmpty !== false
+        {isEmpty
           ? <h1>please fill in all feilds</h1>
           : null}
         {errMessage !== ''

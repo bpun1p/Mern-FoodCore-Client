@@ -13,8 +13,8 @@ export default function DashboardNav() {
       if (data.success) {
         setUser(data.user);
         setIsAuthenticated(false);
-        history.push('/login');
       }
+      history.push('/login');
     });
   };
 

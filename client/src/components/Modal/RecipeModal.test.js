@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 
 import RecipeModal from './RecipeModal';
 
-const mockPopUpHandler = jest.fn();
+const mocktogglePopUp = jest.fn();
 const mockRecipe = {
     author: "Madeline",
     title : "Triple Chocolate Chunk Cookies",
@@ -32,7 +32,7 @@ const mockRecipe = {
 };
 
 test('renders the correct content', () => {
-    const { getByText, getByTestId } = render(<RecipeModal recipe={mockRecipe} popUpHandler={mockPopUpHandler}/>)
+    const { getByText, getByTestId } = render(<RecipeModal recipe={mockRecipe} togglePopUp={mocktogglePopUp}/>)
 
     expect(getByTestId('exit-modal-btn')).not.toBeNull();
     expect(getByTestId('recipe-image')).toHaveAttribute('src', 'https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg');
@@ -42,9 +42,9 @@ test('renders the correct content', () => {
     expect(getByText('Preheat the oven to 350 degrees F (175 degrees C) when ready to bake.')).toBeInTheDocument();
 });
 test('user clicks the exit modal button should null everything', () => {
-    const { getByTestId } = render(<RecipeModal recipe={mockRecipe} popUpHandler={mockPopUpHandler}/>)
+    const { getByTestId } = render(<RecipeModal recipe={mockRecipe} togglePopUp={mocktogglePopUp}/>)
 
     fireEvent.click(getByTestId('exit-modal-btn'));
 
-    expect(mockPopUpHandler).toHaveBeenCalled();
+    expect(mocktogglePopUp).toHaveBeenCalled();
 });

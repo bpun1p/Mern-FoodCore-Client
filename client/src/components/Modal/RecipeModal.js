@@ -5,14 +5,14 @@ import { v1 as uuidv1 } from 'uuid';
 function RecipeModal(props) {
   const { recipe } = props;
 
-  const { popUpHandler } = props;
+  const { togglePopUp } = props;
   return (
     <div className="modal__container">
       <div className="modal">
         <div className="modal__header">
           <div className="modal__img-container">
             <img className="modal__img" data-testid="recipe-image" src={recipe.img} alt="" />
-            <svg className="modal__exit" data-testid="exit-modal-btn" onClick={popUpHandler} width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="modal__exit" data-testid="exit-modal-btn" onClick={togglePopUp} width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path className="modal__exit-icon" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#13182C" />
             </svg>
           </div>
@@ -65,7 +65,7 @@ RecipeModal.propTypes = {
     instructions: Proptypes.instanceOf(Array).isRequired,
 
   }),
-  popUpHandler: Proptypes.func.isRequired,
+  togglePopUp: Proptypes.func.isRequired,
 };
 
 export default RecipeModal;

@@ -7,7 +7,7 @@ import FoodCoreLogo from '../../assets/logo/logo-white.svg';
 import EntryDetails from './EntryDetails';
 
 export default function Entry() {
-  const [currentUrl, setCurrentUrl] = useState(window.location.href.slice(21, 30));
+  const [currentUrl, setCurrentUrl] = useState(window.location.pathname);
 
   useEffect(() => {
     if (currentUrl !== window.location.href) {

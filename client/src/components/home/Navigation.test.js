@@ -8,7 +8,7 @@ import Navigation from './Navigation';
 test('renders the correct content', () => {
   const mockFunction = jest.fn();
   const { getByTestId, getByText } = render (
-    <Navigation popUpHandler={mockFunction}/>, { wrapper: BrowserRouter }
+    <Navigation togglePopUp={mockFunction}/>, { wrapper: BrowserRouter }
   );
     
   expect(getByText('LOGIN')).not.toBeNull();
@@ -17,10 +17,10 @@ test('renders the correct content', () => {
   expect(getByTestId('exit-nav-btn')).not.toBeNull();
 });
 
-test('exit navigation button is clicked, popuphandler is called', () => {
+test('exit navigation button is clicked, togglePopUp is called', () => {
     const mockFunction = jest.fn();
     const { getByTestId } = render (
-      <Navigation popUpHandler={mockFunction}/>, { wrapper: BrowserRouter }
+      <Navigation togglePopUp={mockFunction}/>, { wrapper: BrowserRouter }
     );
  
     fireEvent.click(getByTestId('exit-nav-btn'));
