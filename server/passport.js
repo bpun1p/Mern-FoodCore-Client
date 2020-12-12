@@ -29,6 +29,6 @@ passport.use(new LocalStrategy((username, password, done) => {
     // user non-existent
     if (!user) return done(null, false);
     // check if password is correct
-    user.comparePassword(password, done);
+    return user.comparePassword(password, done);
   });
 }));

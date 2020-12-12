@@ -46,5 +46,3 @@ test('user should be redirected to the login page when logout button is clicked'
     expect(mockHistoryPush).toHaveBeenCalledWith('/login');
     expect(mockHistoryPush).toHaveBeenCalledTimes(1);
 });
-
-

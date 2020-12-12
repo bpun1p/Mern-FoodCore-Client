@@ -20,6 +20,3 @@ describe('renders the correct content', () => {
     expect(googleIcon).toHaveAttribute('src', 'google.png');
   });
 });
-
-
-  

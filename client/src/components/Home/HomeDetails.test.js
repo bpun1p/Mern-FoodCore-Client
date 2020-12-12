@@ -12,4 +12,3 @@ test('renders the correct content', () => {
   expect(title).not.toBeNull();
   expect(heading).not.toBeNull();
 });
- 

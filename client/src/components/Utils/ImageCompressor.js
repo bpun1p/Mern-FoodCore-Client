@@ -6,6 +6,5 @@ export default function ImageCompressor(file) {
     maxWidthOrHeight: 700,
     useWebWorker: true,
   };
-  console.log(imageCompression(file, options));
   return imageCompression(file, options);
 }

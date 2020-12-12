@@ -27,4 +27,3 @@ test('exit navigation button is clicked, togglePopUp is called', () => {
 
     expect(mockFunction).toHaveBeenCalledTimes(1);
 });
-
