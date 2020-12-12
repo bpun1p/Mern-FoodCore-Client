@@ -1,0 +1,26 @@
+.home-details {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 30%;
+    width: 80%;
+    &__header {
+        margin: 70px 0 0 0;
+        color: white;
+        font-weight: 100;
+        font-family: 'Arial';
+        box-sizing: border-box;
+        padding: 2%;
+        font-size: 40px;
+        width: 80%;
+        font-size: 70px;
+    }
+    &__header-description {
+        margin: 0;
+        color: white;
+        padding: 2%;
+        font-weight: 100;
+        font-family: 'Arial';
+        font-size: 30px;
+    }
+}
