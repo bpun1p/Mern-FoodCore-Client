@@ -64,7 +64,7 @@ export default function CreateForm() {
               .then(() => history.push('/dashboard/global'));
           }
         });
-    } else setErrorForm('Please fill in all feilds');
+    } else setErrorForm('Please fill in all fields');
   };
 
   function imageFileHandler(event) {

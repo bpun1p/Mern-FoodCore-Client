@@ -18,6 +18,6 @@ test('clicking the add-content-button with input field filled should call submit
 
     fireEvent.click(getByTestId('add-content-button'));
 
-    expect(mockSaveIngredient).toHaveBeenCalled();    
-    expect(mockSaveIngredient).toHaveBeenCalledWith('chicken breast');
+    expect(mocksaveContent).toHaveBeenCalled();    
+    expect(mocksaveContent).toHaveBeenCalledWith('chicken breast');
 });

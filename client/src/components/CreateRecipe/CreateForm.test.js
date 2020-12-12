@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act, getAllByText } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AuthService from '../../service/AuthService';
 import RecipeService from '../../service/RecipeService';
@@ -27,7 +27,7 @@ test('renders content correctly', async () => {
     const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
     AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
 
-    const { getByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
+    const { getByTestId, getAllByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
 
     await act(() => Promise.resolve());
     
@@ -37,15 +37,13 @@ test('renders content correctly', async () => {
     expect(getByText("Description:")).toBeInTheDocument();
     expect(getByTestId('description-text-field')).not.toBeNull();
     expect(getByText("INGREDIENTS")).toBeInTheDocument();
-    expect(getByTestId('ingredient-text-field')).not.toBeNull();
-    expect(getByTestId('add-ingredient-button')).not.toBeNull();
     expect(getByText("INSTRUCTIONS")).toBeInTheDocument();
-    expect(getByTestId('instruction-text-field')).not.toBeNull();
-    expect(getByTestId('add-instruction-button')).not.toBeNull();
+    expect(getAllByTestId('content-text-field')).toHaveLength(2);
+    expect(getAllByTestId('add-content-button')).toHaveLength(2);
     expect(getByText('Create')).toHaveAttribute('type', 'submit');
 })
 
-describe('add ingredients form', () => {
+describe('add contents', () => {
 
     beforeEach(() => {
         const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
@@ -53,49 +51,24 @@ describe('add ingredients form', () => {
     });
 
     test('empty input will display and invalid text', async () => {
-        const { getByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getAllByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
     
         await act(() => Promise.resolve());
-        fireEvent.click(getByTestId('add-ingredient-button'))
+        fireEvent.click(getAllByTestId('add-content-button')[0])
 
         expect(getByText('input valid entry')).toBeInTheDocument();
     });
     test('inputting text and submitting should display on DOM', async () => {
-        const { getByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getAllByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
 
         await act(() => Promise.resolve());
-
-        fireEvent.change(getByTestId('ingredient-text-field'), {target: {value: 'chicken breast'}});
-        fireEvent.click(getByTestId('add-ingredient-button'))
+        const ingredientButton = getAllByTestId('add-content-button')[0];
+        const ingredientField = getAllByTestId('content-text-field')[0];
+        fireEvent.change(ingredientField, {target: {value: 'chicken breast'}});
+        fireEvent.click(ingredientButton);
 
         expect(getByText('chicken breast')).toBeInTheDocument();
-    });
-});
 
-describe('add instructions form', () => {
-
-    beforeEach(() => {
-        const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
-        AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
-    });
-
-    test('empty input will display an error message ', async () => {
-        const { getByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
-    
-        await act(() => Promise.resolve());
-        fireEvent.click(getByTestId('add-instruction-button'))
-
-        expect(getByText('input valid entry')).toBeInTheDocument();
-    });
-    test('inputting text and submitting should display on dom', async () => {
-        const { getByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
-
-        await act(() => Promise.resolve());
-
-        fireEvent.change(getByTestId('instruction-text-field'), {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
-        fireEvent.click(getByTestId('add-instruction-button'));
-
-        expect(getByText('Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes')).toBeInTheDocument();
     });
 });
 
@@ -126,7 +99,7 @@ describe('image uploader', () => {
         ImageCompressor.mockResolvedValue(file);
         ToBase64.mockResolvedValue(fakeBase64);
 
-        const { getByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
 
         await act(() => Promise.resolve());
 
@@ -155,15 +128,15 @@ describe('Create recipe button', () => {
         expect(getByText('Please fill in all fields')).toBeInTheDocument();
     });
     test('when clicked with some filled inputs will display an error message in the DOM', async () => {
-        const { getByText, getByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getByText, getByTestId, getAllByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
 
         await act(() => Promise.resolve());
-
+        const ingredientField = getAllByTestId('content-text-field')[0];
+        const ingredientButton = getAllByTestId('add-content-button')[0];
         fireEvent.change(getByTestId('recipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
         fireEvent.change(getByTestId('description-text-field'), {target: {value: 'A delicious chicken pie made from scratch with carrots, peas and celery.'}});
-        fireEvent.change(getByTestId('ingredient-text-field'), {target: {value: 'chicken breast'}});
-
-        fireEvent.click(getByTestId('add-ingredient-button'));
+        fireEvent.change(ingredientField, {target: {value: 'chicken breast'}});
+        fireEvent.click(ingredientButton);
 
         fireEvent.click(getByText('Create'));
 
@@ -179,7 +152,7 @@ describe('Create recipe button', () => {
         ImageCompressor.mockResolvedValue(file);
         ToBase64.mockResolvedValue(fakeBase64);
 
-        const { getByText, getByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getByText, getByTestId, getAllByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
 
         await act(() => Promise.resolve()); 
 
@@ -189,11 +162,15 @@ describe('Create recipe button', () => {
         fireEvent.change(getByTestId('recipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
         fireEvent.change(getByTestId('description-text-field'), {target: {value: 'A delicious chicken pie made from scratch with carrots, peas and celery.'}});
 
-        fireEvent.change(getByTestId('ingredient-text-field'), {target: {value: 'chicken breast'}});
-        fireEvent.click(getByTestId('add-ingredient-button'));
+        const ingredientField = getAllByTestId('content-text-field')[0];
+        const ingredientButton = getAllByTestId('add-content-button')[0];
+        fireEvent.change(ingredientField, {target: {value: 'chicken breast'}});
+        fireEvent.click(ingredientButton);
 
-        fireEvent.change(getByTestId('instruction-text-field'), {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
-        fireEvent.click(getByTestId('add-instruction-button'));
+        const instructionField = getAllByTestId('content-text-field')[1];
+        const instructionButton = getAllByTestId('add-content-button')[1];
+        fireEvent.change(instructionField, {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
+        fireEvent.click(instructionButton);
         
         fireEvent.click(getByText('Create'));
 

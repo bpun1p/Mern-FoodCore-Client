@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 
-import Center from './Center';
+import HomeDetails from './HomeDetails';
 
 test('renders the correct content', () => {
-  const { getByText } = render(<Center />);
+  const { getByText } = render(<HomeDetails />);
   
   const title = getByText('FoodCore');
   const heading = getByText('Where Cooking Is Love Made Visible.');
