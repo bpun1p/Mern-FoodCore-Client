@@ -1,0 +1,26 @@
+.add {
+    &__whole {
+        height: 50px;
+        margin-right: 10px;
+    }
+    &__plus {
+        fill: grey;
+    }
+    &__option {
+        display: flex;
+        align-items: center;
+    }
+    &__input {
+        outline: none;
+        border: none;
+    }
+}
+
+#ingredient {
+    width: 50%;
+}
+
+#instruction {
+    width: 100%;
+    height: 50px;
+}
