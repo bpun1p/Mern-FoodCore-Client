@@ -4,7 +4,6 @@ import { v1 as uuidv1 } from 'uuid';
 
 function RecipeModal(props) {
   const { recipe } = props;
-
   const { togglePopUp } = props;
   return (
     <div className="modal__container">

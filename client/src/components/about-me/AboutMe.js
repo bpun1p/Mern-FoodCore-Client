@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import blacklogo from '../../assets/logo/logo-black.svg';
+import blackLogo from '../../assets/logo/logo-black.svg';
 
 export default function AboutMe() {
   return (
     <>
       <div className="about-me">
         <Link to="/">
-          <img src={blacklogo} data-testid="home-page-btn" className="about-me__logo" alt="foodcore logo" />
+          <img src={blackLogo} data-testid="home-page-btn" className="about-me__logo" alt="foodcore logo" />
         </Link>
         <h1 className="about-me__name">Barry Pun</h1>
         <h2>Email:</h2>
