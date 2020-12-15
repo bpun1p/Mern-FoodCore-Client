@@ -3,8 +3,8 @@ import { v1 as uuidv1 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import RecipeService from '../../service/RecipeService';
 import { AuthContext } from '../../context/AuthContext';
-import ImageCompressor from '../Utils/ImageCompressor';
-import ToBase64 from '../Utils/ToBase64';
+import ImageCompressor from '../utils/ImageCompressor';
+import ToBase64 from '../utils/ToBase64';
 import AddContent from './AddContent';
 
 export default function CreateForm() {

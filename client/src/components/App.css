@@ -64,7 +64,7 @@
 
 .create-form {
   background-size: cover;
-  background-image: url(../assets/images/recipeboard.jpg);
+  background-image: url(../assets/images/recipe-board.jpg);
   min-height: 100vh;
   background-attachment: fixed;
 }
@@ -76,7 +76,7 @@
 
 .create-form {
   background-size: cover;
-  background-image: url(../assets/images/recipeboard.jpg);
+  background-image: url(../assets/images/recipe-board.jpg);
   min-height: 100vh;
   background-attachment: fixed;
   -webkit-box-sizing: border-box;

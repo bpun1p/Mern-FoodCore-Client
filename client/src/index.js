@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/Home/Home';
-import Entry from './components/Entry/Entry';
-import AboutMe from './components/AboutMe/AboutMe';
+import Home from './components/home/Home';
+import Entry from './components/entry/Entry';
+import AboutMe from './components/about-me/AboutMe';
 import AuthProvider from './context/AuthContext';
 import Dashboard from './components/Dashboard/Dashboard';
 

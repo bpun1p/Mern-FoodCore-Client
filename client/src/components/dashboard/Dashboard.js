@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { trackPromise } from 'react-promise-tracker';
-import LoadingIndicator from '../Utils/LoadingIndicator';
+import LoadingIndicator from '../utils/LoadingIndicator';
 import DashboardHeader from './DashboardHeader';
 import '../App.css';
 import Post from './Post';
-import CreateForm from '../CreateRecipe/CreateForm';
+import CreateForm from '../create-recipe/CreateForm';
 import RecipeService from '../../service/RecipeService';
 
 export default function Dashboard() {
