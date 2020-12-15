@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, fireEvent, act, getAllByText } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import AuthService from '../../service/AuthService';
 import RecipeService from '../../service/RecipeService';
