@@ -13,12 +13,9 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/dashboard/create" component={Dashboard} exact />
-          <Route path="/login" component={Entry} exact />
           <Route path="/about-Me" component={AboutMe} exact />
-          <Route path="/register" component={Entry} exact />
-          <Route path="/dashboard/global" component={Dashboard} exact />
-          <Route path="/dashboard/my-posts" component={Dashboard} exact />
+          <Route path={['/login', '/register']} component={Entry} exact />
+          <Route path={['/dashboard/global', '/dashboard/my-posts', '/dashboard/create']} component={Dashboard} exact />
         </Switch>
       </Router>
     </React.StrictMode>
