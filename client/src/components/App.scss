@@ -1,22 +1,22 @@
-@import "./AboutMe/AboutMe";
-@import "./CreateRecipe/AddContent";
-@import "./CreateRecipe/Create";
-@import "./CreateRecipe/CreateForm";
+@import "./about-me/AboutMe";
+@import "./create-recipe/AddContent";
+@import "./create-recipe/Create";
+@import "./create-recipe/CreateForm";
 
-@import "./Dashboard/Dashboard";
-@import "./Dashboard/DashboardHeader";
-@import "./Dashboard/DashboardNav";
-@import "./Dashboard/Posts";
+@import "./dashboard/Dashboard";
+@import "./dashboard/DashboardHeader";
+@import "./dashboard/DashboardNav";
+@import "./dashboard/Posts";
 
-@import "./Entry/Entry";
-@import "./Entry/EntryDetails";
-@import "./Entry/SignUpForm";
-@import "./Entry/LoginForm";
-@import "./Entry/SocialSignUp";
+@import "./entry/Entry";
+@import "./entry/EntryDetails";
+@import "./entry/SignUpForm";
+@import "./entry/LoginForm";
+@import "./entry/SocialSignUp";
 
-@import "./Home/Header";
-@import "./Home/Home";
-@import "./Home/HomeDetails";
-@import "./Home/Navigation";
+@import "./home/Header";
+@import "./home/Home";
+@import "./home/HomeDetails";
+@import "./home/Navigation";
 
-@import "./Modal/RecipeModal";
+@import "./recipe-modal/RecipeModal";

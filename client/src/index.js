@@ -5,7 +5,7 @@ import Home from './components/home/Home';
 import Entry from './components/entry/Entry';
 import AboutMe from './components/about-me/AboutMe';
 import AuthProvider from './context/AuthContext';
-import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
 
 ReactDOM.render(
   <AuthProvider>
