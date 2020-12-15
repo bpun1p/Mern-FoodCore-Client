@@ -2,8 +2,6 @@ const express = require('express');
 
 const router = express.Router();
 const passport = require('passport');
-// eslint-disable-next-line no-unused-vars
-const passportConfig = require('../passport');
 const allRecipeController = require('../controllers/allRecipeController');
 
 // All Recipes Route

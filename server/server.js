@@ -6,7 +6,6 @@ const PORT = 5000;
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-require('dotenv').config();
 
 // Middleware
 app.use(cookieParser()); // parse the cookie stored in the web browser
