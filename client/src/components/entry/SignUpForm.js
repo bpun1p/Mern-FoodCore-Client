@@ -16,7 +16,7 @@ export default function SignUpForm() {
     setUser({ ...user, [event.target.name]: event.target.value });
   };
 
-  const onConfirmation = (event) => {
+  const setConfirmation = (event) => {
     setConfirmInput({ ...confirmInput, [event.target.name]: event.target.value });
   };
 
@@ -79,7 +79,7 @@ export default function SignUpForm() {
             name="usernameConfirm"
             className="sign-up__e-confirm"
             data-testid="username-confirm"
-            onChange={onConfirmation}
+            onChange={setConfirmation}
           />
           <input
             placeholder="Choose a password"
@@ -97,7 +97,7 @@ export default function SignUpForm() {
             name="passwordConfirm"
             className="sign-up__pass-confirm"
             data-testid="password-confirm"
-            onChange={onConfirmation}
+            onChange={setConfirmation}
           />
         </div>
         {isMatch === false

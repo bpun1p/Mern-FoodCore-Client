@@ -143,7 +143,7 @@ describe('Create recipe button', () => {
         expect(getByText('Please fill in all fields')).toBeInTheDocument();
     });
     test('when clicked with fully filled input will send user back to their dashboard', async () => {
-        const file = new File(['(⌐□_□)'], 'coolGuy.png', {type: 'image/png'});
+        const file = new File(['(⌐□_□)'], 'cool-guy.png', {type: 'image/png'});
         const fakeBase64 = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQUFBAYFB';
         const successResponse = { message: { msgBody: 'post successful', msgError: false }};
 
