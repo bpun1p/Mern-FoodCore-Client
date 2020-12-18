@@ -12,6 +12,7 @@ app.use(cookieParser()); // parse the cookie stored in the web browser
 app.use(bodyParser({ limit: '50mb' }));
 
 const dbURI = 'mongodb://FoodCore:Guy123su@localhost:27017';
+// const dbURI = 'mongodb://FoodCore:Guy123su@mongodb:27017';
 
 // connect to mongodb
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
