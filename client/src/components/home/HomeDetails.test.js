@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
-
 import HomeDetails from './HomeDetails';
 
 test('renders the correct content', () => {

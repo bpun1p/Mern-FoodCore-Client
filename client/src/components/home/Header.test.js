@@ -36,6 +36,5 @@ describe('Navigation', () => {
     fireEvent.click(queryByTestId('exit-nav-btn'));
   
     expect(queryByTestId('nav-btn')).not.toBeNull();
-
   });
 });
