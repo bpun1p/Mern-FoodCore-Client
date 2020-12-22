@@ -1,7 +1,4 @@
-FROM node:13-alpine
-
-ENV MONGO_DB_USERNAME=FoodCore \
-    MONGO_DB_PWD=Guy123su
+FROM node:latest
 
 RUN mkdir -p /FoodCore
 
@@ -14,5 +11,7 @@ RUN npm install
 WORKDIR /FoodCore/server
 
 RUN npm install
+
+EXPOSE 3000 5000
 
 ENTRYPOINT ["npm", "run", "dev"]
