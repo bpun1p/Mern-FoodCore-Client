@@ -18,12 +18,12 @@ test('renders the correct content', () => {
 });
 
 test('exit navigation button is clicked, togglePopUp is called', () => {
-    const mockFunction = jest.fn();
-    const { getByTestId } = render (
-      <Navigation togglePopUp={mockFunction}/>, { wrapper: BrowserRouter }
-    );
- 
-    fireEvent.click(getByTestId('exit-nav-btn'));
+  const mockFunction = jest.fn();
+  const { getByTestId } = render (
+    <Navigation togglePopUp={mockFunction}/>, { wrapper: BrowserRouter }
+  );
 
-    expect(mockFunction).toHaveBeenCalledTimes(1);
+  fireEvent.click(getByTestId('exit-nav-btn'));
+
+  expect(mockFunction).toHaveBeenCalledTimes(1);
 });

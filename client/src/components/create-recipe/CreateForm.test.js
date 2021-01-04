@@ -68,7 +68,6 @@ describe('add contents', () => {
         fireEvent.click(ingredientButton);
 
         expect(getByText('chicken breast')).toBeInTheDocument();
-
     });
 });
 
@@ -179,5 +178,4 @@ describe('Create recipe button', () => {
         expect(mockHistoryPush).toHaveBeenCalled();
         expect(mockHistoryPush).toHaveBeenCalledWith('/dashboard/global')
     })
-
 });

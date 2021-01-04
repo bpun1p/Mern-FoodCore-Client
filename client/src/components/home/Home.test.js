@@ -9,4 +9,4 @@ test('an element from each subcomponent exists', () => {
 
     expect(getByTestId('nav-btn')).toBeInTheDocument();
     expect(getByText('Where Cooking Is Love Made Visible.')).toBeInTheDocument();
-})
+});

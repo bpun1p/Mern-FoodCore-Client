@@ -3,8 +3,7 @@ import Proptypes from 'prop-types';
 import { v1 as uuidv1 } from 'uuid';
 
 function RecipeModal(props) {
-  const { recipe } = props;
-  const { togglePopUp } = props;
+  const { recipe, togglePopUp } = props;
   return (
     <div className="modal__container">
       <div className="modal">
