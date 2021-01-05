@@ -21,8 +21,7 @@ test('renders the correct content', async () => {
     const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
     AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
 
-    const { getByText } = render(<BrowserRouter><DashboardNav /></BrowserRouter>, { wrapper: AuthProvider });
-    await act(() => Promise.resolve())
+    const { getByText } = await render(<BrowserRouter><DashboardNav /></BrowserRouter>, { wrapper: AuthProvider });
 
     expect(getByText('GLOBAL')).not.toBeNull();
     expect(getByText('MYPOSTS')).not.toBeNull();

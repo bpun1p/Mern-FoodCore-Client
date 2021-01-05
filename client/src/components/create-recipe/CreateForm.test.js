@@ -27,9 +27,7 @@ test('renders content correctly', async () => {
     const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
     AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
 
-    const { getByTestId, getAllByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
-
-    await act(() => Promise.resolve());
+    const { getByTestId, getAllByTestId, getByText } = await render(<CreateForm />, {wrapper: AuthProvider});
     
     expect(getByTestId('image-input')).not.toBeNull();
     expect(getByText("Recipe's Name:")).toBeInTheDocument();
