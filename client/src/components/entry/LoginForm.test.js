@@ -45,9 +45,7 @@ describe('when user inputs login information', () => {
         fireEvent.change(getByTestId('username'), {target: {value: 'fakeUsername'}});
         fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
         
-        fireEvent.click(getByTestId('login-btn'));
-
-        await act(() => Promise.resolve());
+        await act(() => fireEvent.click(getByTestId('login-btn')));
         
         expect(getByText('Invalid username or password')).toBeInTheDocument();  
     });
@@ -57,18 +55,14 @@ describe('when user inputs login information', () => {
 
         AuthService.isAuthenticated.mockResolvedValue(defaultResponse);
         
-        const { getByTestId, queryByText } = render(<LoginForm />, { wrapper: AuthProvider });
-
-        await act(() => Promise.resolve());
+        const { getByTestId, queryByText } = await render(<LoginForm />, { wrapper: AuthProvider });
 
         AuthService.login.mockResolvedValue(authenticatedResponse);
 
         fireEvent.change(getByTestId('username'), {target: {value: "Bpun1p"}});
         fireEvent.change(getByTestId('password'), {target: {value: "Guy123su"}});
 
-        fireEvent.click(getByTestId('login-btn'));
-
-        await act(() => Promise.resolve());
+        await act(() => fireEvent.click(getByTestId('login-btn')));
 
         expect(queryByText('Invalid username or password')).not.toBeInTheDocument(); 
         expect(mockHistoryPush).toHaveBeenCalledWith('/dashboard/global');

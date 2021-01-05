@@ -35,13 +35,9 @@ test('user should be redirected to the login page when logout button is clicked'
     const logoutResponse = { user: { username: '' }, success: true }
     AuthService.logout.mockResolvedValue(logoutResponse)
 
-    const { getByText } = render(<BrowserRouter><DashboardNav /></BrowserRouter>, { wrapper: AuthProvider });
+    const { getByText } = await render(<BrowserRouter><DashboardNav /></BrowserRouter>, { wrapper: AuthProvider });
 
-    await act(() => Promise.resolve())
-
-    fireEvent.click(getByText('LOGOUT'));
-
-    await act(() => Promise.resolve())
+    await act(() => fireEvent.click(getByText('LOGOUT')));
 
     expect(mockHistoryPush).toHaveBeenCalledWith('/login');
     expect(mockHistoryPush).toHaveBeenCalledTimes(1);
