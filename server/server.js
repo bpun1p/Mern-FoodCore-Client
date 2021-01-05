@@ -11,6 +11,8 @@ const bodyParser = require('body-parser');
 app.use(cookieParser()); // parse the cookie stored in the web browser
 app.use(bodyParser({ limit: '50mb' }));
 
+// const dbURI = 'mongodb://FoodCore:Guy123su@localhost:27017';
+// const dbURI = 'mongodb://FoodCore:Guy123su@mongodb:27017';
 const dbURI = 'mongodb+srv://FoodCore:Guy123su@cluster0.amii2.mongodb.net/FoodCore?retryWrites=true&w=majority';
 
 // connect to mongodb

@@ -28,7 +28,7 @@ const mockRecipe = {
         "Divide cold dough into 2 1/4-ounce portions and place on a cookie sheet.",
         "Bake in the preheated oven until the edges start to look golden brown and crispy, 10 to 12 minutes. Do not overbake; the centers will not look fully done. Cool until cookies are set, about 30 minutes."
     ]
-}
+};
 
 test('component renders correct content', () => {
     const { getByTestId } = render(<Post recipe={mockRecipe} />)
@@ -36,7 +36,7 @@ test('component renders correct content', () => {
     expect(getByTestId('post-image')).not.toBeNull();
     expect(getByTestId('recipe-title').textContent).toEqual('Triple Chocolate Chunk Cookies');
     expect(getByTestId('recipe-author').textContent).toEqual('ByMadeline');
-})
+});
 
 test('Clicking the post will open a modal window displaying post content', () => {
     const { getByTestId, queryByTestId } = render(<Post recipe={mockRecipe} />)
@@ -50,4 +50,4 @@ test('Clicking the post will open a modal window displaying post content', () =>
     fireEvent.click(getByTestId('exit-modal-btn'));
 
     expect(queryByTestId('exit-modal-btn')).not.toBeInTheDocument();
-})
+});

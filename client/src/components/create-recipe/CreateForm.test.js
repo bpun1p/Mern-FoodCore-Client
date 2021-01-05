@@ -157,5 +157,5 @@ describe('Create recipe button', () => {
 
         expect(mockHistoryPush).toHaveBeenCalled();
         expect(mockHistoryPush).toHaveBeenCalledWith('/dashboard/global')
-    });
+    })
 });

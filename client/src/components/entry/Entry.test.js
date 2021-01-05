@@ -11,4 +11,4 @@ test('an element from each subcomponent exists', () => {
   expect(getByTestId('sign-up-title').textContent).toEqual('Sign Up');
   expect(getByText('Already have an account ?')).not.toBeNull();
   expect(getAllByTestId('facebook-icon')).not.toBeNull();
-})
+});
