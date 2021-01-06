@@ -16,16 +16,16 @@ pipeline {
 
         stage("build") {
             steps {
-                dir('/client') {
+                // dir('/client') {
                     script {
                         gv.buildClient()
                     }
-                }
-                dir('/server') {
+                // }
+                // dir('/server') {
                     script {
                         gv.buildServer()
                     }
-                }
+                // }
             }
         }
 
