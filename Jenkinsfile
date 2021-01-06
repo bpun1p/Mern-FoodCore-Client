@@ -2,13 +2,6 @@ def gv
 CODE_CHANGES = gv.getGitChanges()
 
 pipeline {
-    options {
-        timestamps()
-    }
-
-    enviroment {
-        CI = 'true'
-    }
 
     stages {
         stage("init") {
