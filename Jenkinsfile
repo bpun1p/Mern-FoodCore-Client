@@ -2,7 +2,7 @@ def gv
 CODE_CHANGES = gv.getGitChanges()
 
 pipeline {
-
+    agent any
     stages {
         stage("init") {
             steps {
@@ -13,15 +13,16 @@ pipeline {
         }
         stage("build") {
             steps {
-                dir('/client') {
-                    script {
-                        gv.buildClient()
-                    }
-                }
-                dir('/server') {
-                    script {
-                        gv.buildServer()
-                    }
+                // dir('/client') {
+                //     script {
+                //         gv.buildClient()
+                //     }
+                // }
+                // dir('/server') {
+                //     script {
+                //         gv.buildServer()
+                //     }
+                echo 'building application'
                 }
             }
         }
