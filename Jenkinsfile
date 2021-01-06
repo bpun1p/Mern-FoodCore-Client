@@ -1,5 +1,6 @@
 def gv
-CODE_CHANGES = getGitChanges();
+CODE_CHANGES = gv.getGitChanges()
+
 pipeline {
     options {
         timestamps()
@@ -19,20 +20,31 @@ pipeline {
         }
         stage("build") {
             steps {
-                sh 'npm install'
-                echo 'building the application...'
+                dir('/client') {
+                    script {
+                        gv.buildClient()
+                    }
+                }
+                dir('/server') {
+                    script {
+                        gv.buildServer()
+                    }
+                }
             }
         }
 
         stage("test") {
             when {
                 expression {
-                    BRANCH_NAME == 'Main' && CODE_CHANGES == true
+                    script {
+                        BRANCH_NAME == "feature-jenkins" && CODE_CHANGES == true
+                    }
                 }
             }
             steps {
-                sh 'npm test'
-                echo 'testing the application...'
+                script {
+                    gv.testApp()
+                }
             }
 
         }
@@ -40,7 +52,9 @@ pipeline {
         stage("deploy") {
             when {
                 expression {
-                    BRANCH_NAME == 'Main' && CODE_CHANGES == true
+                    script {
+                        BRANCH_NAME == "feature-jenkins" && CODE_CHANGES == true
+                    }
                 }
             }
             steps {
