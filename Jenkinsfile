@@ -39,7 +39,7 @@ pipeline {
             when {
                 expression {
                     script {
-                        env.BRANCH_NAME.toString().equals('feature-jenkins') && CODE_CHANGES == false
+                        CODE_CHANGES == true
                     }
                 }
             }
@@ -51,6 +51,11 @@ pipeline {
             }
         }
         stage("deploy") {
+            when {
+                expression {
+                    env.BRANCH_NAME.toString().equals('Main')
+                }
+            }
             steps {
                 echo 'deploying application...'
             }
