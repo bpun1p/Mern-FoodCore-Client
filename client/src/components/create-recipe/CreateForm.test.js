@@ -9,8 +9,8 @@ import ImageCompressor from '../Utils/ImageCompressor';
 import ToBase64 from '../Utils/ToBase64';
 
 jest.mock('../../service/AuthService');
-jest.mock('../Utils/ImageCompressor');
-jest.mock('../Utils/ToBase64');
+jest.mock('../utils/ImageCompressor');
+jest.mock('../utils/ToBase64');
 jest.mock('../../service/RecipeService');
 
 const mockHistoryPush = jest.fn();
