@@ -2,10 +2,10 @@ def gv
 
 pipeline {
     agent any
-    tools {nodejs "node"}
     environment {
         CI = 'true'
     }
+    tools {nodejs "node"}
     parameters {
         choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
@@ -46,15 +46,13 @@ pipeline {
             steps {
                 dir("client") {
                     sh 'npm test'
-                    echo 'testing application...'
+                    echo 'testing application'
                 }
             }
         }
         stage("deploy") {
             steps {
-                script {
-                    gv.deployApp()
-                }
+                echo 'deploying application...'
             }
         }
     }   

@@ -5,8 +5,8 @@ import AuthService from '../../service/AuthService';
 import RecipeService from '../../service/RecipeService';
 import AuthProvider from '../../context/AuthContext';
 import CreateForm from './CreateForm';
-import ImageCompressor from '../Utils/ImageCompressor';
-import ToBase64 from '../Utils/ToBase64';
+import ImageCompressor from '../utils/ImageCompressor';
+import ToBase64 from '../utils/ToBase64';
 
 jest.mock('../../service/AuthService');
 jest.mock('../utils/ImageCompressor');
