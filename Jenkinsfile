@@ -1,3 +1,4 @@
+def gv
 pipeline {
     agent any
     environment {
@@ -13,6 +14,14 @@ pipeline {
         'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
     }
     stages {
+        stage("init") {
+            steps {
+                script {
+                   gv = load "script.groovy"
+                   CODE_CHANGES = gv.getGitChanges()
+                }
+            }
+        }
         stage("build frontend") {
             steps {
                 dir("client") {
@@ -40,6 +49,13 @@ pipeline {
             }
         }
         stage("build application") {
+            when {
+                expression {
+                    script {
+                        CODE_CHANGES == true
+                    }
+                }
+            }
             steps {
                 script {
                    def image = docker.build('$IMAGE_NAME')
@@ -47,6 +63,13 @@ pipeline {
             }
         }
         stage("push to repository") {
+            when {
+                expression {
+                    script {
+                        CODE_CHANGES == true
+                    }
+                }
+            }
             steps {
                 script {
                     docker.withRegistry(ECURL, ECRCRED) {
