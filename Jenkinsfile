@@ -1,29 +1,22 @@
-def gv
-
 pipeline {
     agent any
     environment {
         CI = 'true'
+        VERSION = "$BUILD_NUMBER"
+        PROJECT_NAME = "foodcore"
+        IMAGE_NAME = "$PROJECT_NAME:$VERSION"
+        ECRURL = "https://155950043310.dkr.ecr.us-east-2.amazonaws.com/foodcore"
+        ECRCRED = "ecr:us-east-2:awscredentials"
     }
-    tools {nodejs "node"}
-    parameters {
-        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
-        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+    tools {
+        nodejs "node"
+        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
     }
     stages {
-        stage("init") {
-            steps {
-                script {
-                   gv = load "script.groovy"
-                   CODE_CHANGES = gv.getGitChanges()
-                }
-            }
-        }
         stage("build frontend") {
             steps {
                 dir("client") {
                     sh 'npm install'
-                    echo 'building client'
                 }
             }
         }
@@ -31,34 +24,36 @@ pipeline {
             steps {
                 dir("server") {
                     sh 'npm install'
-                    echo 'building server...'
                 }
             }
         }
-        stage("test") {
-            when {
-                expression {
-                    script {
-                        CODE_CHANGES == true
-                    }
-                }
-            }
+        stage("test application") {
             steps {
                 dir("client") {
                     sh 'npm test'
-                    echo 'testing application'
                 }
             }
         }
-        stage("deploy") {
-            when {
-                expression {
-                    env.BRANCH_NAME.toString().equals('Main')
-                }
-            }
+        stage("checkout") {
             steps {
-                echo 'deploying application...'
+                checkout scm
             }
         }
-    }   
+        stage("build application") {
+            steps {
+                script {
+                   def image = docker.build('$IMAGE_NAME')
+                }
+            }
+        }
+        stage("push to repository") {
+            steps {
+                script {
+                    docker.withRegistry(ECURL, ECRCRED) {
+                        image.push();
+                    }
+                }
+            }
+        }
+    }
 }
