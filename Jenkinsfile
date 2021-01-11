@@ -48,7 +48,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage("build application") {
+        stage("build image") {
             when {
                 expression {
                     script {
@@ -58,7 +58,7 @@ pipeline {
             }
             steps {
                 script {
-                   def image = docker.build('$IMAGE_NAME')
+                   image = docker.build('$IMAGE_NAME')
                 }
             }
         }
@@ -76,6 +76,11 @@ pipeline {
                         image.push();
                     }
                 }
+            }
+        }
+        stage("clean up image") {
+            steps {
+                sh "docker rmi $IMAGE_NAME"
             }
         }
     }
