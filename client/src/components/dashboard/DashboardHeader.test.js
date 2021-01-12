@@ -1,4 +1,3 @@
-  
 import * as React from 'react';
 import { render, act } from '@testing-library/react';
 import AuthService from '../../service/AuthService';
@@ -13,8 +12,7 @@ test('renders the correct content', async () => {
     const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
     AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
 
-    const { getByTestId, getByText } = render(<BrowserRouter><DashboardHeader /></BrowserRouter>, { wrapper: AuthProvider });
-    await act(() => Promise.resolve())
+    const { getByTestId, getByText } = await render(<BrowserRouter><DashboardHeader /></BrowserRouter>, { wrapper: AuthProvider });
 
     expect(getByTestId('foodcore-logo')).not.toBeNull();
     expect(getByText('GLOBAL')).not.toBeNull();

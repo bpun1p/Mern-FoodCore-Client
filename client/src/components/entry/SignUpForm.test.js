@@ -69,9 +69,7 @@ describe('when user inputs information into sign up form', () => {
         fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
         fireEvent.change(getByTestId('password-confirm'), {target: {value: 'fakePassword'}});
 
-        fireEvent.click(getByTestId('sign-up-btn'));
-
-        await act(() => Promise.resolve());
+        await act(() => fireEvent.click(getByTestId('sign-up-btn')));
         expect(mockHistoryPush).toHaveBeenCalledWith('/login');
         expect(mockHistoryPush).toHaveBeenCalledTimes(1);
     });
@@ -86,9 +84,7 @@ describe('when user inputs information into sign up form', () => {
         fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
         fireEvent.change(getByTestId('password-confirm'), {target: {value: 'fakePassword'}});
 
-        fireEvent.click(getByTestId('sign-up-btn'));
-
-        await act(() => Promise.resolve());
+        await act(() => fireEvent.click(getByTestId('sign-up-btn')));
 
         expect(getByText('username is already used')).toBeInTheDocument();
     });
@@ -108,9 +104,7 @@ describe('when user inputs information into sign up form', () => {
         fireEvent.change(getByTestId('password'), {target: {value: 'fakePassword'}});
         fireEvent.change(getByTestId('password-confirm'), {target: {value: 'fakePassword'}});
 
-        fireEvent.click(getByTestId('sign-up-btn'));
-
-        await act(() => Promise.resolve());
+        await act(() => fireEvent.click(getByTestId('sign-up-btn')));
 
         expect(window.location.reload).toHaveBeenCalled();
     });

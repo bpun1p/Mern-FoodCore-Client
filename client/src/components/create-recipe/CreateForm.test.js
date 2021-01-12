@@ -27,9 +27,7 @@ test('renders content correctly', async () => {
     const authenticatedResponse = {isAuthenticated: true, user: {username: 'Bpun1p'}};
     AuthService.isAuthenticated.mockResolvedValue(authenticatedResponse);
 
-    const { getByTestId, getAllByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
-
-    await act(() => Promise.resolve());
+    const { getByTestId, getAllByTestId, getByText } = await render(<CreateForm />, {wrapper: AuthProvider});
     
     expect(getByTestId('image-input')).not.toBeNull();
     expect(getByText("Recipe's Name:")).toBeInTheDocument();
@@ -41,7 +39,7 @@ test('renders content correctly', async () => {
     expect(getAllByTestId('content-text-field')).toHaveLength(2);
     expect(getAllByTestId('add-content-button')).toHaveLength(2);
     expect(getByText('Create')).toHaveAttribute('type', 'submit');
-})
+});
 
 describe('add contents', () => {
 
@@ -51,17 +49,15 @@ describe('add contents', () => {
     });
 
     test('empty input will display and invalid text', async () => {
-        const { getAllByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
-    
-        await act(() => Promise.resolve());
+        const { getAllByTestId, getByText } = await render(<CreateForm />, {wrapper: AuthProvider});
+
         fireEvent.click(getAllByTestId('add-content-button')[0])
 
         expect(getByText('input valid entry')).toBeInTheDocument();
     });
     test('inputting text and submitting should display on DOM', async () => {
-        const { getAllByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getAllByTestId, getByText } = await render(<CreateForm />, {wrapper: AuthProvider});
 
-        await act(() => Promise.resolve());
         const ingredientButton = getAllByTestId('add-content-button')[0];
         const ingredientField = getAllByTestId('content-text-field')[0];
         fireEvent.change(ingredientField, {target: {value: 'chicken breast'}});
@@ -79,36 +75,28 @@ describe('image uploader', () => {
     });
 
     test('uploading a non image file should return error message', async () => {
-        const { getByTestId, getByText } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getByTestId, getByText } = await render(<CreateForm />, {wrapper: AuthProvider});
 
-        await act(() => Promise.resolve());
-        
         const file = new File(['foo'], 'foo.txt', {type: 'text/plain'})
 
         const imageInput = getByTestId('image-input');
         fireEvent.change(imageInput, {target: {files: [file]}});
 
-        await act(() => Promise.resolve());
-
         expect(getByText('unable to convert image file')).toBeInTheDocument();
-    })
+    });
     test('uploading a image file should display an image onto the Dom', async () => {
         const file = new File(['(⌐□_□)'], 'coolGuy.png', {type: 'image/png'});
         const fakeBase64 = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQUFBAYFB'
         ImageCompressor.mockResolvedValue(file);
         ToBase64.mockResolvedValue(fakeBase64);
 
-        const { getByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getByTestId } = await render(<CreateForm />, {wrapper: AuthProvider});
 
-        await act(() => Promise.resolve());
-
-        fireEvent.change(getByTestId('image-input'), {target: {files: [file]}});
-
-        await act(() => Promise.resolve());
+        await act(() => fireEvent.change(getByTestId('image-input'), {target: {files: [file]}}));
 
         expect(getByTestId('displayed-image')).toBeInTheDocument();
-    })
-})
+    });
+});
 
 describe('Create recipe button', () => {
 
@@ -118,18 +106,15 @@ describe('Create recipe button', () => {
     });
 
     test('when click with no inputs will display a error message in the DOM', async () => {
-        const { getByText } = render(<CreateForm />, {wrapper: AuthProvider});
-
-        await act(() => Promise.resolve());
+        const { getByText } = await render(<CreateForm />, {wrapper: AuthProvider});
 
         fireEvent.click(getByText('Create'));
 
         expect(getByText('Please fill in all fields')).toBeInTheDocument();
     });
     test('when clicked with some filled inputs will display an error message in the DOM', async () => {
-        const { getByText, getByTestId, getAllByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getByText, getByTestId, getAllByTestId } = await render(<CreateForm />, {wrapper: AuthProvider});
 
-        await act(() => Promise.resolve());
         const ingredientField = getAllByTestId('content-text-field')[0];
         const ingredientButton = getAllByTestId('add-content-button')[0];
         fireEvent.change(getByTestId('recipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
@@ -151,12 +136,9 @@ describe('Create recipe button', () => {
         ImageCompressor.mockResolvedValue(file);
         ToBase64.mockResolvedValue(fakeBase64);
 
-        const { getByText, getByTestId, getAllByTestId } = render(<CreateForm />, {wrapper: AuthProvider});
+        const { getByText, getByTestId, getAllByTestId } = await render(<CreateForm />, {wrapper: AuthProvider});
 
-        await act(() => Promise.resolve()); 
-
-        fireEvent.change(getByTestId('image-input'), {target: {files: [file]}});
-        await act(() => Promise.resolve());
+        await act(() => fireEvent.change(getByTestId('image-input'), {target: {files: [file]}}));
 
         fireEvent.change(getByTestId('recipe-name-text-field'), {target: {value: 'Chicken Pot Pie'}});
         fireEvent.change(getByTestId('description-text-field'), {target: {value: 'A delicious chicken pie made from scratch with carrots, peas and celery.'}});
@@ -171,9 +153,7 @@ describe('Create recipe button', () => {
         fireEvent.change(instructionField, {target: {value: 'Bake a 4-oz. chicken breast at 350°F (177˚C) for 25 to 30 minutes'}});
         fireEvent.click(instructionButton);
         
-        fireEvent.click(getByText('Create'));
-
-        await act(() => Promise.resolve())
+        await act(() => fireEvent.click(getByText('Create')));
 
         expect(mockHistoryPush).toHaveBeenCalled();
         expect(mockHistoryPush).toHaveBeenCalledWith('/dashboard/global')
