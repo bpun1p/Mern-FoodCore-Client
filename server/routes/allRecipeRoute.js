@@ -6,6 +6,7 @@ const allRecipeController = require('../controllers/allRecipeController');
 
 // All Recipes Route
 router.post('/all-recipes', passport.authenticate('jwt', { session: false }), allRecipeController.postToAllRecipes);
-router.get('/all-recipes', passport.authenticate('jwt', { session: false }), allRecipeController.getAllRecipes);
+
+router.get('/all-recipes', allRecipeController.getAllRecipes);
 
 module.exports = router;
