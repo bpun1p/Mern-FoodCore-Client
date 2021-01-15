@@ -36,17 +36,18 @@ export default function Dashboard() {
     <>
       <div className="dashboard">
         <DashboardHeader />
-        {currentUrl === '/dashboard/my-posts' && isAuthenticated !== true
+        {currentUrl === '/dashboard/my-posts' && !isAuthenticated
           ? <h2 className="dashboard__unauthenticated-msg">Please Login To See Your Recipes</h2>
           : null}
         <div className="created-posts">
-          {currentUrl === '/dashboard/global' && allRecipes.length !== 0
+          {currentUrl === '/dashboard/global' && allRecipes
             ? allRecipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
             : null}
-          {currentUrl === '/dashboard/my-posts' && myRecipes.length !== 0
+          {currentUrl === '/dashboard/my-posts' && myRecipes.recipes
             ? myRecipes.recipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
             : null}
-          {myRecipes.recipes !== undefined && allRecipes !== 0 ? null : <LoadingIndicator />}
+          {myRecipes.recipes && allRecipes
+            ? null : <LoadingIndicator />}
         </div>
         {currentUrl === '/dashboard/create' ? <CreateForm /> : null}
       </div>

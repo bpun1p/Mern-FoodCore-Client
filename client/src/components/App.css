@@ -235,7 +235,7 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 50%;
+  width: 45%;
 }
 
 .dashboard__nav-entry {
