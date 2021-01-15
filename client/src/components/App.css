@@ -152,6 +152,10 @@
   padding-right: 10px;
 }
 
+.create-form__unauthenticated-msg {
+  text-align: center;
+}
+
 #uploaded-photo {
   color: transparent;
 }
@@ -170,6 +174,20 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/profile-back.jpg);
   min-height: 100vh;
   background-attachment: fixed;
+}
+
+.dashboard__unauthenticated-msg {
+  color: #ffffff;
+  height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .created-posts {

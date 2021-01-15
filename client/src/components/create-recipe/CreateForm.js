@@ -25,7 +25,7 @@ export default function CreateForm() {
       author: '',
     },
   );
-  const { user } = useContext(AuthContext);
+  const { user, isAuthenticated } = useContext(AuthContext);
   const history = useHistory();
 
   const resetForm = () => {
@@ -101,6 +101,7 @@ export default function CreateForm() {
     <div>
       <form className="create-form" onSubmit={onSubmit}>
         <div className="create-form__about">
+          {!isAuthenticated ? <h2 className="create-form__unauthenticated-msg">Please Login To Create A Recipe</h2> : null}
           <div className="create-form__upload">
             <input
               type="file"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../utils/LoadingIndicator';
@@ -7,8 +7,10 @@ import '../App.css';
 import Post from './Post';
 import CreateForm from '../create-recipe/CreateForm';
 import RecipeService from '../../service/RecipeService';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function Dashboard() {
+  const { isAuthenticated } = useContext(AuthContext);
   const [allRecipes, setAllRecipes] = useState([]);
   const [myRecipes, setMyRecipes] = useState([]);
   const currentUrl = window.location.pathname;
@@ -21,7 +23,7 @@ export default function Dashboard() {
             setAllRecipes(data);
           }),
       );
-    } else if (currentUrl === '/dashboard/my-posts') {
+    } else if (currentUrl === '/dashboard/my-posts' && isAuthenticated === true) {
       trackPromise(
         RecipeService.getRecipes()
           .then((data) => {
@@ -34,6 +36,9 @@ export default function Dashboard() {
     <>
       <div className="dashboard">
         <DashboardHeader />
+        {currentUrl === '/dashboard/my-posts' && isAuthenticated !== true
+          ? <h2 className="dashboard__unauthenticated-msg">Please Login To See Your Recipes</h2>
+          : null}
         <div className="created-posts">
           {currentUrl === '/dashboard/global' && allRecipes.length !== 0
             ? allRecipes.map((recipe) => <Post recipe={recipe} key={uuidv1()} />)
