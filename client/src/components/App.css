@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 .about-me {
   height: 100vh;
   background-image: url(../assets/images/profile-back.jpg);
@@ -679,24 +680,112 @@ body {
 
 .home-details__header {
   margin: 70px 0 0 0;
-  color: white;
   font-weight: 100;
-  font-family: 'Arial';
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 2%;
-  font-size: 40px;
   width: 80%;
-  font-size: 70px;
 }
 
 .home-details__header-description {
   margin: 0;
-  color: white;
   padding: 2%;
   font-weight: 100;
-  font-family: 'Arial';
-  font-size: 30px;
+}
+
+.neon-red-text {
+  font-size: 4rem;
+  font-family: "Sacramento", cursive;
+  -webkit-animation: blink-red 12s infinite;
+          animation: blink-red 12s infinite;
+  width: 100%;
+}
+
+.neon-orange-text {
+  font-family: "neon";
+  font-size: 7rem;
+  -webkit-animation: blink-orange 12s infinite;
+          animation: blink-orange 12s infinite;
+}
+
+@-webkit-keyframes blink-orange {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px #e67e22, 0 0 15px #e67e22, 0 0 20px #e67e22, 0 0 40px #e67e22,  0 0 60px #ff0000, 0 0 10px #e67e22, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+@keyframes blink-orange {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px #e67e22, 0 0 15px #e67e22, 0 0 20px #e67e22, 0 0 40px #e67e22,  0 0 60px #ff0000, 0 0 10px #e67e22, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+@-webkit-keyframes blink-red {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px #f25757, 0 0 15px #f25757, 0 0 20px #f25757, 0 0 40px #e50b0b, 0 0 60px #e50b0b, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #ffd8d8;
+  }
+}
+
+@keyframes blink-red {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    text-shadow: 0 0 5px #f25757, 0 0 15px #f25757, 0 0 20px #f25757, 0 0 40px #e50b0b, 0 0 60px #e50b0b, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #ffd8d8;
+  }
 }
 
 .nav {
@@ -816,5 +905,10 @@ body {
 
 .modal__exit-icon {
   fill: white;
+}
+
+@font-face {
+  font-family: "neon";
+  src: url("../assets/fonts/hellodenverdisplayregular_v1.6.ttf");
 }
 /*# sourceMappingURL=App.css.map */
