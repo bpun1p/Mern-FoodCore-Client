@@ -22,11 +22,6 @@ export default function Post(props) {
             <h1 className="post__name" data-testid="recipe-title">
               {recipe.title}
             </h1>
-            <h3 className="post__author" data-testid="recipe-author">
-              By
-              <br />
-              {recipe.author}
-            </h3>
           </div>
         </div>
       </div>
