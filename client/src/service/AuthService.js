@@ -1,5 +1,5 @@
 export default {
-  login: (user) => fetch('http://localhost:5000/user/login',
+  login: (user) => fetch('/api/user/login',
     {
       method: 'post',
       body: JSON.stringify(user),
@@ -12,7 +12,7 @@ export default {
       return { isAuthenticated: false, user: { username: '' } };
     }),
 
-  register: (user) => fetch('http://localhost:5000/user/register',
+  register: (user) => fetch('/api/user/register',
     {
       method: 'post',
       body: JSON.stringify(user),
@@ -21,7 +21,7 @@ export default {
     .then((res) => res.json())
     .then((data) => data),
 
-  logout: () => fetch('http://localhost:5000/user/logout',
+  logout: () => fetch('/api/user/logout',
     {
       withCredentials: true,
       credentials: 'include',
@@ -29,7 +29,7 @@ export default {
     .then((res) => res.json())
     .then((data) => data),
 
-  isAuthenticated: () => fetch('http://localhost:5000/user/authenticated',
+  isAuthenticated: () => fetch('/api/user/authenticated',
     {
       withCredentials: 'true',
       credentials: 'include',
