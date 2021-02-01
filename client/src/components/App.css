@@ -793,9 +793,13 @@ body {
   margin-top: 40px;
 }
 
-.nav__register, .nav__login, .nav__about-me, .nav__recipes {
+.nav__register, .nav__login, .nav__about-me, .nav__recipes, .nav__groundwork {
   color: white;
   font-size: 20px;
+  cursor: pointer;
+}
+
+.nav__link {
   margin-bottom: 50px;
 }
 
@@ -808,6 +812,90 @@ body {
   border: none;
   background: none;
   height: 32px;
+}
+
+.groundworks {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/images/architect.jpeg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/architect.jpeg);
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 3%;
+  width: 100%;
+  height: 100%;
+}
+
+.groundworks__image {
+  height: 500px;
+  width: 500px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.groundworks__image:hover {
+  color: white;
+  -webkit-box-shadow: 0 0 30px #e67e22;
+          box-shadow: 0 0 30px #e67e22;
+}
+
+.groundworks__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.groundworks__sub-container {
+  margin: 20px 20px;
+  list-style: none;
+}
+
+.groundworks__header {
+  color: white;
+  text-align: center;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.groundworks__heading {
+  color: white;
+  text-align: center;
+}
+
+.groundworks__code-image-container {
+  width: 900px;
+  height: 700px;
+  overflow: scroll;
+  list-style: none;
+  position: absolute;
+  top: 18%;
+  left: 25%;
+  background-color: black;
+  padding: 0;
+}
+
+.groundworks__code {
+  list-style: none;
+}
+
+.groundworks__code-container {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(19, 24, 44, 0.7);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-size: cover;
 }
 
 ::-webkit-scrollbar {
@@ -851,10 +939,11 @@ body {
           align-items: center;
   background-color: rgba(19, 24, 44, 0.7);
   height: 100vh;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 1;
+  background-size: cover;
 }
 
 .modal__recipe {

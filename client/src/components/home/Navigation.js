@@ -7,19 +7,19 @@ export default function Navigation(props) {
 
   return (
     <nav className="nav">
-      <Link data-testid="login-btn" to="/login">
+      <Link data-testid="login-btn" to="/login" className="nav__link">
         <button type="button" className="nav__login">LOGIN</button>
       </Link>
-      <Link to="/register">
+      <Link to="/register" className="nav__link">
         <button type="button" className="nav__register">SIGN UP</button>
       </Link>
-      <Link to="/dashboard/global">
+      <Link to="/dashboard/global" className="nav__link">
         <button type="button" className="nav__recipes">RECIPES</button>
       </Link>
-      <Link to="/groundwork">
+      <Link to="/groundwork" className="nav__link">
         <button type="button" className="nav__about-me">GROUNDWORK</button>
       </Link>
-      <Link to="/about-me">
+      <Link to="/about-me" className="nav__link">
         <button type="button" className="nav__about-me">ABOUT ME</button>
       </Link>
       <button type="button" data-testid="exit-nav-btn" className="nav__close" onClick={togglePopUp}>
