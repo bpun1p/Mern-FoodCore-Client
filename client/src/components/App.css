@@ -876,9 +876,6 @@ body {
   height: 700px;
   overflow: scroll;
   list-style: none;
-  position: absolute;
-  top: 18%;
-  left: 25%;
   background-color: black;
   padding: 0;
 }
@@ -896,6 +893,13 @@ body {
   top: 0;
   z-index: 1;
   background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20vh 0;
 }
 
 ::-webkit-scrollbar {

@@ -44,9 +44,6 @@
         height: 700px;
         overflow: scroll;
         list-style: none;
-        position: absolute;
-        top: 18%;
-        left: 25%;
         background-color: black;
         padding: 0;
     }
@@ -62,6 +59,9 @@
         top: 0;
         z-index: 1;
         background-size: cover;
+        display: flex;
+        justify-content: center;
+        padding: 20vh 0;
     }
 }
 
@@ -83,12 +83,3 @@ border-radius: 10px;
 ::-webkit-scrollbar-thumb:hover {
 background: #e67e22;  
 }
-
-// .myBox {
-//     border: none;
-//     padding: 5px;
-//     font: 24px/36px sans-serif;
-//     width: 200px;
-//     height: 200px;
-//     overflow: scroll;
-//     }
