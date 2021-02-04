@@ -50,9 +50,6 @@ import createFormTest1 from '../../assets/images/groundwork/code/createRecipeIma
 import createFormTest2 from '../../assets/images/groundwork/code/createRecipeImages/create-recipe-test-2.png';
 import createFormTest3 from '../../assets/images/groundwork/code/createRecipeImages/create-recipe-test-3.png';
 
-
-
-
 export default function Groundwork() {
   const codeBaseHome = [ homeDetails, homeDetailsTest, homeNav, homeNavTest, homeAuthentication, homeAuthenticateService, homeAuthController, homeAuthProvider ];
   const codeBaseEntry = [ Signup1, Signup2, SignupTest1, SignupTest2, SignupAuthService, SignupServerRoutes, SignupController, SignupSchema ];
@@ -60,7 +57,6 @@ export default function Groundwork() {
   const codeBaseModal = [ post, postModal, postTest ];
   const codeBaseCreate = [ createForm1, createForm2, createForm3, createFormTest1, createFormTest2, createFormTest3, createRecipeService, createController ];
 
-  
   const [isPopUp, setPopUp] = useState(false);
   const [isImage, setImage] = useState(false)
 
@@ -100,6 +96,7 @@ export default function Groundwork() {
               className="groundworks__image" 
               onClick={togglePopUp}
               id="home"
+              data-testid = "cover-img"
             />
             </li>
             <li className="groundworks__sub-container">
@@ -109,6 +106,7 @@ export default function Groundwork() {
                 className="groundworks__image" 
                 onClick={togglePopUp}
                 id="entry"
+                data-testid = "entry-img"
               />
             </li>
             <li className="groundworks__sub-container">
@@ -118,6 +116,7 @@ export default function Groundwork() {
                 className="groundworks__image" 
                 onClick={togglePopUp}
                 id="recipes"
+                data-testid = "all-recipes-img"
               />
             </li>
             <li className="groundworks__sub-container">
@@ -127,6 +126,7 @@ export default function Groundwork() {
                 className="groundworks__image" 
                 onClick={togglePopUp}
                 id="modal"
+                data-testid = "modal-img"
               />
             </li>
             <li className="groundworks__sub-container">
@@ -136,6 +136,7 @@ export default function Groundwork() {
                 className="groundworks__image" 
                 onClick={togglePopUp}
                 id="create-recipe"
+                data-testid = "create-form-img"
               />
           </li>
         </ul>
@@ -146,7 +147,7 @@ export default function Groundwork() {
                 <path className="modal__exit-icon" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#13182C" />
             </svg>
             <ul className="groundworks__code-image-container">
-                {isImage.map(image => <li><img src={image} key={uuidv1()} className="groundworks__code"/></li>)}
+                {isImage.map(image => <li><img src={image} key={uuidv1()} className="groundworks__code" data-testid="codebase-img" /></li>)}
             </ul> 
         </div>
       : null}
