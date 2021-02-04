@@ -1,13 +1,17 @@
 FROM node:latest
 
-RUN mkdir -p /MERN-FoodCore-Client
+RUN mkdir -p /FoodCore
 
-COPY . /MERN-FoodCore-Client
+COPY . /FoodCore
 
-WORKDIR /MERN-FoodCore-Client/client
+WORKDIR /FoodCore/client
 
 RUN npm install
 
-EXPOSE 3000
+WORKDIR /FoodCore/server
 
-ENTRYPOINT [ "npm", "start" ]
+RUN npm install
+
+EXPOSE 3000 5000
+
+ENTRYPOINT [ "npm", "run", "dev" ]
