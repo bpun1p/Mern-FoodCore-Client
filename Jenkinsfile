@@ -3,11 +3,8 @@ pipeline {
     agent any
     environment {
         CI = 'true'
-        VERSION = "$BUILD_NUMBER"
-        PROJECT_NAME = "foodcore"
-        IMAGE_NAME = "$PROJECT_NAME:$VERSION"
-        ECRURL = "https://155950043310.dkr.ecr.us-east-2.amazonaws.com/foodcore"
-        ECRCRED = "ecr:us-east-2:awscredentials"
+        registry = "bpun1p/client"
+        registryCredential = "dockerhub_id"
     }
     tools {
         nodejs "node"
@@ -25,13 +22,6 @@ pipeline {
         stage("build frontend") {
             steps {
                 dir("client") {
-                    sh 'npm install'
-                }
-            }
-        }
-        stage("build backend") {
-            steps {
-                dir("server") {
                     sh 'npm install'
                 }
             }
@@ -58,11 +48,11 @@ pipeline {
             }
             steps {
                 script {
-                   image = docker.build('$IMAGE_NAME')
+                   dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
-        stage("push to repository") {
+        stage("Deploy Image") {
             when {
                 expression {
                     script {
@@ -72,15 +62,15 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry(ECURL, ECRCRED) {
-                        image.push();
+                    docker.withRegistry('', registryCredential) {
+                        dockerImage.push();
                     }
                 }
             }
         }
         stage("clean up image") {
             steps {
-                sh "docker rmi $IMAGE_NAME"
+                sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
     }
