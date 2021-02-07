@@ -53,7 +53,7 @@ export default {
   },
 
   fetchAllPosts: () => dispatch => {
-    fetch(`${currentPort}/user/recipes`)
+    fetch(`${currentPort}/all-recipes`)
       .then(res => {
         if (res.status !== 401) return res.json().then((data) => data);
         return { message: { msgBody: 'UnAuthorized' }, msgError: true };
@@ -67,7 +67,7 @@ export default {
   },
   
   postToAllData: postData => dispatch => {
-    fetch(`${currentPort}/user/recipes`, {
+    fetch(`${currentPort}/all-recipes`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
