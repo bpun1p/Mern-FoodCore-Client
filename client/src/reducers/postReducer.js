@@ -22,15 +22,15 @@ export default function(state = initialState, action) {
         recipe: action.payload
       };
     case FETCH_ALL_POSTS:
-    return {
+      return {
         ...state,
         recipes: action.payload
-    };
+      };
     case POST_TO_ALL:
-    return {
+      return {
         ...state,
         recipe: action.payload
-    };
+      };
     default:
       return state;
   }
