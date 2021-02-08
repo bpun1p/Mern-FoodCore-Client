@@ -31,13 +31,14 @@ export const fetchUserPosts = () => (dispatch) => {
 };
 
 export const postToUserData = (postData) => (dispatch) => {
-  fetch(`${currentPort}/user/recipes`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(postData),
-    withCredentials: true,
-    credentials: 'include',
-  })
+  fetch(`${currentPort}/user/recipes`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(postData),
+      withCredentials: true,
+      credentials: 'include',
+    })
     .then((res) => {
       if (res.status !== 401) return res.json().then((data) => data);
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
@@ -61,11 +62,12 @@ export const fetchAllPosts = () => (dispatch) => {
 };
 
 export const postToAllData = (postData) => (dispatch) => {
-  fetch(`${currentPort}/all-recipes`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(postData),
-  })
+  fetch(`${currentPort}/all-recipes`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(postData),
+    })
     .then((res) => {
       if (res.status !== 401) return res.json().then((data) => data);
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
