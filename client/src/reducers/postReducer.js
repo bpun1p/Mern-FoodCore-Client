@@ -7,9 +7,7 @@ import {
 
 const initialState = {
   fetchUsersPosts: [],
-  postToUser: {},
   fetchAllPosts: [],
-  postToAll: {},
 };
 
 export default function (state = initialState, action) {
@@ -22,7 +20,6 @@ export default function (state = initialState, action) {
     case POST_TO_USER:
       return {
         ...state,
-        postToUser: action.payload,
       };
     case FETCH_ALL_POSTS:
       return {
@@ -32,7 +29,6 @@ export default function (state = initialState, action) {
     case POST_TO_ALL:
       return {
         ...state,
-        postToAll: action.payload,
       };
     default:
       return state;

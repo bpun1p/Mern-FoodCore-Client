@@ -45,7 +45,6 @@ export const postToUserData = (postData) => (dispatch) => {
     })
     .then((post) => dispatch({
       type: POST_TO_USER,
-      payload: post,
     }));
 };
 
@@ -76,6 +75,5 @@ export const postToAllData = (postData) => (dispatch) => {
     })
     .then((post) => dispatch({
       type: POST_TO_ALL,
-      payload: post,
     }));
 };
