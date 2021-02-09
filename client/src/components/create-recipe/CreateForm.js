@@ -1,13 +1,16 @@
+/* eslint-disable */
 import React, { useState, useContext } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { v1 as uuidv1 } from 'uuid';
 import { useHistory } from 'react-router-dom';
-import RecipeService from '../../service/RecipeService';
 import { AuthContext } from '../../context/AuthContext';
 import ImageCompressor from '../utils/ImageCompressor';
 import ToBase64 from '../utils/ToBase64';
 import AddContent from './AddContent';
+import { postToUserData, postToAllData } from '../../actions/postActions';
 
-export default function CreateForm() {
+function CreateForm(props) {
   const [isDisplay, setDisplay] = useState('');
   const [ingredientSaved, setIngredientSaved] = useState(true);
   const [instructionSaved, setInstructionSaved] = useState(true);
@@ -40,7 +43,7 @@ export default function CreateForm() {
   const onSubmit = (event) => {
     event.preventDefault();
     if (ingredientsArray.length !== 0 && instructionsArray.length !== 0) {
-      RecipeService.postRecipe(
+      props.postToAllData(
         {
           ...recipe,
           ingredients: ingredientsArray,
@@ -48,22 +51,18 @@ export default function CreateForm() {
           img: isSelectedFile,
           author: user.username,
         },
-      )
-        .then((data) => {
-          resetForm();
-          if (!data.message.msgError) {
-            RecipeService.postAllRecipes(
-              {
-                ...recipe,
-                ingredients: ingredientsArray,
-                instructions: instructionsArray,
-                img: isSelectedFile,
-                author: user.username,
-              },
-            )
-              .then(() => history.push('/dashboard/global'));
-          }
-        });
+      );
+      props.postToUserData(
+        {
+          ...recipe,
+          ingredients: ingredientsArray,
+          instructions: instructionsArray,
+          img: isSelectedFile,
+          author: user.username,
+        },
+      );
+      resetForm();
+      history.push('/dashboard/global');
     } else setErrorForm('Please fill in all fields');
   };
 
@@ -173,3 +172,10 @@ export default function CreateForm() {
     </div>
   );
 }
+
+CreateForm.propTypes = {
+  postToUserData: PropTypes.func.isRequired,
+  postToAllData: PropTypes.func.isRequired,
+};
+
+export default connect(null, { postToUserData, postToAllData })(CreateForm);

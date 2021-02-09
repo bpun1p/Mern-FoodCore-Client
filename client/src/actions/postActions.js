@@ -67,6 +67,8 @@ export const postToAllData = (postData) => (dispatch) => {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(postData),
+      withCredentials: true,
+      credentials: 'include',
     })
     .then((res) => {
       if (res.status !== 401) return res.json().then((data) => data);
