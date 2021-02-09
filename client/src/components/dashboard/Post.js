@@ -31,5 +31,5 @@ export default function Post({ recipe }) {
 }
 
 Post.propTypes = {
-  recipe: Proptypes.instanceOf(Object).isRequired
+  recipe: Proptypes.instanceOf(Object).isRequired,
 };

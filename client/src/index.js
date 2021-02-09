@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import Home from './components/home/Home';
 import Entry from './components/entry/Entry';
 import AboutMe from './components/about-me/AboutMe';
 import AuthProvider from './context/AuthContext';
 import Dashboard from './components/dashboard/Dashboard';
 import Groundwork from './components/groundwork/Groundwork';
-import { Provider } from 'react-redux';
 import store from './store';
 
 ReactDOM.render(
