@@ -86,7 +86,7 @@ export default function Groundwork() {
           <text x="" y="110" fill="#fff" fontSize="20px" fontWeight="bold" text-align="center" fontFamily="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">FoodCore</text>
         </svg>
       </Link>
-        <h1 className="groundworks__header">GROUNDWORKS</h1>
+        <h1 className="groundworks__header">CODE SNIPPET</h1>
         <h3 className="groundworks__heading">(Click to view sample code base)</h3>
         <ul className="groundworks__container">
           <li className="groundworks__sub-container">
