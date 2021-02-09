@@ -43,7 +43,7 @@ export const postToUserData = (postData) => (dispatch) => {
       if (res.status !== 401) return res.json().then((data) => data);
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
     })
-    .then((post) => dispatch({
+    .then(() => dispatch({
       type: POST_TO_USER,
     }));
 };
@@ -73,7 +73,7 @@ export const postToAllData = (postData) => (dispatch) => {
       if (res.status !== 401) return res.json().then((data) => data);
       return { message: { msgBody: 'UnAuthorized' }, msgError: true };
     })
-    .then((post) => dispatch({
+    .then(() => dispatch({
       type: POST_TO_ALL,
     }));
 };
