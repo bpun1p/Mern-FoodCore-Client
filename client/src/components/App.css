@@ -201,6 +201,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-top: 200px;
 }
 
 button {
@@ -221,6 +222,8 @@ button {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 1;
+  position: fixed;
+  width: 100%;
 }
 
 .dashboard__nav {
