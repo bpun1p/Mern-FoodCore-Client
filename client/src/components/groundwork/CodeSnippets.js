@@ -29,6 +29,14 @@ import createRecipeTest from '../../assets/images/groundwork/code/createRecipeIm
 import createController from '../../assets/images/groundwork/code/createRecipeImages/create-recipe-controller.png';
 import createRecipeAction from '../../assets/images/groundwork/code/createRecipeImages/create-recipe-action.png';
 
+import home from '../../assets/images/groundwork/cover-page.png';
+import entryPage from '../../assets/images/groundwork/entry-form.png';
+import createForm from '../../assets/images/groundwork/create-form.png';
+import recipeModal from '../../assets/images/groundwork/recipe-modal.png';
+import dashboardRecipes from '../../assets/images/groundwork/recipes.png';
+
+export const appPageImages = [ home, entryPage, dashboardRecipes, recipeModal, createForm ] 
+
 export const cover = { 
     'Navigation': homeNav,
     'Navigation.test': homeNavTest,

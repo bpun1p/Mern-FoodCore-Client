@@ -1,20 +1,7 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import home from '../../assets/images/groundwork/cover-page.png';
-import entryPage from '../../assets/images/groundwork/entry-form.png';
-import createForm from '../../assets/images/groundwork/create-form.png';
-import recipeModal from '../../assets/images/groundwork/recipe-modal.png';
-import recipes from '../../assets/images/groundwork/recipes.png';
-
-import {
-  cover,
-  entry,
-  dashboard,
-  posts,
-  createRecipe,
-} from './CodeSnippets';
+import {cover,entry, dashboard, posts, createRecipe, appPageImages } from './CodeSnippets';
 
 export default function Groundwork() {
   const [isPopUp, setPopUp] = useState(false);
@@ -50,56 +37,18 @@ export default function Groundwork() {
         <h1 className="groundworks__header">CODE SNIPPET</h1>
         <h3 className="groundworks__heading">(Click to view sample code base)</h3>
         <ul className="groundworks__container">
-          <li className="groundworks__sub-container">
-            <img
-              src={home}
-              alt="cover page"
-              className="groundworks__image"
-              onClick={togglePopUp}
-              id="home"
-              data-testid="cover-img"
-            />
-          </li>
-          <li className="groundworks__sub-container">
-            <img
-              src={entryPage}
-              alt="entry page"
-              className="groundworks__image"
-              onClick={togglePopUp}
-              id="entry"
-              data-testid="entry-img"
-            />
-          </li>
-          <li className="groundworks__sub-container">
-            <img
-              src={recipes}
-              alt="all recipes page"
-              className="groundworks__image"
-              onClick={togglePopUp}
-              id="recipes"
-              data-testid="all-recipes-img"
-            />
-          </li>
-          <li className="groundworks__sub-container">
-            <img
-              src={recipeModal}
-              alt="modal of recipe"
-              className="groundworks__image"
-              onClick={togglePopUp}
-              id="modal"
-              data-testid="modal-img"
-            />
-          </li>
-          <li className="groundworks__sub-container">
-            <img
-              src={createForm}
-              alt="create recipe form"
-              className="groundworks__image"
-              onClick={togglePopUp}
-              id="create-recipe"
-              data-testid="create-form-img"
-            />
-          </li>
+          {appPageImages.map((images) => {
+            return (
+              <li className="groundworks__sub-container">
+                <img
+                  src={images}
+                  className="groundworks__image"
+                  data-testid={String(images)}
+                  onClick={togglePopUp}
+                  />
+              </li>
+            );
+          })}
         </ul>
       </div>
       {isPopUp
