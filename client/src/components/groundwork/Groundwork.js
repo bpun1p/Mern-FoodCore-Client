@@ -1,7 +1,8 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {cover,entry, dashboard, posts, createRecipe, appPageImages } from './CodeSnippets';
+
+import { cover, entry, dashboard, posts, createRecipe, snippets, appPageImages } from './CodeSnippets';
 
 export default function Groundwork() {
   const [isPopUp, setPopUp] = useState(false);
@@ -13,12 +14,14 @@ export default function Groundwork() {
       setImage(cover);
     } else if (image === 'entry') {
       setImage(entry);
-    } else if (image === 'recipes') {
+    } else if (image === 'dashboardRecipes') {
       setImage(dashboard);
-    } else if (image === 'modal') {
+    } else if (image === 'recipeModal') {
       setImage(posts);
-    } else if (image === 'create-recipe') {
+    } else if (image === 'createForm') {
       setImage(createRecipe);
+    } else if (image === 'codeSnippets') {
+      setImage(snippets);
     }
     setPopUp(!isPopUp);
   };
@@ -37,17 +40,68 @@ export default function Groundwork() {
         <h1 className="groundworks__header">CODE SNIPPET</h1>
         <h3 className="groundworks__heading">(Click to view sample code base)</h3>
         <ul className="groundworks__container">
-          {appPageImages.map((images) => {
+          {/* <li className="groundworks__sub-container">
+            <img
+              src={home}
+              alt="cover page"
+              className="groundworks__image"
+              onClick={togglePopUp}
+              id="home"
+              data-testid="cover-img"
+            />
+          </li>
+          <li className="groundworks__sub-container">
+            <img
+              src={entryPage}
+              alt="entry page"
+              className="groundworks__image"
+              onClick={togglePopUp}
+              id="entry"
+              data-testid="entry-img"
+            />
+          </li>
+          <li className="groundworks__sub-container">
+            <img
+              src={recipes}
+              alt="all recipes page"
+              className="groundworks__image"
+              onClick={togglePopUp}
+              id="recipes"
+              data-testid="all-recipes-img"
+            />
+          </li>
+          <li className="groundworks__sub-container">
+            <img
+              src={recipeModal}
+              alt="modal of recipe"
+              className="groundworks__image"
+              onClick={togglePopUp}
+              id="modal"
+              data-testid="modal-img"
+            />
+          </li>
+          <li className="groundworks__sub-container">
+            <img
+              src={createForm}
+              alt="create recipe form"
+              className="groundworks__image"
+              onClick={togglePopUp}
+              id="create-recipe"
+              data-testid="create-form-img"
+            />
+          </li> */}
+          {Object.keys(appPageImages).map((image, index) => {
             return (
-              <li className="groundworks__sub-container">
-                <img
-                  src={images}
-                  className="groundworks__image"
-                  data-testid={String(images)}
-                  onClick={togglePopUp}
-                  />
-              </li>
-            );
+            <li className="groundworks__sub-container">
+              <img 
+                src={appPageImages[image]}
+                id={image}
+                onClick={togglePopUp}
+                data-testid={image}
+                className="groundworks__image"
+              />
+            </li>
+            )
           })}
         </ul>
       </div>
@@ -57,9 +111,9 @@ export default function Groundwork() {
             <path className="modal__exit-icon" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="#13182C" />
           </svg>
           <ul className="groundworks__code-image-container">
-            {Object.keys(isImage).map((image) => {
+            {Object.keys(isImage).map((image, index) => {
               return (
-                <li>
+                <li key={index}>
                   <h3 className="groundworks__code-snippet-header">{image}</h3>
                   <img src={isImage[image]} className="groundworks__code" alt="snippet" data-testid="codebase-img" />
                 </li>

@@ -29,48 +29,64 @@ import createRecipeTest from '../../assets/images/groundwork/code/createRecipeIm
 import createController from '../../assets/images/groundwork/code/createRecipeImages/create-recipe-controller.png';
 import createRecipeAction from '../../assets/images/groundwork/code/createRecipeImages/create-recipe-action.png';
 
+import codeSnippets from '../../assets/images/groundwork/code/codeSnippets/codeSnippetsJS.png';
+import codeSnippetsTest from '../../assets/images/groundwork/code/codeSnippets/codeSnippets-test.png';
+
 import home from '../../assets/images/groundwork/cover-page.png';
 import entryPage from '../../assets/images/groundwork/entry-form.png';
 import createForm from '../../assets/images/groundwork/create-form.png';
 import recipeModal from '../../assets/images/groundwork/recipe-modal.png';
 import dashboardRecipes from '../../assets/images/groundwork/recipes.png';
+import codeSnippetsPage from '../../assets/images/groundwork/codeSnippetsPage.png';
 
-export const appPageImages = [ home, entryPage, dashboardRecipes, recipeModal, createForm ] 
+export const appPageImages = {
+    'home': home,
+    'entry': entryPage,
+    'dashboardRecipes': dashboardRecipes,
+    'recipeModal': recipeModal,
+    'createForm': createForm,
+    'codeSnippets': codeSnippetsPage,
+}
 
 export const cover = { 
-    'Navigation': homeNav,
-    'Navigation.test': homeNavTest,
+    'NavigationJS': homeNav,
+    'NavigationJS.test': homeNavTest,
     'Authentication Provider': homeAuthentication,
     'Authentication Service': homeAuthenticateService,
     'Cookie Verifier': verifyCookie,
-    'Index': index,
+    'IndexJS': index,
   }
 
 export const entry = {
-    'SignupForm': signupForm,
-    'SignupForm.test': signupTest,
+    'SignupFormJS': signupForm,
+    'SignupFormJS.test': signupTest,
     'Registeration Service': signupAuthService,
     'Registration Server Route': signupServerRoutes,
     'Registration Server Controller': signupController,
   }
 
 export const dashboard = {
-    'Dashboard': dash,
-    'Dashboard.test': dashboardTest,
-    'Dashboard.Nav': dashboardNav,
-    'Dashboard.Nav.test': dashboardNavTest,
+    'DashboardJS': dash,
+    'DashboardJS.test': dashboardTest,
+    'DashboardNavJS': dashboardNav,
+    'DashboardNavJS.test': dashboardNavTest,
     'GetRecipes Action': getRecipeAction,
   }
 
 export const posts = {
-    'Post': post,
-    'Post.test': postTest,
+    'PostJS': post,
+    'PostJS.test': postTest,
     'Post Modal': postModal,
   }
 
 export const createRecipe = {
-    'CreateRecipeForm' : createRecipeForm,
-    'CreateRecipeForm.test': createRecipeTest,
+    'CreateRecipeFormJS' : createRecipeForm,
+    'CreateRecipeFormJS.test': createRecipeTest,
     'CreateRecipeForm Action': createRecipeAction,
     'CreateRecipeForm Server Controller' : createController,
+  }
+
+  export const snippets = {
+    'CodeSnippetJS' : codeSnippets,
+    'CodeSnippetJS.test' : codeSnippetsTest,
   }
