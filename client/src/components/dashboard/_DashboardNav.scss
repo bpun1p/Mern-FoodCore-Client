@@ -25,6 +25,7 @@
         padding: 10px 0;
         font-size: 20px;
         box-sizing: border-box;
+        cursor: pointer;
     }
     &__log-out:hover, &__my-posts:hover, &__home:hover {
         border-bottom: 3px solid #e67e22;
