@@ -24,7 +24,7 @@ export default function DashboardNav() {
         <button type="button" className="dashboard__home">GLOBAL</button>
       </Link>
       <Link to="/dashboard/my-posts">
-        <button type="button" className="dashboard__my-posts">MYPOSTS</button>
+        <button type="button" className="dashboard__my-posts">MY POSTS</button>
       </Link>
       <Link to="/dashboard/create">
         <button type="button" className="dashboard__create">CREATE</button>

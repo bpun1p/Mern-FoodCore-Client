@@ -648,6 +648,7 @@ button {
 
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 .home {
@@ -879,7 +880,7 @@ body {
 .groundworks__code-image-container {
   width: 900px;
   height: 700px;
-  overflow: scroll;
+  overflow-x: hidden;
   list-style: none;
   background-color: black;
   padding: 0;
