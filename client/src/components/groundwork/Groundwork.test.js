@@ -21,31 +21,31 @@ describe('when images are clicked, modal of codebase should pop up', () => {
     test('cover-img is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
-        fireEvent.click(getByTestId('cover-img'));
+        fireEvent.click(getByTestId('home'));
 
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
-        expect(getAllByTestId('codebase-img').length).toEqual(8);
+        expect(getAllByTestId('codebase-img').length).toEqual(6);
     });
     test('entry-img is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
-        fireEvent.click(getByTestId('entry-img'));
+        fireEvent.click(getByTestId('entry'));
 
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
-        expect(getAllByTestId('codebase-img').length).toEqual(8);
+        expect(getAllByTestId('codebase-img').length).toEqual(5);
     });
     test('all-recipes-img is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
-        fireEvent.click(getByTestId('all-recipes-img'));
+        fireEvent.click(getByTestId('dashboardRecipes'));
 
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
-        expect(getAllByTestId('codebase-img').length).toEqual(9);
+        expect(getAllByTestId('codebase-img').length).toEqual(5);
     });
     test('modal-img is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
-        fireEvent.click(getByTestId('modal-img'));
+        fireEvent.click(getByTestId('recipeModal'));
 
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
         expect(getAllByTestId('codebase-img').length).toEqual(3);
@@ -53,10 +53,18 @@ describe('when images are clicked, modal of codebase should pop up', () => {
     test('create-form-img is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
-        fireEvent.click(getByTestId('create-form-img'));
+        fireEvent.click(getByTestId('createForm'));
 
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
-        expect(getAllByTestId('codebase-img').length).toEqual(8);
+        expect(getAllByTestId('codebase-img').length).toEqual(4);
+    });
+    test('create-form-img is clicked', () => {
+        const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
+
+        fireEvent.click(getByTestId('codeSnippets'));
+
+        expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
+        expect(getAllByTestId('codebase-img').length).toEqual(2);
     });
 })
 
