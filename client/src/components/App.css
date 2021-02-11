@@ -910,6 +910,13 @@ body {
   padding: 20vh 0;
 }
 
+.groundworks__code-snippet-header {
+  color: white;
+  margin-bottom: 0;
+  margin-left: 15px;
+  font-size: 30px;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;

@@ -63,6 +63,12 @@
         justify-content: center;
         padding: 20vh 0;
     }
+    &__code-snippet-header {
+        color: white;
+        margin-bottom: 0;
+        margin-left: 15px; 
+        font-size: 30px;
+    }
 }
 
 ::-webkit-scrollbar {
