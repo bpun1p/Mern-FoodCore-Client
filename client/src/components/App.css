@@ -801,7 +801,7 @@ body {
   margin-top: 40px;
 }
 
-.nav__register, .nav__login, .nav__about-me, .nav__recipes, .nav__groundwork {
+.nav__register, .nav__login, .nav__about-me, .nav__code-snippets, .nav__recipes {
   color: white;
   font-size: 20px;
   cursor: pointer;
@@ -821,6 +821,100 @@ body {
   background: none;
   height: 32px;
   cursor: pointer;
+}
+
+@font-face {
+  font-family: "neon";
+  src: url("../assets/fonts/hellodenverdisplayregular_v1.6.ttf");
+}
+
+.modal {
+  border: 1px solid black;
+  width: 80%;
+  height: 80%;
+  border-radius: 20px;
+  overflow-y: scroll;
+  background-color: white;
+}
+
+.modal__container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(19, 24, 44, 0.7);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-size: cover;
+}
+
+.modal__recipe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 20px;
+}
+
+.modal__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.modal__ingredients {
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.modal__instructions {
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.modal__img {
+  height: 500px;
+}
+
+.modal__img-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: black;
+  position: relative;
+}
+
+.modal__exit {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.modal__exit-icon {
+  fill: white;
 }
 
 .groundworks {
@@ -935,99 +1029,5 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #e67e22;
-}
-
-.modal {
-  border: 1px solid black;
-  width: 80%;
-  height: 80%;
-  border-radius: 20px;
-  overflow-y: scroll;
-  background-color: white;
-}
-
-.modal__container {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: rgba(19, 24, 44, 0.7);
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  background-size: cover;
-}
-
-.modal__recipe {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-left: 20px;
-}
-
-.modal__description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 1px solid black;
-  padding-bottom: 20px;
-  padding-left: 20px;
-}
-
-.modal__ingredients {
-  border-bottom: 1px solid black;
-  padding-bottom: 20px;
-  padding-left: 20px;
-}
-
-.modal__instructions {
-  padding-bottom: 20px;
-  padding-left: 20px;
-}
-
-.modal__img {
-  height: 500px;
-}
-
-.modal__img-container {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: black;
-  position: relative;
-}
-
-.modal__exit {
-  position: absolute;
-  top: 2%;
-  right: 2%;
-  cursor: pointer;
-}
-
-.modal__exit-icon {
-  fill: white;
-}
-
-@font-face {
-  font-family: "neon";
-  src: url("../assets/fonts/hellodenverdisplayregular_v1.6.ttf");
 }
 /*# sourceMappingURL=App.css.map */
