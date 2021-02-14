@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { cover, entry, dashboard, posts, createRecipe, snippets, appPageImages } from './CodeSnippets';
+import { cover, entry, dashboard, posts, createRecipe, snippets, appPageImages } from './CodeSnippetImages';
 
-export default function Groundwork() {
+export default function CodeSnippets() {
   const [isPopUp, setPopUp] = useState(false);
   const [isImage, setImage] = useState(cover);
 
