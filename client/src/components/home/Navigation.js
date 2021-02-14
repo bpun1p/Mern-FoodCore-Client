@@ -16,7 +16,7 @@ export default function Navigation(props) {
       <Link to="/dashboard/global" className="nav__link">
         <button type="button" className="nav__recipes">RECIPES</button>
       </Link>
-      <Link to="/groundwork" className="nav__link">
+      <Link to="/code-snippets" className="nav__link">
         <button type="button" className="nav__about-me">CODE SNIPPETS</button>
       </Link>
       <Link to="/about-me" className="nav__link">
