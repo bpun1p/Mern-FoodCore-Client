@@ -752,7 +752,7 @@ body {
   fill: white;
 }
 
-.groundworks {
+.code-snippet {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../assets/images/architect.jpeg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/images/architect.jpeg);
   background-size: cover;
@@ -766,7 +766,7 @@ body {
   height: 100%;
 }
 
-.groundworks__image {
+.code-snippet__image {
   height: 500px;
   width: 500px;
   color: rgba(255, 255, 255, 0.8);
@@ -775,13 +775,13 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.groundworks__image:hover {
+.code-snippet__image:hover {
   color: white;
   -webkit-box-shadow: 0 0 30px #e67e22;
           box-shadow: 0 0 30px #e67e22;
 }
 
-.groundworks__container {
+.code-snippet__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -792,24 +792,24 @@ body {
           justify-content: center;
 }
 
-.groundworks__sub-container {
+.code-snippet__sub-container {
   margin: 20px 20px;
   list-style: none;
 }
 
-.groundworks__header {
+.code-snippet__header {
   color: white;
   text-align: center;
   font-size: 4rem;
   margin: 0;
 }
 
-.groundworks__heading {
+.code-snippet__heading {
   color: white;
   text-align: center;
 }
 
-.groundworks__code-image-container {
+.code-snippet__code-image-container {
   width: 900px;
   height: 700px;
   overflow-x: hidden;
@@ -818,11 +818,11 @@ body {
   padding: 0;
 }
 
-.groundworks__code {
+.code-snippet__code {
   list-style: none;
 }
 
-.groundworks__code-container {
+.code-snippet__code-container {
   height: 100vh;
   width: 100%;
   background-color: rgba(19, 24, 44, 0.7);
@@ -840,7 +840,7 @@ body {
   padding: 20vh 0;
 }
 
-.groundworks__code-snippet-header {
+.code-snippet__code-snippet-header {
   color: white;
   margin-bottom: 0;
   margin-left: 15px;

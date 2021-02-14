@@ -9,16 +9,17 @@ test('renders content correctly', () => {
 
     expect(getByText('GROUNDWORKS')).toBeInTheDocument();
     expect(getByText('(Click to view sample code base)')).toBeInTheDocument();
-    expect(getByTestId('cover-img')).not.toBeNull();
-    expect(getByTestId('entry-img')).not.toBeNull();
-    expect(getByTestId('all-recipes-img')).not.toBeNull();
-    expect(getByTestId('modal-img')).not.toBeNull();
-    expect(getByTestId('create-form-img')).not.toBeNull();
+    expect(getByTestId('home')).not.toBeNull();
+    expect(getByTestId('entry')).not.toBeNull();
+    expect(getByTestId('dashboardRecipes')).not.toBeNull();
+    expect(getByTestId('recipeModal')).not.toBeNull();
+    expect(getByTestId('createForm')).not.toBeNull();
+    expect(getByTestId('codeSnippets')).not.toBeNull();
 });
 
 describe('when images are clicked, modal of codebase should pop up', () => {
     
-    test('cover-img is clicked', () => {
+    test('cover page image is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
         fireEvent.click(getByTestId('home'));
@@ -26,7 +27,7 @@ describe('when images are clicked, modal of codebase should pop up', () => {
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
         expect(getAllByTestId('codebase-img').length).toEqual(6);
     });
-    test('entry-img is clicked', () => {
+    test('entry page image is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
         fireEvent.click(getByTestId('entry'));
@@ -34,7 +35,7 @@ describe('when images are clicked, modal of codebase should pop up', () => {
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
         expect(getAllByTestId('codebase-img').length).toEqual(5);
     });
-    test('all-recipes-img is clicked', () => {
+    test('dashboard image is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
         fireEvent.click(getByTestId('dashboardRecipes'));
@@ -42,7 +43,7 @@ describe('when images are clicked, modal of codebase should pop up', () => {
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
         expect(getAllByTestId('codebase-img').length).toEqual(5);
     });
-    test('modal-img is clicked', () => {
+    test('modal image is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
         fireEvent.click(getByTestId('recipeModal'));
@@ -50,7 +51,7 @@ describe('when images are clicked, modal of codebase should pop up', () => {
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
         expect(getAllByTestId('codebase-img').length).toEqual(3);
     });
-    test('create-form-img is clicked', () => {
+    test('create recipe form image is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
         fireEvent.click(getByTestId('createForm'));
@@ -58,7 +59,7 @@ describe('when images are clicked, modal of codebase should pop up', () => {
         expect(getByTestId('exit-modal-btn')).toBeInTheDocument();
         expect(getAllByTestId('codebase-img').length).toEqual(4);
     });
-    test('create-form-img is clicked', () => {
+    test('code snippets image is clicked', () => {
         const { getByTestId, getAllByTestId } = render(<Groundwork />, { wrapper: BrowserRouter });
 
         fireEvent.click(getByTestId('codeSnippets'));
