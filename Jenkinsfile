@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                    gv = load "script.groovy"
-                   CODE_CHANGES = gv.getGitChanges()
+                   CODE_CHANGES = currentBuild.changeSets.size() > 0
                 }
             }
         }
