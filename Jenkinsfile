@@ -1,4 +1,3 @@
-def gv
 pipeline {
     agent any
     environment {
@@ -14,7 +13,6 @@ pipeline {
         stage("init") {
             steps {
                 script {
-                   gv = load "script.groovy"
                    CODE_CHANGES = currentBuild.changeSets.size() > 0
                 }
             }
