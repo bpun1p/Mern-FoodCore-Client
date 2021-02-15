@@ -37,30 +37,30 @@ pipeline {
             }
         }
         stage("build image") {
-            // when {
-            //     expression {
-            //         script {
-            //             CODE_CHANGES == true
-            //         }
-            //     }
-            // }
+            when {
+                expression {
+                    script {
+                        CODE_CHANGES == true
+                    }
+                }
+            }
             steps {
                 script {
-                   dockerImage = docker.build(registry + ":$BUILD_NUMBER")
+                   dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
         stage("Deploy Image") {
-            // when {
-            //     expression {
-            //         script {
-            //             CODE_CHANGES == true
-            //         }
-            //     }
-            // }
+            when {
+                expression {
+                    script {
+                        CODE_CHANGES == true
+                    }
+                }
+            }
             steps {
                 script {
-                    docker.withRegistry("https://registry.hub.docker.com", registryCredential) {
+                    docker.withRegistry('', registryCredential) {
                         dockerImage.push();
                     }
                 }
