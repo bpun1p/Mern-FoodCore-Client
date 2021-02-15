@@ -1,13 +1,13 @@
 pipeline {
     agent any
     environment {
-        CI = 'true'
+        CI = "true"
         registry = "bpun1p/client"
         registryCredential = "dockerhub_id"
     }
     tools {
         nodejs "node"
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
+        "org.jenkinsci.plugins.docker.commons.tools.DockerTool" "docker"
     }
     stages {
         stage("init") {
@@ -20,14 +20,14 @@ pipeline {
         stage("build frontend") {
             steps {
                 dir("client") {
-                    sh 'npm install'
+                    sh "npm install"
                 }
             }
         }
         stage("test application") {
             steps {
                 dir("client") {
-                    sh 'npm test'
+                    sh "npm test"
                 }
             }
         }
@@ -60,7 +60,7 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('', registryCredential) {
+                    docker.withRegistry("", registryCredential) {
                         dockerImage.push();
                     }
                 }
