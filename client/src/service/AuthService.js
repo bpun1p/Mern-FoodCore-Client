@@ -1,7 +1,7 @@
 const currentUrl = window.location.href;
 let currentPort;
 if (currentUrl.includes('localhost')) {
-  currentPort = 'http://localhost:5000';
+  currentPort = 'http://localhost:3000';
 } else {
   currentPort = '/api';
 }
