@@ -21,10 +21,10 @@ export default function DashboardNav() {
   return (
     <nav className="dashboard__nav">
       <Link to="/dashboard/global">
-        <button type="button" className="dashboard__home">GLOBAL</button>
+        <button type="button" className="dashboard__home">PUBLIC</button>
       </Link>
       <Link to="/dashboard/my-posts">
-        <button type="button" className="dashboard__my-posts">MY POSTS</button>
+        <button type="button" className="dashboard__my-posts">MY RECIPES</button>
       </Link>
       <Link to="/dashboard/create">
         <button type="button" className="dashboard__create">CREATE</button>
