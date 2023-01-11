@@ -19,6 +19,7 @@
         "home/_Home.scss",
         "home/_HomeDetails.scss",
         "home/_Navigation.scss",
+        "../assets/fonts/_fonts.scss",
         "recipe-modal/_RecipeModal.scss",
         "code_snippets/_CodeSnippet.scss"
     ],
